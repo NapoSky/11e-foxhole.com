@@ -171,76 +171,45 @@ export const operationItems: OperationItem[] = [
 ];
 
 /**
- * Resume section -- TODO: Standardize resume contact format or offer MDX
+ * Activities section -- TODO: Standardize resume contact format or offer MDX
  */
-export const front: ActivityElement[] = [
+export const activites : ActivityElement[] = [
   {
-    content: <p>Je suis le texte pour le front</p>,
-  }
-];
-
-export const construction: ActivityElement[] = [
+    title : "Front",
+    content : <p>Je suis le texte pour le front</p>
+  },
   {
-    content: (
-      <p>Je suis le texte pour la construction</p>
-    )
-  }
-];
-
-export const logistique: ActivityElement[] = [
+    title : "Construction",
+    content : <p>Je suis le texte pour la construction</p>
+  },
   {
-    content: (
-      <p>Je suis le texte pour la logistique</p>
-    )
-  }
-];
-
-export const farming: ActivityElement[] = [
+    title : "Logistique",
+    content : <p>Je suis le texte pour la logistique</p>
+  },
   {
-    content: (
-      <p>Je suis le texte pour le farming</p>
-    )
-  }
-];
-
-export const qrf: ActivityElement[] = [
+    title : "Farming",
+    content : <p>Je suis le texte pour le farming</p>
+  },
   {
-    content: (
-      <p>Je suis le texte pour la qrf</p>
-    )
-  }
-];
-
-export const partisan: ActivityElement[] = [
+    title : "QRF",
+    content : <p>Je suis le texte pour la QRF</p>
+  },
   {
-    content: (
-      <p>Je suis le texte pour le partisanat</p>
-    )
-  }
-];
-
-export const facility: ActivityElement[] = [
+    title : "Partisanat",
+    content : <p>Je suis le texte pour le partisanat</p>
+  },
   {
-    content: (
-      <p>Je suis le texte pour les complexes industriels</p>
-    )
-  }
-];
-
-export const patrouille: ActivityElement[] = [
+    title : "Complexes Industriels",
+    content : <p>Je suis le texte pour les complexes industriels</p>
+  },
   {
-    content: (
-      <p>Je suis le texte pour les patrouilles</p>
-    )
-  }
-];
-
-export const naval: ActivityElement[] = [
+    title : "Patrouille",
+    content : <p>Je suis le texte pour les patrouilles</p>
+  },
   {
-    content: (
-      <p>Je suis le texte pour le naval</p>
-    )
-  }
+    title : "Naval",
+    content : <p>Je suis le texte pour le naval</p>
+  },
 ];
 
 /**
