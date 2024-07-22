@@ -70,6 +70,7 @@ export interface OperationItem {
  * Resume section
  */
 export interface ActivityElement {
+  title : string,
   content: JSX.Element;
 }
 
