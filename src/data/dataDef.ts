@@ -18,16 +18,16 @@ export interface HomepageMeta {
 }
 
 /**
- * Hero section
+ * Description section
  */
-export interface Hero {
+export interface Description {
   imageSrc: string;
   name: string;
   description: JSX.Element;
-  actions: HeroActionItem[];
+  actions: DescriptionActionItem[];
 }
 
-interface HeroActionItem {
+interface DescriptionActionItem {
   href: string;
   text: string;
   primary?: boolean;
@@ -35,18 +35,16 @@ interface HeroActionItem {
 }
 
 /**
- * About section
+ * Description section
  */
-export interface About {
-  profileImageSrc?: string;
-  description: string;
-  aboutItems: AboutItem[];
+export interface Footer {
+  actions: FooterActionItem[];
 }
 
-export interface AboutItem {
-  label: string;
+interface FooterActionItem {
+  href: string;
   text: string;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
+  primary?: boolean;
 }
 
 /**
@@ -59,24 +57,9 @@ export interface Stat {
 }
 
 /**
- * Skills section
+ * Operation section
  */
-
-export interface Skill {
-  name: string;
-  level: number;
-  max?: number;
-}
-
-export interface SkillGroup {
-  name: string;
-  skills: Skill[];
-}
-
-/**
- * Portfolio section
- */
-export interface PortfolioItem {
+export interface OperationItem {
   title: string;
   description: string;
   url: string;
@@ -86,22 +69,19 @@ export interface PortfolioItem {
 /**
  * Resume section
  */
-export interface TimelineItem {
-  date: string;
-  location: string;
-  title: string;
+export interface ActivityElement {
   content: JSX.Element;
 }
 
 /**
  * Testimonial section
  */
-export interface TestimonialSection {
+export interface OfficerSection {
   imageSrc?: string | StaticImageData;
-  testimonials: Testimonial[];
+  officers: Officers[];
 }
 
-export interface Testimonial {
+export interface Officers {
   image?: string;
   name: string;
   text: string;
