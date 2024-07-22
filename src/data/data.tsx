@@ -48,7 +48,7 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const descriptionData: Description = {
   imageSrc: descriptionImage,
-  name: `I'm Bozo number one.`,
+  name: `11ème Régiment de Bozos`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
@@ -176,27 +176,27 @@ export const operationItems: OperationItem[] = [
 export const activites : ActivityElement[] = [
   {
     title : "Front",
-    content : <p>Je suis le texte pour le front</p>
+    content : <p>Des membres peuvent s’organiser pour agir efficacement sur un front. C’est un rôle souvent notifié lors d'invasions de secteurs alliés ou ennemis.</p>
   },
   {
     title : "Construction",
-    content : <p>Je suis le texte pour la construction</p>
+    content : <p>Les actions de construction ont pour but de renforcer une position, qu’elle appartienne au 11eRC-FL, à un autre régiment ou à la faction entière.</p>
   },
   {
     title : "Logistique",
-    content : <p>Je suis le texte pour la logistique</p>
+    content : <p>La logistique est largement sollicitée lors de la planification d’opérations ou pour déplacer du matériel en fonction des besoins du régiment.</p>
   },
   {
     title : "Farming",
-    content : <p>Je suis le texte pour le farming</p>
+    content : <p>Organisées en arrière-ligne, les actions de « farm » répondent souvent à un besoin du régiment de refaire ses stocks ou de bétonner une base par exemple.</p>
   },
   {
     title : "QRF",
-    content : <p>Je suis le texte pour la QRF</p>
+    content : <p>Le rôle QRF (Quick Response Force) est utilisé pour former une escouade en urgence afin de répondre à une attaque ou une action de sabotage ennemie.</p>
   },
   {
     title : "Partisanat",
-    content : <p>Je suis le texte pour le partisanat</p>
+    content : <p>Le partisanat correspond aux actions de sabotage derrière les lignes ennemies, pour détruire des infrastructures vitales ou couper des lignes de logistique.</p>
   },
   {
     title : "Complexes Industriels",
@@ -204,7 +204,7 @@ export const activites : ActivityElement[] = [
   },
   {
     title : "Patrouille",
-    content : <p>Je suis le texte pour les patrouilles</p>
+    content : <p>Ce rôle permet d'effectuer des actions de maintien de l’ordre, de surveillance ou de garde d’atouts pour la faction (complexes, pas de tir de fusée...).</p>
   },
   {
     title : "Naval",
