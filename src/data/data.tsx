@@ -12,6 +12,8 @@ import operationImage9 from '../images/portfolio/portfolio-9.jpg';
 import operationImage10 from '../images/portfolio/portfolio-10.jpg';
 import operationImage11 from '../images/portfolio/portfolio-11.jpg';
 import officerBackgroundImage from '../images/officer_background.webp';
+import DiscordIcon from '../components/Icon/DiscordIcon';
+import YoutubeIcon from '../components/Icon/YoutubeIcon';
 import {
   Description,
   HomepageMeta,
@@ -19,14 +21,17 @@ import {
   OfficerSection,
   Footer,
   ActivityElement,
+  Social
 } from './dataDef';
+
+
 
 /**
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'React Resume Template',
-  description: "Example site built with Tim Baker's react resume template",
+  title: '11e Foxhole - A Foxhole Brigade Community',
+  description: "11e Foxhole is a Foxhole brigade community. We are a group of players who enjoy playing Foxhole together.",
 };
 
 /**
@@ -249,3 +254,11 @@ export const officer: OfficerSection = {
     },
   ],
 };
+
+/**
+ * Social items
+ */
+export const socialLinks: Social[] = [
+  {label: 'Discord', Icon: DiscordIcon, href: 'https://discord.gg/11e'},
+  {label: 'Youtube', Icon: YoutubeIcon, href: 'https://www.youtube.com/@11emeregimentdecallahan16'},
+];

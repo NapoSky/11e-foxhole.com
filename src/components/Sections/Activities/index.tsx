@@ -10,8 +10,8 @@ const Activities: FC = memo(() => {
     <Section className="bg-neutral-100" sectionId={SectionId.Activities}>
       <div className="flex flex-col divide-y-2 divide-neutral-300">
         {activites.map((activite) => (
-          <ResumeSection title={activite.title}>
-            <ActivityItem item={activite} key={activite.title}/>
+          <ResumeSection title={activite.title} key={activite.title}>
+            <ActivityItem item={activite}/>
           </ResumeSection>
         ))}
       </div>

@@ -1,10 +1,10 @@
 import {ChevronUpIcon} from '@heroicons/react/24/solid';
 import {FC, memo} from 'react';
 
-import {footerData, SectionId} from '../../data/data';
-import classNames from 'classnames';
+import {SectionId} from '../../data/data';
+import Socials from '../Socials';
 
-const {actions} = footerData;
+const currentYear = new Date().getFullYear();
 
 const Footer: FC = memo(() => (
   <div className="relative bg-neutral-900 px-4 pb-6 pt-12 sm:px-8 sm:pb-8 sm:pt-14" id = "Footer">
@@ -16,20 +16,14 @@ const Footer: FC = memo(() => (
       </a>
     </div>
     <div className="flex flex-col items-center gap-y-6">
-      <div className="flex w-full justify-center gap-x-4">
-              {actions.map(({href, text, primary}) => (
-                <a
-                  className={classNames(
-                    'flex gap-x-2 rounded-full border-2 bg-none px-4 py-2 text-sm font-medium text-white ring-offset-gray-700/80 hover:bg-gray-700/80 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-base',
-                    primary ? 'border-orange-500 ring-orange-500' : 'border-white ring-white',
-                  )}
-                  href={href}
-                  key={text}>
-                  {text}
-                </a>
-              ))}
-            </div>
-      <span className="text-sm text-neutral-700">Site maintenau à l'aide de Naposky, restructuré par Mallig, rempli par Arkheôn</span>
+      <div className="flex gap-x-4 text-neutral-500">
+        <Socials />
+      </div>
+      <a
+        className="-m-2 flex items-center gap-x-1 rounded-md p-2 ring-yellow focus:outline-none focus:ring-2"
+        href="https://11e-foxhole.com">
+      </a>
+      <span className="text-sm text-neutral-700">© Copyright {currentYear} 11e-Foxhole.com</span>
     </div>
   </div>
 ));
