@@ -11,7 +11,7 @@ import Section from '../Layout/Section';
 
 const Operations: FC = memo(() => {
   return (
-    <Section className="bg-neutral-800" sectionId={SectionId.Opérations}>
+    <Section className="bg-neutral-800" sectionId={SectionId.Operations}>
       <div className="flex flex-col gap-y-8">
         <h2 className="self-center text-xl font-bold text-white">Les Opérations majeures</h2>
         <div className=" w-full columns-2 md:columns-3 lg:columns-4">

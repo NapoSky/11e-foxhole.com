@@ -34,11 +34,12 @@ export const homePageMeta: HomepageMeta = {
  */
 export const SectionId = {
   Description: 'Le Régiment',
-  Opérations: 'Les Opérations',
+  Operations: 'Les Opérations',
   Activities: 'Les Activités',
   Skills: 'skills',
   Stats: 'stats',
   Officers: 'Les Officiers',
+  Footer : 'Footer'
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
@@ -48,30 +49,39 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const descriptionData: Description = {
   imageSrc: descriptionImage,
-  name: `11ème Régiment de Bozos`,
+  name: `11ème Régiment de Callahan`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
-        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-        registrar and site builder.
+        <strong>Bonjour à toi soldat !</strong> Tu hésites à nous rejoindre ? Laisse-nous te convaincre…
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
-        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Vancouver Island</strong>.
+        Fort de nos 7 ans d'histoire dans Foxhole, le <strong>11ème Régiment de Callahan</strong> est reconnu pour son expertise et son engagement au sein de la faction warden.
+        Nous offrons un gameplay varié, englobant la logistique, le combat d'infanterie, l'artillerie, les blindés, des opérations navales,
+        la construction de fortifications et de complexes industriels
+      </p>
+      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+        Tournée vers la communauté, le 11e dispose d’une branche Anglophone et d’une branche sinophone permettant de jouer sur plusieurs fuseaux horaires.
+        Nous comptons une solide base de joueurs québécois, créant ainsi un environnement accueillant pour tous.
+      </p>
+      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+        Nous offrons une expérience de jeu plaisante et enrichissante, le régiment accueille les nouveaux joueurs comme les anciens, sans conditions de skill ou de temps de jeu. 
+      </p>
+      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+        N’hésite plus, rejoignez le 11ème Régiment de Callahan et contribue à notre légende !
       </p>
     </>
   ),
   actions: [
-    {
-      href: 'https://www.youtube.com/@11emeregimentdecallahan16',
-      text: 'Chaîne Youtube',
-      primary: true
-    },
+
     {
       href: 'https://discord.gg/11e',
       text: 'Rejoindre le discord',
+      primary: true
+    },
+    {
+      href: 'https://www.youtube.com/@11emeregimentdecallahan16',
+      text: 'Chaîne Youtube',
       primary: true
     }
   ],
@@ -175,41 +185,45 @@ export const operationItems: OperationItem[] = [
  */
 export const activites : ActivityElement[] = [
   {
-    title : "Front",
-    content : <p>Des membres peuvent s’organiser pour agir efficacement sur un front. C’est un rôle souvent notifié lors d'invasions de secteurs alliés ou ennemis.</p>
-  },
-  {
-    title : "Construction",
-    content : <p>Les actions de construction ont pour but de renforcer une position, qu’elle appartienne au 11eRC-FL, à un autre régiment ou à la faction entière.</p>
+    title : "Combat",
+    content : 
+    <p>
+      Le régiment combat sur terre, dans les profondeurs, ou sur les océans : Bataille de chars, duels de cuirassés, corps à corps à la baïonnette, charge héroïque à la grenade, 
+      infiltrations en sous-marins, pilonnage d’artillerie ou opérations discrète de commandos sont les actions nécessaire à la victoire
+    </p>
   },
   {
     title : "Logistique",
-    content : <p>La logistique est largement sollicitée lors de la planification d’opérations ou pour déplacer du matériel en fonction des besoins du régiment.</p>
+    content : 
+    <p>
+      Que ce soit par train, par camion ou par bateau, 
+      le régiment livre tous les jours les dizaines de milliers de ressources récoltées et produites envoyées sur le front pour la victoire des wardens.
+    </p>
   },
   {
-    title : "Farming",
-    content : <p>Organisées en arrière-ligne, les actions de « farm » répondent souvent à un besoin du régiment de refaire ses stocks ou de bétonner une base par exemple.</p>
+    title : "Construction",
+    content : 
+    <p>
+      Bouclier des wardens, la qualité des forteresses construite par le Régiment est unanimement reconnue. 
+      Chaque guerre, nos sapeurs bâtissent sur le front, et nos architectes créent les points d’arrêt à la déferlante coloniale.
+    </p>
   },
   {
-    title : "QRF",
-    content : <p>Le rôle QRF (Quick Response Force) est utilisé pour former une escouade en urgence afin de répondre à une attaque ou une action de sabotage ennemie.</p>
+    title : "Industrie",
+    content : 
+    <p>
+      Réputé pour ses infrastructures, le régiment organise chaque guerre un tissu industriel et ferroviaire afin de produire tout le nécessaire aux combats : 
+      pétrole,  béton, super-chars, canons lourds ferroviaires, sous-marins, cuirassés, etc…
+    </p>
   },
   {
-    title : "Partisanat",
-    content : <p>Le partisanat correspond aux actions de sabotage derrière les lignes ennemies, pour détruire des infrastructures vitales ou couper des lignes de logistique.</p>
-  },
-  {
-    title : "Complexes Industriels",
-    content : <p>Je suis le texte pour les complexes industriels</p>
-  },
-  {
-    title : "Patrouille",
-    content : <p>Ce rôle permet d'effectuer des actions de maintien de l’ordre, de surveillance ou de garde d’atouts pour la faction (complexes, pas de tir de fusée...).</p>
-  },
-  {
-    title : "Naval",
-    content : <p>Je suis le texte pour le naval</p>
-  },
+    title : "Communauté ",
+    content : 
+    <p>
+      Principalement tourné vers Foxhole, le 11e dispose dans un lieu tenu secret d’un QG pour des rencontres autour d’une bière et 
+      d’un discord multi-gaming pour se détendre entre deux campagnes militaires.
+    </p>
+  }
 ];
 
 /**
