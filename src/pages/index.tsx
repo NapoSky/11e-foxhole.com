@@ -6,7 +6,7 @@ import Footer from '../components/Sections/Footer';
 import Description from '../components/Sections/Description';
 import Operations from '../components/Sections/Operations';
 import Activities from '../components/Sections/Activities';
-import OfficerSection from '../components/Sections/Officers';
+// import OfficerSection from '../components/Sections/Officers';
 import {homePageMeta} from '../data/data';
 
 // eslint-disable-next-line react-memo/require-memo
@@ -20,7 +20,7 @@ const Home: FC = memo(() => {
       <Description />
       <Activities />
       <Operations />
-      <OfficerSection />
+      {/* <OfficerSection /> */}
       <Footer />
     </Page>
   );
