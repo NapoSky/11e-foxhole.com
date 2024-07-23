@@ -1,16 +1,16 @@
 
-import descriptionImage from '../images/header-background.webp';
-import operationImage1 from '../images/portfolio/portfolio-1.jpg';
-import operationImage2 from '../images/portfolio/portfolio-2.jpg';
-import operationImage3 from '../images/portfolio/portfolio-3.jpg';
-import operationImage4 from '../images/portfolio/portfolio-4.jpg';
-import operationImage5 from '../images/portfolio/portfolio-5.jpg';
-import operationImage6 from '../images/portfolio/portfolio-6.jpg';
-import operationImage7 from '../images/portfolio/portfolio-7.jpg';
-import operationImage8 from '../images/portfolio/portfolio-8.jpg';
-import operationImage9 from '../images/portfolio/portfolio-9.jpg';
-import operationImage10 from '../images/portfolio/portfolio-10.jpg';
-import operationImage11 from '../images/portfolio/portfolio-11.jpg';
+import descriptionImage from '../images/Reflexion_brule.jpg';
+import operationImage1 from '../images/portfolio/Artillerie.jpg';
+import operationImage2 from '../images/portfolio/formation.png';
+import operationImage3 from '../images/portfolio/Luv_Havoc.png';
+import operationImage4 from '../images/portfolio/sub.jpg';
+import operationImage5 from '../images/portfolio/Infanterie.png';
+import operationImage6 from '../images/portfolio/blinde.jpg';
+// import operationImage7 from '../images/portfolio/portfolio-7.jpg';
+// import operationImage8 from '../images/portfolio/portfolio-8.jpg';
+// import operationImage9 from '../images/portfolio/portfolio-9.jpg';
+// import operationImage10 from '../images/portfolio/portfolio-10.jpg';
+// import operationImage11 from '../images/portfolio/portfolio-11.jpg';
 import officerBackgroundImage from '../images/officer_background.webp';
 import DiscordIcon from '../components/Icon/DiscordIcon';
 import YoutubeIcon from '../components/Icon/YoutubeIcon';
@@ -115,74 +115,44 @@ export const footerData: Footer = {
 
 /**
  * Operations section
- */
+ */operationImage2
 export const operationItems: OperationItem[] = [
   {
-    title: 'Project title 1',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: operationImage1,
-  },
-  {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
+    title: 'Formation',
+    description: 'Formation des troupes quand à l\'utilisation de l\'ensemble du matériel militaire de la faction Warden',
     url: 'https://reactresume.com',
     image: operationImage2,
   },
   {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
+    title: 'Artillerie',
+    description: 'Opération d\'artillerie de bombardement de la capitale régionale Silk Farms pendant plusieurs heures',
+    url: 'https://reactresume.com',
+    image: operationImage1,
+  },
+  {
+    title: 'Infiltration',
+    description: 'Infiltration des lignes enemies avec des véhicules amphibies afin de faire exploser des charges hautement explosives dans les complexes stratégiques adverses',
     url: 'https://reactresume.com',
     image: operationImage3,
   },
   {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
+    title: 'Chasse sous marine',
+    description: 'Utilisation de sous marins afin de semer le chaos dans les lignes logistiques navales coloniale',
     url: 'https://reactresume.com',
     image: operationImage4,
   },
   {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
+    title: 'Infanterie',
+    description: 'Une escouade d\'infanterie organisée permettant de tenir le front pendant que l\'artillerie est en train de faire tomber l\'objectif',
     url: 'https://reactresume.com',
     image: operationImage5,
   },
   {
-    title: 'Project title 6',
-    description: 'Give a short description of your project here.',
+    title: 'Colonne de blindés',
+    description: 'Une colonne de chars de bataille escortant un super char afin de renverser une partie de la carte en annihilant tout véhicule ennemi se trouvant sur son chemin',
     url: 'https://reactresume.com',
     image: operationImage6,
-  },
-  {
-    title: 'Project title 7',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: operationImage7,
-  },
-  {
-    title: 'Project title 8',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: operationImage8,
-  },
-  {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: operationImage9,
-  },
-  {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: operationImage10,
-  },
-  {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: operationImage11,
-  },
+  }
 ];
 
 /**
