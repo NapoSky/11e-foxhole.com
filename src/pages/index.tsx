@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import { FC, memo } from "react";
-
+import GoogleAnalytics from "../components/GoogleAnalytics";
 import Page from "../components/Layout/Page";
 import Footer from "../components/Sections/Footer";
 import Description from "../components/Sections/Description";
@@ -18,6 +18,7 @@ const Home: FC = memo(() => {
   const { title, description } = homePageMeta;
   return (
     <Page description={description} title={title}>
+      <GoogleAnalytics />
       <Header />
       <Description />
       <Activities />

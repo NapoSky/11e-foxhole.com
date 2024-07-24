@@ -1,5 +1,8 @@
 /* eslint-env node */
 
+const fs = require('fs-extra');
+const path = require('path');
+
 // https://github.com/vercel/next.js/blob/master/packages/next/next-server/server/config.ts
 const nextConfig = {
   output: "export",
@@ -26,6 +29,13 @@ const nextConfig = {
   trailingSlash: false,
   images: {
     unoptimized: true,
+  },
+  exportPathMap: async function (defaultPathMap, { dev, dir, outDir }) {
+      // Copy _headers file to the out directory
+      const headersSrc = path.join(dir, '_headers');
+      const headersDest = path.join(outDir, '_headers');
+      await fs.copy(headersSrc, headersDest);
+    return defaultPathMap;
   },
 };
 
