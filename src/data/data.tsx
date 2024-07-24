@@ -6,11 +6,6 @@ import operationImage3 from '../images/portfolio/Luv_Havoc.png';
 import operationImage4 from '../images/portfolio/sub.jpg';
 import operationImage5 from '../images/portfolio/Infanterie.png';
 import operationImage6 from '../images/portfolio/blinde.jpg';
-// import operationImage7 from '../images/portfolio/portfolio-7.jpg';
-// import operationImage8 from '../images/portfolio/portfolio-8.jpg';
-// import operationImage9 from '../images/portfolio/portfolio-9.jpg';
-// import operationImage10 from '../images/portfolio/portfolio-10.jpg';
-// import operationImage11 from '../images/portfolio/portfolio-11.jpg';
 import officerBackgroundImage from '../images/officer_background.webp';
 import DiscordIcon from '../components/Icon/DiscordIcon';
 import YoutubeIcon from '../components/Icon/YoutubeIcon';
@@ -54,6 +49,7 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const descriptionData: Description = {
   imageSrc: descriptionImage,
+  logoSrc: logoImage,
   name: `11ème Régiment de Callahan`,
   description: (
     <>
@@ -62,8 +58,7 @@ export const descriptionData: Description = {
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         Fort de nos 7 ans d'histoire dans Foxhole, le <strong>11ème Régiment de Callahan</strong> est reconnu pour son expertise et son engagement au sein de la faction warden.
-        Nous offrons un gameplay varié, englobant la logistique, le combat d'infanterie, l'artillerie, les blindés, des opérations navales,
-        la construction de fortifications et de complexes industriels
+        Nous offrons un gameplay varié : Logistique, Infanterie, Artillerie, Blindés, Naval, Fortifications et Complexes industriels...
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         Tournée vers la communauté, le 11e dispose d’une branche Anglophone et d’une branche sinophone permettant de jouer sur plusieurs fuseaux horaires.
@@ -73,7 +68,7 @@ export const descriptionData: Description = {
         Nous offrons une expérience de jeu plaisante et enrichissante, le régiment accueille les nouveaux joueurs comme les anciens, sans conditions de skill ou de temps de jeu. 
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        N’hésite plus, rejoignez le 11ème Régiment de Callahan et contribue à notre légende !
+        N’hésite plus, rejoins le 11ème Régiment de Callahan et contribue à notre légende !
       </p>
     </>
   ),
@@ -158,7 +153,8 @@ export const operationItems: OperationItem[] = [
 /**
  * Activities section -- TODO: Standardize resume contact format or offer MDX
  */
-export const activites : ActivityElement[] = [
+export const activites: ActivityElement[] =
+[
   {
     title : "Combat",
     content : 
