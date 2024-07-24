@@ -31,12 +31,15 @@ const nextConfig = {
     unoptimized: true,
   },
   exportPathMap: async function (defaultPathMap, { dev, dir, outDir }) {
-      // Copy _headers file to the out directory
-      const headersSrc = path.join(dir, '_headers');
-      const headersDest = path.join(outDir, '_headers');
-      await fs.copy(headersSrc, headersDest);
+      if (!dev) {
+        // Copy _redirects file to the out directory
+        const redirectsSrc = path.join(dir, '_redirects');
+        const redirectsDest = path.join(outDir, '_redirects');
+        await fs.copy(redirectsSrc, redirectsDest);
+
     return defaultPathMap;
-  },
-};
+      }
+    }
+}
 
 module.exports = nextConfig;

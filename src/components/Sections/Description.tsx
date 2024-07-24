@@ -18,6 +18,8 @@ const Description: FC = memo(() => {
           placeholder="blur"
           priority
           src={imageSrc}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Responsive images
+          loading="eager" // Eager load the image for better LCP
         />
         {/* Adjusted container for better responsiveness */}
         <div className="z-10 w-full px-4 lg:max-w-screen-lg lg:px-0 mx-auto flex flex-col justify-center h-full">
