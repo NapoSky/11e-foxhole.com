@@ -22,7 +22,6 @@ export interface HomepageMeta {
  */
 export interface Description {
   imageSrc: string;
-  logoSrc: string;
   name: string;
   description: JSX.Element;
   actions: DescriptionActionItem[];

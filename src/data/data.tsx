@@ -49,7 +49,6 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const descriptionData: Description = {
   imageSrc: descriptionImage,
-  logoSrc: logoImage,
   name: `11ème Régiment de Callahan`,
   description: (
     <>
