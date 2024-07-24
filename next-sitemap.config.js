@@ -23,4 +23,5 @@ module.exports = {
       },
     ],
   },
+  generateIndexSitemap: false, // Add this line to avoid generating an index sitemap
 };
