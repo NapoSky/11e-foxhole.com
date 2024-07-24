@@ -1,15 +1,14 @@
-import "tailwindcss/tailwind.css";
-import "../globalStyles.scss";
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import GoogleAnalytics from '../components/GoogleAnalytics';
 
-import type { AppProps } from "next/app";
-import { memo } from "react";
-
-const MyApp = memo(({ Component, pageProps }: AppProps): JSX.Element => {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <GoogleAnalytics />
       <Component {...pageProps} />
     </>
   );
-});
+}
 
 export default MyApp;
