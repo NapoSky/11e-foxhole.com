@@ -28,13 +28,14 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: false,
   images: {
+    domains: ['11e-foxhole.com'],
     unoptimized: true,
   },
   exportPathMap: async function (defaultPathMap, { dev, dir, outDir }) {
       if (!dev) {
         // Copy _redirects file to the out directory
-        const redirectsSrc = path.join(dir, '_redirects');
-        const redirectsDest = path.join(outDir, '_redirects');
+        const redirectsSrc = path.join(dir, '_headers');
+        const redirectsDest = path.join(outDir, '_headers');
         await fs.copy(redirectsSrc, redirectsDest);
 
     return defaultPathMap;
