@@ -1,5 +1,5 @@
 
-import descriptionImage from '../images/Reflexion_brule.jpg';
+import descriptionImage from '../images/header-background.webp';
 import operationImage1 from '../images/portfolio/Artillerie.jpg';
 import operationImage2 from '../images/portfolio/formation.png';
 import operationImage3 from '../images/portfolio/Luv_Havoc.png';
