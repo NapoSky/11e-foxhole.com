@@ -1,10 +1,10 @@
-import {FC, memo} from 'react';
-import Image from 'next/image';
-import {activites, SectionId} from '../../../data/data';
-import Section from '../../Layout/Section';
-import ResumeSection from './ResumeSection';
-import ActivityItem from './ActivityItem';
-import backgroundImage from '../../../images/activities-background.webp';
+import { FC, memo } from "react";
+import Image from "next/image";
+import { activites, SectionId } from "../../../data/data";
+import Section from "../../Layout/Section";
+import ResumeSection from "./ResumeSection";
+import ActivityItem from "./ActivityItem";
+import backgroundImage from "../../../images/activities-background.webp";
 
 const Activities: FC = memo(() => {
   return (
@@ -23,7 +23,7 @@ const Activities: FC = memo(() => {
         <div className="z-10 flex flex-col divide-y-2 divide-neutral-300">
           {activites.map((activite) => (
             <ResumeSection title={activite.title} key={activite.title}>
-              <ActivityItem item={activite}/>
+              <ActivityItem item={activite} />
             </ResumeSection>
           ))}
         </div>
@@ -32,5 +32,5 @@ const Activities: FC = memo(() => {
   );
 });
 
-Activities.displayName = 'Resume';
+Activities.displayName = "Resume";
 export default Activities;
