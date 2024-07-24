@@ -31,12 +31,10 @@ const nextConfig = {
     unoptimized: true,
   },
   exportPathMap: async function (defaultPathMap, { dev, dir, outDir }) {
-    if (!dev) {
       // Copy _headers file to the out directory
       const headersSrc = path.join(dir, '_headers');
       const headersDest = path.join(outDir, '_headers');
       await fs.copy(headersSrc, headersDest);
-    }
     return defaultPathMap;
   },
 };
