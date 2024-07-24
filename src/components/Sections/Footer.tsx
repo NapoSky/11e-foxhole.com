@@ -26,9 +26,10 @@ const Footer: FC = memo(() => (
       <a
         className="-m-2 flex items-center gap-x-1 rounded-md p-2 ring-yellow focus:outline-none focus:ring-2"
         href="https://11e-foxhole.com"
-      ></a>
-      <span className="text-sm text-neutral-700">
+      >
         © Copyright {currentYear} 11e-Foxhole.com
+      </a>
+      <span className="text-sm text-neutral-700">
       </span>
     </div>
   </div>
