@@ -1,4 +1,5 @@
-import '../styles/globals.css';
+import "tailwindcss/tailwind.css";
+import "../globalStyles.scss";
 import type { AppProps } from 'next/app';
 import GoogleAnalytics from '../components/GoogleAnalytics';
 
