@@ -22,9 +22,9 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: "11e Foxhole - A Foxhole Brigade Community",
+  title: "11e Foxhole - A Warden Foxhole Brigade Community (FR/EN/CN)",
   description:
-    "11e Foxhole is a Foxhole brigade community. We are a group of players who enjoy playing Foxhole together.",
+    "11e Foxhole: Warden Foxhole brigade. Join our multilingual gaming community (French, English, Chinese) and enjoy playing Foxhole together.",
 };
 
 /**
