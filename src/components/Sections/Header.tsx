@@ -1,4 +1,4 @@
-import { Dialog, Transition } from "@headlessui/react";
+import { Transition, TransitionChild } from "@headlessui/react";
 import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import Link from "next/link";
@@ -88,24 +88,19 @@ const MobileNav: FC<{
         <Bars3BottomRightIcon className="h-8 w-8 text-white" />
         <span className="sr-only">Open sidebar</span>
       </button>
-      <Transition.Root as={Fragment} show={isOpen}>
-        <Dialog
-          as="div"
-          className="fixed inset-0 z-40 flex sm:hidden"
-          onClose={toggleOpen}
+      <Transition as={Fragment} show={isOpen}>
+        <TransitionChild
+          as={Fragment}
+          enter="transition-opacity ease-linear duration-300"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity ease-linear duration-300"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
         >
-          <Transition.Child
-            as={Fragment}
-            enter="transition-opacity ease-linear duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity ease-linear duration-300"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-stone-900 bg-opacity-75" />
-          </Transition.Child>
-          <Transition.Child
+          <div className="fixed inset-0 bg-stone-900 z-50 bg-opacity-75" />
+        </TransitionChild>
+        <TransitionChild
             as={Fragment}
             enter="transition ease-in-out duration-300 transform"
             enterFrom="-translate-x-full"
@@ -114,23 +109,20 @@ const MobileNav: FC<{
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative w-4/5 bg-stone-800">
-              <nav className="mt-5 flex flex-col gap-y-2 px-2">
-                {navSections.map((section) => (
-                  <NavItem
-                    activeClass={activeClass}
-                    current={section === currentSection}
-                    inactiveClass={inactiveClass}
-                    key={section}
-                    onClick={toggleOpen}
-                    section={section}
-                  />
-                ))}
-              </nav>
-            </div>
-          </Transition.Child>
-        </Dialog>
-      </Transition.Root>
+            <nav className="w-2/4 fixed inset-y-0 left-0 z-50 flex flex-col gap-y-2 p-4 bg-stone-800">
+              {navSections.map((section) => (
+                <NavItem
+                  activeClass={activeClass}
+                  current={section === currentSection}
+                  inactiveClass={inactiveClass}
+                  key={section}
+                  onClick={toggleOpen}
+                  section={section}
+                />
+              ))}
+            </nav>
+          </TransitionChild>
+      </Transition>
     </>
   );
 });
