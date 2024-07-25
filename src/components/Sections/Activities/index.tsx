@@ -13,11 +13,10 @@ const Activities: FC = memo(() => {
         <div className="absolute z-0 h-full w-full flex justify-center items-center">
           <Image
             alt={`activities-background-image`}
-            className="object-contain opacity-20"
+            className="object-contain opacity-20 fill"
             placeholder="blur"
             priority
             src={backgroundImage}
-            layout="fill"
           />
         </div>
         <div className="z-10 flex flex-col divide-y-2 divide-neutral-300">
