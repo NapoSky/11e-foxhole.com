@@ -49,34 +49,34 @@ export const descriptionData: Description = {
   imageSrc: descriptionImage,
   name: `11ème Régiment de Callahan`,
   description: (
-    <>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+    <div className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+      <p>
         <strong>Bonjour à toi soldat !</strong> Tu hésites à nous rejoindre ?
         Laisse-nous te convaincre…
       </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        Fort de nos 7 ans d'histoire dans Foxhole, le{" "}
+      <p>
+        Fort de nos 7 ans d'histoire dans Foxhole, le
         <strong>11ème Régiment de Callahan</strong> est reconnu pour son
         expertise et son engagement au sein de la faction warden. Nous offrons
         un gameplay varié : Logistique, Infanterie, Artillerie, Blindés, Naval,
         Fortifications et Complexes industriels...
       </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+      <p>
         Tournée vers la communauté, le 11e dispose d’une branche Anglophone et
         d’une branche sinophone permettant de jouer sur plusieurs fuseaux
         horaires. Nous comptons une solide base de joueurs québécois, créant
         ainsi un environnement accueillant pour tous.
       </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+      <p>
         Nous offrons une expérience de jeu plaisante et enrichissante, le
         régiment accueille les nouveaux joueurs comme les anciens, sans
         conditions de skill ou de temps de jeu.
       </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+      <p>
         N’hésite plus, rejoins le 11ème Régiment de Callahan et contribue à
         notre légende !
       </p>
-    </>
+    </div>
   ),
   actions: [
     {
