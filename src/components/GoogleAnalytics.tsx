@@ -25,12 +25,14 @@ const GoogleAnalytics = () => {
 
   return (
     <>
-      {/* Global Site Tag (gtag.js) - Google Analytics */}
+      {/* Global Site Tag (gtag.js) - Google Analytics. 
+          Use worker to lighten main thread.
+      */}
       <Script
-        strategy="afterInteractive"
+        strategy="worker"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="worker"> 
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
