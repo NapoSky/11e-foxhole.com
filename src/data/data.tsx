@@ -118,28 +118,28 @@ export const operationItems: OperationItem[] = [
   {
     title: "Formation",
     description:
-      "Formation des troupes quand à l'utilisation de l'ensemble du matériel militaire de la faction Warden",
+      "Formation des troupes quand à l'utilisation de l'ensemble du matériel militaire de la faction Warden, en allant de la différence entre les différents fusils, jusqu'à l'utilisation de super armes comme les canons sur rails ou des missiles ballistique",
     url: "https://reactresume.com",
     image: operationImage2,
   },
   {
     title: "Artillerie",
     description:
-      "Opération d'artillerie de bombardement de la capitale régionale Silk Farms pendant plusieurs heures",
+      "Opération d'artillerie de bombardement de la capitale régionale Silk Farms pendant plusieurs heures, lors du déblocage de la technologie de l'artillerie de 120mm, les 11ème et ses alliés ont déversé pendant plusieurs heures des milliers d'obus",
     url: "https://reactresume.com",
     image: operationImage1,
   },
   {
     title: "Infiltration",
     description:
-      "Infiltration des lignes enemies avec des véhicules amphibies afin de faire exploser des charges hautement explosives dans les complexes stratégiques adverses",
+      "Infiltration des lignes enemies avec des véhicules amphibies afin de faire exploser des charges hautement explosives dans les complexes stratégiques adverses, ces missions permettent souvent de débloquer des impasses",
     url: "https://reactresume.com",
     image: operationImage3,
   },
   {
     title: "Chasse sous marine",
     description:
-      "Utilisation de sous marins afin de semer le chaos dans les lignes logistiques navales coloniale",
+      "Utilisation de sous marins afin de semer le chaos dans les lignes logistiques navales ennemies, cela peut être d'aller chasser les porte conteneurs logistique adverses ou même partir détruire les cales sèches coloniales",
     url: "https://reactresume.com",
     image: operationImage4,
   },
