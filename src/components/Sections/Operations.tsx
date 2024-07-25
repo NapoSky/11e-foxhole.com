@@ -36,7 +36,6 @@ const Operations: FC = memo(() => {
                 >
                   <Image
                     alt={title}
-                    className="h-full w-full"
                     placeholder="blur"
                     src={image}
                   />
