@@ -3,18 +3,26 @@
 const fs = require('fs-extra');
 const path = require('path');
 
-// https://github.com/vercel/next.js/blob/master/packages/next/next-server/server/config.ts
 const nextConfig = {
   output: "export",
   webpack: config => {
-    const oneOfRule = config.module.rules.find(rule => rule.oneOf);
-
-    // Next 12 has multiple TS loaders, and we need to update all of them.
-    const tsRules = oneOfRule.oneOf.filter(rule => rule.test && rule.test.toString().includes('tsx|ts'));
-
-    tsRules.forEach(rule => {
-      // eslint-disable-next-line no-param-reassign
-      rule.include = undefined;
+    // Iterate through all rules and modify TypeScript rules if necessary
+    config.module.rules.forEach(rule => {
+      if (Array.isArray(rule.oneOf)) {
+        rule.oneOf.forEach(oneOf => {
+          if (oneOf.test && oneOf.test.toString().includes('tsx|ts')) {
+            // Safely handle 'include' property
+            if (oneOf.include) {
+              oneOf.include = undefined;
+            }
+          }
+        });
+      } else if (rule.test && rule.test.toString().includes('tsx|ts')) {
+        // Handle rules without 'oneOf'
+        if (rule.include) {
+          rule.include = undefined;
+        }
+      }
     });
 
     return config;
@@ -32,15 +40,18 @@ const nextConfig = {
     unoptimized: true,
   },
   exportPathMap: async function (defaultPathMap, { dev, dir, outDir }) {
-      if (!dev) {
-        // Copy _redirects file to the out directory
+    if (!dev) {
+      try {
         const redirectsSrc = path.join(dir, '_headers');
         const redirectsDest = path.join(outDir, '_headers');
         await fs.copy(redirectsSrc, redirectsDest);
-
-    return defaultPathMap;
+      } catch (error) {
+        console.error('Error copying _headers file:', error);
       }
     }
-}
+
+    return defaultPathMap;
+  }
+};
 
 module.exports = nextConfig;
