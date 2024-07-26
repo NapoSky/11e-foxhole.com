@@ -36,7 +36,6 @@ const Operations: FC = memo(() => {
                 >
                   <Image
                     alt={title}
-                    className="h-full w-full"
                     placeholder="blur"
                     src={image}
                   />
@@ -55,7 +54,7 @@ Operations.displayName = "Portfolio";
 export default Operations;
 
 const ItemOverlay: FC<{ item: OperationItem }> = memo(
-  ({ item: { url, title, description } }) => {
+  ({ item: {title, description } }) => {
     const [mobile, setMobile] = useState(false);
     const [showOverlay, setShowOverlay] = useState(false);
     const linkRef = useRef<HTMLAnchorElement>(null);
@@ -85,7 +84,6 @@ const ItemOverlay: FC<{ item: OperationItem }> = memo(
           { "opacity-0 hover:opacity-80": !mobile },
           showOverlay ? "opacity-80" : "opacity-0",
         )}
-        href={url}
         onClick={handleItemClick}
         ref={linkRef}
         target="_blank"
