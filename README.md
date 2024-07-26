@@ -1,5 +1,6 @@
 # 11e-foxhole.com Official Website
 
+![11e-foxhole.com Official Website](resume-screenshot.jpg?raw=true '11e-foxhole.com Official Website')
 <div align="center">
 
 ## 11e-foxhole.com Website is based on React-resume-template forked from [tbakerx](https://github.com/tbakerx/react-resume-template)
