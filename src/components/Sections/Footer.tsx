@@ -13,6 +13,7 @@ const Footer: FC = memo(() => (
   >
     <div className="absolute inset-x-0 -top-4 flex justify-center sm:-top-6">
       <a
+        aria-label="Aller en haut de page"
         className="rounded-full bg-neutral-100 p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
         href={`/#${SectionId.Description}`}
       >
@@ -20,17 +21,15 @@ const Footer: FC = memo(() => (
       </a>
     </div>
     <div className="flex flex-col items-center gap-y-6">
-      <div className="flex gap-x-4 text-neutral-500">
+      <div className="flex gap-x-4 text-neutral-400">
         <Socials />
       </div>
       <a
-        className="-m-2 flex items-center gap-x-1 rounded-md p-2 ring-yellow focus:outline-none focus:ring-2"
+        className="flex items-center gap-x-1 text-neutral-400 rounded-md p-2 ring-yellow focus:outline-none focus:ring-2"
         href="https://11e-foxhole.com"
       >
         © Copyright {currentYear} 11e-Foxhole.com
       </a>
-      <span className="text-sm text-neutral-700">
-      </span>
     </div>
   </div>
 ));
