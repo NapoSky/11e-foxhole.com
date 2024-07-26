@@ -10,11 +10,10 @@ const Activities: FC = memo(() => {
   return (
     <Section className="bg-neutral-100" sectionId={SectionId.Activities}>
       <div className="relative flex flex-col">
-        <div className="absolute z-0 h-full w-full flex justify-center items-center">
+        <div className="absolute h-full w-full flex items-center">
           <Image
             alt={`activities-background-image`}
-            className="object-contain opacity-20 fill"
-            placeholder="blur"
+            className="object-contain opacity-20"
             priority
             src={backgroundImage}
           />

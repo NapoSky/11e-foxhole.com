@@ -14,7 +14,7 @@ const Description: FC = memo(() => {
       <div className="relative flex min-h-screen w-full items-center justify-center px-2 sm:px-4">
         <Image
           alt={`${name}-image`}
-          className="absolute z-0 h-full w-full object-cover"
+          className="absolute h-full w-full object-cover"
           placeholder="blur"
           priority
           src={imageSrc}
