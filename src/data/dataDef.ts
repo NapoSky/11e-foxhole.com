@@ -62,7 +62,7 @@ export interface Stat {
 export interface OperationItem {
   title: string;
   description: string;
-  url: string;
+  url?: string;
   image: string | StaticImageData;
 }
 
