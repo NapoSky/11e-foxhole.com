@@ -3,7 +3,7 @@ import operationImage1 from "../images/portfolio/RSC.webp";
 import operationImage2 from "../images/portfolio/formation.webp";
 import operationImage3 from "../images/portfolio/Luv_Havoc.webp";
 import operationImage4 from "../images/portfolio/battleship.webp";
-import operationImage5 from "../images/portfolio/infanterie.webp";
+import operationImage5 from "../images/portfolio/Infanterie.webp";
 import operationImage6 from "../images/portfolio/umbral.webp";
 import operationImage7 from "../images/portfolio/nuke_108.webp";
 import officerBackgroundImage from "../images/officer_background.webp";
