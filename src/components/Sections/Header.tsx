@@ -2,18 +2,55 @@ import { Transition, TransitionChild } from "@headlessui/react";
 import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import Link from "next/link";
-import { FC, Fragment, memo, useCallback, useMemo, useState } from "react";
+import {
+  FC,
+  Fragment,
+  memo,
+  Suspense,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
 
 import { SectionId } from "../../data/data";
 import { useNavObserver } from "../../hooks/useNavObserver";
 
 export const headerID = "headerNav";
 
-const Header: FC = memo(() => {
+const HeaderServer: FC = memo(() => {
+  return (
+    <Suspense
+      fallback={
+        <>
+          <MobileNav
+            currentSection={null}
+            navSections={[
+              SectionId.Description,
+              SectionId.Activities,
+              SectionId.Operations,
+            ]}
+          />
+          <DesktopNav
+            currentSection={null}
+            navSections={[
+              SectionId.Description,
+              SectionId.Activities,
+              SectionId.Operations,
+            ]}
+          />
+        </>
+      }
+    >
+      <HeaderClient />
+    </Suspense>
+  );
+});
+
+const HeaderClient: FC = () => {
   const [currentSection, setCurrentSection] = useState<SectionId | null>(null);
   const navSections = useMemo(
     () => [SectionId.Description, SectionId.Activities, SectionId.Operations],
-    [],
+    []
   );
 
   const intersectionHandler = useCallback((section: SectionId | null) => {
@@ -22,7 +59,7 @@ const Header: FC = memo(() => {
 
   useNavObserver(
     navSections.map((section) => `#${section}`).join(","),
-    intersectionHandler,
+    intersectionHandler
   );
 
   return (
@@ -31,12 +68,12 @@ const Header: FC = memo(() => {
       <DesktopNav currentSection={currentSection} navSections={navSections} />
     </>
   );
-});
+};
 
 const DesktopNav: FC<{
   navSections: SectionId[];
   currentSection: SectionId | null;
-}> = memo(({ navSections, currentSection }) => {
+}> = ({ navSections, currentSection }) => {
   const baseClass =
     "-m-1.5 p-1.5 rounded-md font-bold first-letter:uppercase hover:transition-colors hover:duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 sm:hover:text-orange-500 text-neutral-100";
   const activeClass = classNames(baseClass, "text-orange-500");
@@ -59,7 +96,7 @@ const DesktopNav: FC<{
       </nav>
     </header>
   );
-});
+};
 
 const MobileNav: FC<{
   navSections: SectionId[];
@@ -75,7 +112,7 @@ const MobileNav: FC<{
     "p-2 rounded-md first-letter:uppercase transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500";
   const activeClass = classNames(
     baseClass,
-    "bg-neutral-900 text-white font-bold",
+    "bg-neutral-900 text-white font-bold"
   );
   const inactiveClass = classNames(baseClass, "text-neutral-200 font-medium");
   return (
@@ -101,27 +138,27 @@ const MobileNav: FC<{
           <div className="fixed inset-0 bg-stone-900 z-50 bg-opacity-75" />
         </TransitionChild>
         <TransitionChild
-            as={Fragment}
-            enter="transition ease-in-out duration-300 transform"
-            enterFrom="-translate-x-full"
-            enterTo="translate-x-0"
-            leave="transition ease-in-out duration-300 transform"
-            leaveFrom="translate-x-0"
-            leaveTo="-translate-x-full"
-          >
-            <nav className="w-2/4 fixed inset-y-0 left-0 z-50 flex flex-col gap-y-2 p-4 bg-stone-800">
-              {navSections.map((section) => (
-                <NavItem
-                  activeClass={activeClass}
-                  current={section === currentSection}
-                  inactiveClass={inactiveClass}
-                  key={section}
-                  onClick={toggleOpen}
-                  section={section}
-                />
-              ))}
-            </nav>
-          </TransitionChild>
+          as={Fragment}
+          enter="transition ease-in-out duration-300 transform"
+          enterFrom="-translate-x-full"
+          enterTo="translate-x-0"
+          leave="transition ease-in-out duration-300 transform"
+          leaveFrom="translate-x-0"
+          leaveTo="-translate-x-full"
+        >
+          <nav className="w-2/4 fixed inset-y-0 left-0 z-50 flex flex-col gap-y-2 p-4 bg-stone-800">
+            {navSections.map((section) => (
+              <NavItem
+                activeClass={activeClass}
+                current={section === currentSection}
+                inactiveClass={inactiveClass}
+                key={section}
+                onClick={toggleOpen}
+                section={section}
+              />
+            ))}
+          </nav>
+        </TransitionChild>
       </Transition>
     </>
   );
@@ -146,5 +183,5 @@ const NavItem: FC<{
   );
 });
 
-Header.displayName = "Header";
-export default Header;
+HeaderServer.displayName = "Header";
+export default HeaderServer;
