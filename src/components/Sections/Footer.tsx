@@ -13,6 +13,7 @@ const Footer: FC = memo(() => (
   >
     <div className="absolute inset-x-0 -top-4 flex justify-center sm:-top-6">
       <a
+        aria-label="Aller en haut de page"
         className="rounded-full bg-neutral-100 p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
         href={`/#${SectionId.Description}`}
       >
