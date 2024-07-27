@@ -1,10 +1,11 @@
-import descriptionImage from "../images/header-background.webp";
-import operationImage1 from "../images/portfolio/Artillerie.webp";
+import descriptionImage from "../images/rassemblement_cut_v2.webp";
+import operationImage1 from "../images/portfolio/RSC.webp";
 import operationImage2 from "../images/portfolio/formation.webp";
 import operationImage3 from "../images/portfolio/Luv_Havoc.webp";
-import operationImage4 from "../images/portfolio/sub.webp";
+import operationImage4 from "../images/portfolio/battleship.webp";
 import operationImage5 from "../images/portfolio/Infanterie.webp";
-import operationImage6 from "../images/portfolio/blinde.webp";
+import operationImage6 from "../images/portfolio/umbral.webp";
+import operationImage7 from "../images/portfolio/nuke_108.webp";
 import officerBackgroundImage from "../images/officer_background.webp";
 import DiscordIcon from "../components/Icon/DiscordIcon";
 import YoutubeIcon from "../components/Icon/YoutubeIcon";
@@ -55,15 +56,15 @@ export const descriptionData: Description = {
         Laisse-nous te convaincre…
       </p>
       <p>
-        Fort de nos 7 ans d'histoire dans Foxhole, le
-        <strong>11ème Régiment de Callahan</strong> est reconnu pour son
+        Fort de nos 7 ans d'histoire dans Foxhole, le  
+        <strong> 11ème Régiment de Callahan</strong> [11eRC] est reconnu pour son
         expertise et son engagement au sein de la faction warden. Nous offrons
         un gameplay varié : Logistique, Infanterie, Artillerie, Blindés, Naval,
         Fortifications et Complexes industriels...
       </p>
       <p>
-        Tournée vers la communauté, le 11e dispose d’une branche Anglophone et
-        d’une branche sinophone permettant de jouer sur plusieurs fuseaux
+        Tournée vers la communauté, le 11e dispose d’une branche Anglophone [11eFL] et
+        d’une branche sinophone [11eCN] permettant de jouer sur plusieurs fuseaux
         horaires. Nous comptons une solide base de joueurs québécois, créant
         ainsi un environnement accueillant pour tous.
       </p>
@@ -119,44 +120,44 @@ export const operationItems: OperationItem[] = [
     title: "Formation",
     description:
       "Formation des troupes quand à l'utilisation de l'ensemble du matériel militaire de la faction Warden, en allant de la différence entre les différents fusils, jusqu'à l'utilisation de super armes comme les canons sur rails ou des missiles ballistique",
-    url: "https://reactresume.com",
     image: operationImage2,
   },
   {
     title: "Artillerie",
     description:
-      "Opération d'artillerie de bombardement de la capitale régionale Silk Farms pendant plusieurs heures, lors du déblocage de la technologie de l'artillerie de 120mm, les 11ème et ses alliés ont déversé pendant plusieurs heures des milliers d'obus",
-    url: "https://reactresume.com",
+      "La puissance industrielle du 11eRC permet d'utiliser dès qu'il y en a l'occasion les canons de plus gros calibres afin de faire tomber les forteresses ennemis les plus fortifiées.",
     image: operationImage1,
   },
   {
     title: "Infiltration",
     description:
       "Infiltration des lignes enemies avec des véhicules amphibies afin de faire exploser des charges hautement explosives dans les complexes stratégiques adverses, ces missions permettent souvent de débloquer des impasses",
-    url: "https://reactresume.com",
     image: operationImage3,
   },
   {
-    title: "Chasse sous marine",
+    title: "Lancement de missiles ballistiques",
     description:
-      "Utilisation de sous marins afin de semer le chaos dans les lignes logistiques navales ennemies, cela peut être d'aller chasser les porte conteneurs logistique adverses ou même partir détruire les cales sèches coloniales",
-    url: "https://reactresume.com",
+      "Quand les canons de 300mm ne suffisent plus, il ne reste plus que la destruction par l'atome afin de renverser le cours de la guerre.",
+    image: operationImage7,
+  },
+  {
+    title: "Colonne de blindés",
+    description:
+      "Des véhicules de reconnaissance aux chars lourds, le 11eRC s'illustre souvent sur le front par le déploiement de forces blindées. Le régiment est devenu une référence auprès des autres unités concernant l'emploi des chars super lourds, proposant des formations et des opérations conjointes pour percer les lignes ennemies.",
+    image: operationImage6,
+  },
+    {
+    title: "Batailles navales",
+    description:
+      "Sur la mer ou sous la surface, le 11eRC mène des opérations navales afin de protéger les eaux de l'empire, chasser les flottes coloniales, ou escorter les vaisseaux logistiques.",
     image: operationImage4,
   },
   {
     title: "Infanterie",
     description:
       "Une escouade d'infanterie organisée permettant de tenir le front pendant que l'artillerie est en train de faire tomber l'objectif",
-    url: "https://reactresume.com",
     image: operationImage5,
-  },
-  {
-    title: "Colonne de blindés",
-    description:
-      "Une colonne de chars de bataille escortant un super char afin de renverser une partie de la carte en annihilant tout véhicule ennemi se trouvant sur son chemin",
-    url: "https://reactresume.com",
-    image: operationImage6,
-  },
+  }
 ];
 
 /**
@@ -211,7 +212,7 @@ export const activites: ActivityElement[] = [
     title: "Communauté ",
     content: (
       <p>
-        Principalement tourné vers Foxhole, le 11e dispose dans un lieu tenu
+        Principalement tourné vers Foxhole, le 11eRC dispose dans un lieu tenu
         secret d’un QG pour des rencontres autour d’une bière et d’un discord
         multi-gaming pour se détendre entre deux campagnes militaires.
       </p>
