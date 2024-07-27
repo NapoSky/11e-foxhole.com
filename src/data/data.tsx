@@ -1,4 +1,4 @@
-import descriptionImage from "../images/rassemblement_cut_v2.webp";
+import descriptionImage from "../images/header-background.webp";
 import operationImage1 from "../images/portfolio/RSC.webp";
 import operationImage2 from "../images/portfolio/formation.webp";
 import operationImage3 from "../images/portfolio/Luv_Havoc.webp";
