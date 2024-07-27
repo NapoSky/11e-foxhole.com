@@ -1,4 +1,4 @@
-import descriptionImage from "../images/header-background.webp";
+//import descriptionImage from "../images/header-background.webp";
 import operationImage1 from "../images/portfolio/RSC.webp";
 import operationImage2 from "../images/portfolio/formation.webp";
 import operationImage3 from "../images/portfolio/Luv_Havoc.webp";
@@ -47,7 +47,7 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  * Description section
  */
 export const descriptionData: Description = {
-  imageSrc: descriptionImage,
+  imageSrc: operationImage2,
   name: `11ème Régiment de Callahan`,
   description: (
     <div className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
