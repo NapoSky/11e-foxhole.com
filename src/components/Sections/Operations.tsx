@@ -39,6 +39,7 @@ const Operations: FC = memo(() => {
                     placeholder="blur"
                     src={image}
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={75}
                   />
                   <ItemOverlay item={item} />
                 </div>
