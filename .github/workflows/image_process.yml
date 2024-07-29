@@ -1,0 +1,42 @@
+name: Manual Image Processing and Deployment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  process-images-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up ImageMagick
+      run: sudo apt-get install -y imagemagick
+
+    - name: Process images
+      run: |
+        mkdir -p public/images
+        for file in $(find ./src/images -type f -name '*.webp'); do
+          filename=$(basename -- "$file")
+          convert "$file" -resize 320x -quality 85 "public/images/${filename%.*}-320.webp"
+          convert "$file" -resize 640x -quality 85 "public/images/${filename%.*}-640.webp"
+          convert "$file" -resize 1280x -quality 85 "public/images/${filename%.*}-1280.webp"
+          convert "$file" -resize 1920x -quality 85 "public/images/${filename%.*}-1920.webp"
+        done
+
+    - name: Commit resized images
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add public/images/
+        git commit -m "Add or update resized images in /public/images"
+        git push
+
+    - name: Push to staging
+      run: |
+        git push origin HEAD:staging
+
+    - name: Push to main
+      run: |
+        git push origin HEAD:main
