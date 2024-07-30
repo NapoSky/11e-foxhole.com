@@ -59,17 +59,22 @@ jobs:
             cwebp -q 82 "$file" -resize 1920 0 -o "public/images/${filename%.*}-1920.webp"
           done
 
+      - name: Check for changes
+        id: changes_check
+        run: echo "CHANGES=$(git status --porcelain | wc -l > 0)" >> $GITHUB_ENV
+
       - name: Commit and push changes
+        if: env.changes == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add public/images/
           git commit -m "images(Github Actions) add or update resized images in /public/images"
           if [[ ${{ github.event_name }} == 'pull_request' ]]; then
-            git pull origin ${{ github.head_ref }}
+            git pull --rebase origin ${{ github.head_ref }}
             git push origin HEAD:${{ github.head_ref }}
           else
-            git pull origin staging
+            git pull --rebase origin staging
             git push origin HEAD:staging
 
   process-portfolio-images:
@@ -98,15 +103,20 @@ jobs:
             cwebp -q 70 "$file" -resize 1920 0 -o "public/images/${filename%.*}-1920.webp"
           done
 
+      - name: Check for changes
+        id: changes_check
+        run: echo "CHANGES=$(git status --porcelain | wc -l > 0)" >> $GITHUB_ENV
+
       - name: Commit and push changes
+        if: env.changes == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add public/images/portfolio/
           git commit -m "images(Github Actions) add or update resized images in /public/images/portfolio"
           if [[ ${{ github.event_name }} == 'pull_request' ]]; then
-            git pull origin ${{ github.head_ref }}
+            git pull --rebase origin ${{ github.head_ref }}
             git push origin HEAD:${{ github.head_ref }}
           else
-            git pull origin staging
+            git pull --rebase origin staging
             git push origin HEAD:staging
