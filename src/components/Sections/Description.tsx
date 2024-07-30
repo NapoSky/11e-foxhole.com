@@ -8,6 +8,7 @@ import Section from "../Layout/Section";
 
 const Description: FC = memo(() => {
   const { imageSrc, name, description, actions } = descriptionData;
+  const baseUrl = imageSrc.replace(/-1920\.webp$/, '');
 
   return (
     <Section noPadding sectionId={SectionId.Description}>
@@ -18,6 +19,12 @@ const Description: FC = memo(() => {
           placeholder="blur"
           priority={true} // Improve LCP by loading the image as soon as possible
           src={imageSrc}
+          srcSet={`
+            ${baseUrl}-320.webp 320w,
+            ${baseUrl}-640.webp 640w,
+            ${baseUrl}-1280.webp 1280w,
+            ${baseUrl}-1920.webp 1920w
+          `}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Responsive images
         />
         {/* Adjusted container for better responsiveness */}
