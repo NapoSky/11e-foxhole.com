@@ -74,32 +74,32 @@ export const descriptionData: Description = {
   name: `11ème Régiment de Callahan`,
   description: (
     <div className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-      <p>
-        <strong>Bonjour à toi soldat !</strong> Tu hésites à nous rejoindre ?
-        Laisse-nous te convaincre…
-      </p>
-      <p>
-        Fort de nos 7 ans d'histoire dans Foxhole, le  
-        <strong> 11ème Régiment de Callahan</strong> [11eRC] est reconnu pour son
-        expertise et son engagement au sein de la faction warden. Nous offrons
-        un gameplay varié : Logistique, Infanterie, Artillerie, Blindés, Naval,
-        Fortifications et Complexes industriels...
-      </p>
-      <p>
-        Tournée vers la communauté, le 11e dispose d’une branche Anglophone [11eFL] et
-        d’une branche sinophone [11eCN] permettant de jouer sur plusieurs fuseaux
-        horaires. Nous comptons une solide base de joueurs québécois, créant
-        ainsi un environnement accueillant pour tous.
-      </p>
-      <p>
-        Nous offrons une expérience de jeu plaisante et enrichissante, le
-        régiment accueille les nouveaux joueurs comme les anciens, sans
-        conditions de skill ou de temps de jeu.
-      </p>
-      <p>
-        N’hésite plus, rejoins le 11ème Régiment de Callahan et contribue à
-        notre légende !
-      </p>
+<p>
+  <strong>Bonjour à toi soldat !</strong> Tu hésites à nous rejoindre ?
+  Laisse-nous te convaincre…
+</p>
+<p>
+  Fort de nos 7 ans d'histoire dans Foxhole, le 
+  <strong> 11ème Régiment de Callahan</strong> [11eRC] est reconnu pour son
+  expertise et son engagement au sein de la faction warden. Nous offrons
+  un gameplay varié : Logistique, Infanterie, Artillerie, Blindés, Naval,
+  Fortifications et Complexes industriels...
+</p>
+<p>
+  Tournée vers la communauté, le 11e dispose d’une branche Anglophone [11eFL], 
+  d’une branche sinophone [11eCN] et d’une branche francophone [11eRC] permettant de jouer sur plusieurs fuseaux horaires. Nous comptons une solide base de joueurs québécois et français, créant
+  ainsi un environnement accueillant pour tous.
+</p>
+<p>
+  Nous offrons une expérience de jeu plaisante et enrichissante, le
+  régiment accueille les nouveaux joueurs comme les anciens, sans
+  conditions de skill ou de temps de jeu. Rejoins notre clan et fais partie d'une communauté soudée et passionnée.
+</p>
+<p>
+  N’hésite plus, rejoins le 11ème Régiment de Callahan et contribue à
+  notre légende !
+</p>
+
     </div>
   ),
   actions: [
