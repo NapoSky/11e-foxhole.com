@@ -51,8 +51,6 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: false,
   images: {
-    loader: 'custom',
-    loaderFile: './image-loader.js',
     deviceSizes: [320, 640, 1280, 1920],
     unoptimized: true,
   },
