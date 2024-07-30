@@ -38,7 +38,6 @@ const Operations: FC = memo(() => {
                     alt={title}
                     placeholder="blur"
                     src={image}
-                    fill={true}
                     sizes="(max-width: 768px) 100vw, 50vw, 33vw"
                     quality={75}
                   />
