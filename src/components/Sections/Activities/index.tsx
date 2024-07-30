@@ -15,6 +15,7 @@ const Activities: FC = memo(() => {
             alt={`activities-background-image`}
             className="object-contain opacity-20"
             src={backgroundImage}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1920px) 75vw, 100vw"
           />
         </div>
         <div className="z-10 flex flex-col divide-y-2 divide-neutral-300">
