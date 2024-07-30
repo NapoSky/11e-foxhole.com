@@ -6,6 +6,21 @@ const path = require('path');
 const nextConfig = {
   output: "export",
   webpack: config => {
+    config.module.rules.push({
+      test: /\.(png|jpe?g|webp)$/,
+      type: 'asset/resource',
+      generator: {
+        filename: (pathData) => {
+          const name = path.basename(pathData.filename, path.extname(pathData.filename));
+          const extension = path.extname(pathData.filename);
+          const sizes = [320, 640, 1280, 1920];
+          const size = sizes.find(s => name.endsWith(`-${s}`)) || sizes[0]; // Default to smallest size if not found
+          const baseName = name.replace(/-\d+$/, ''); // Remove size from name if present
+          return `${baseName}-${size}${extension}`;
+        },
+        publicPath: '/images/',
+      },
+    });
     // Iterate through all rules and modify TypeScript rules if necessary
     config.module.rules.forEach(rule => {
       if (Array.isArray(rule.oneOf)) {
@@ -36,6 +51,8 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: false,
   images: {
+    loader: 'custom',
+    loaderFile: './image-loader.js',
     deviceSizes: [320, 640, 1280, 1920],
     unoptimized: true,
   },
