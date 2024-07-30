@@ -3,7 +3,7 @@ name: Pull Request CI
 on:
   pull_request:
     paths-ignore:
-      - 'src/images/**'
+      - "src/images/**"
     branches:
       - main
       - staging
@@ -13,20 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20.11'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.11"
 
-    - name: Install dependencies
-      uses: borales/actions-yarn@v5
-      with:
-        cmd: install
+      - name: Install dependencies
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: install
 
-    - name: Run lint
-      uses: borales/actions-yarn@v5
-      with:
-        cmd: lint
+      - name: Run lint
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: lint

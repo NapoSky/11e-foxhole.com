@@ -3,7 +3,7 @@ name: Lint YAML files
 on:
   pull_request:
     paths:
-      - '.github/workflows/*.yml'
+      - ".github/workflows/*.yml"
     branches:
       - staging
 
@@ -12,27 +12,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.PAT_TOKEN }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20.16'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.16"
 
-    - name: Install Prettier
-      run: npm install -g prettier
+      - name: Install Prettier
+        run: npm install -g prettier
 
-    - name: Format YAML files with Prettier
-      run: prettier --write ".github/workflows/*.yml"
+      - name: Format YAML files with Prettier
+        run: prettier --write ".github/workflows/*.yml"
 
-    - name: Commit and push changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .github/workflows/*.yml
-        git commit -m "style: auto-correct YAML files with Prettier"
-        git pull --rebase origin ${{ github.head_ref }}
-        git push origin HEAD:${{ github.head_ref }}
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .github/workflows/*.yml
+          git commit -m "style: auto-correct YAML files with Prettier"
+          git pull --rebase origin ${{ github.head_ref }}
+          git push origin HEAD:${{ github.head_ref }}
