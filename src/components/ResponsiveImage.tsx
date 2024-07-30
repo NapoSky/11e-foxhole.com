@@ -18,12 +18,12 @@ interface ResponsiveImageProps {
     src,
     srcSet,
     sizes,
-    fill,
+    fill: _fill,
     alt,
     width,
     height,
     className,
-    priority,
+    priority: _priority,
     style,
     ...rest
   }) => (
