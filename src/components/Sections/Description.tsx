@@ -19,7 +19,7 @@ const Description: FC = memo(() => {
           priority={true} // Improve LCP by loading the image as soon as possible
           fill={true}
           src={imageSrc}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Responsive images
+          sizes="(max-width: 320px) 320px, (max-width: 640px) 640px, (max-width: 1280px) 1280px, 1920px" // Responsive images
         />
         {/* Adjusted container for better responsiveness */}
         <div className="z-10 w-full px-4 lg:max-w-screen-lg lg:px-0 mx-auto flex flex-col justify-center h-full">
