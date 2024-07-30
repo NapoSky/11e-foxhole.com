@@ -27,7 +27,6 @@ const Operations: FC = memo(() => {
         <div className=" w-full columns-2">
           {operationItems.map((item, index) => {
             const { title, image } = item;
-            const baseUrl = typeof image === 'string' ? image.replace(/\.webp$/, '') : '';
             return (
               <div className="pb-6" key={`${title}-${index}`}>
                 <div
@@ -39,12 +38,7 @@ const Operations: FC = memo(() => {
                     alt={title}
                     placeholder="blur"
                     src={image}
-                    srcSet={`
-                      ${baseUrl}-320.webp 320w,
-                      ${baseUrl}-640.webp 640w,
-                      ${baseUrl}-1280.webp 1280w,
-                      ${baseUrl}-1920.webp 1920w
-                    `}
+                    fill={true}
                     sizes="(max-width: 768px) 100vw, 50vw, 33vw"
                     quality={75}
                   />

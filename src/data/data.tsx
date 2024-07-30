@@ -1,3 +1,12 @@
+import descriptionImage from "../images/header-background.webp";
+import operationImage1 from "../images/portfolio/RSC.webp";
+import operationImage2 from "../images/portfolio/formation.webp";
+import operationImage3 from "../images/portfolio/Luv_Havoc.webp";
+import operationImage4 from "../images/portfolio/battleship.webp";
+import operationImage5 from "../images/portfolio/Infanterie.webp";
+import operationImage6 from "../images/portfolio/umbral.webp";
+import operationImage7 from "../images/portfolio/nuke_108.webp";
+import officerBackgroundImage from "../images/officer_background.webp";
 import DiscordIcon from "../components/Icon/DiscordIcon";
 import YoutubeIcon from "../components/Icon/YoutubeIcon";
 import {
@@ -9,24 +18,6 @@ import {
   ActivityElement,
   Social,
 } from "./dataDef";
-
-/**
- * List of every images uses in the website
- */
-const imagePaths = {
-  headerBackground: '/images/header-background.webp',
-  portfolio: {
-    RSC: '/images/portfolio/RSC.webp',
-    formation: '/images/portfolio/formation.webp',
-    LuvHavoc: '/images/portfolio/Luv_Havoc.webp',
-    battleship: '/images/portfolio/battleship.webp',
-    infanterie: '/images/portfolio/Infanterie.webp',
-    umbral: '/images/portfolio/umbral.webp',
-    nuke108: '/images/portfolio/nuke_108.webp'
-  },
-  officerBackground: '/images/officer_background.webp'
-};
-
 
 /**
  * Page meta data
@@ -56,7 +47,7 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  * Description section
  */
 export const descriptionData: Description = {
-  imageSrc: imagePaths.headerBackground,
+  imageSrc: descriptionImage,
   name: `11ème Régiment de Callahan`,
   description: (
     <div className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
@@ -129,43 +120,43 @@ export const operationItems: OperationItem[] = [
     title: "Formation",
     description:
       "Formation des troupes quand à l'utilisation de l'ensemble du matériel militaire de la faction Warden, en allant de la différence entre les différents fusils, jusqu'à l'utilisation de super armes comme les canons sur rails ou des missiles ballistique",
-    image: imagePaths.portfolio.formation,
+    image: operationImage2,
   },
   {
     title: "Artillerie",
     description:
       "La puissance industrielle du 11eRC permet d'utiliser dès qu'il y en a l'occasion les canons de plus gros calibres afin de faire tomber les forteresses ennemis les plus fortifiées.",
-    image: imagePaths.portfolio.RSC,
+    image: operationImage1,
   },
   {
     title: "Infiltration",
     description:
       "Infiltration des lignes enemies avec des véhicules amphibies afin de faire exploser des charges hautement explosives dans les complexes stratégiques adverses, ces missions permettent souvent de débloquer des impasses",
-    image: imagePaths.portfolio.LuvHavoc,
+    image: operationImage3,
   },
   {
     title: "Lancement de missiles ballistiques",
     description:
       "Quand les canons de 300mm ne suffisent plus, il ne reste plus que la destruction par l'atome afin de renverser le cours de la guerre.",
-    image: imagePaths.portfolio.nuke108,
+    image: operationImage7,
   },
   {
     title: "Colonne de blindés",
     description:
       "Des véhicules de reconnaissance aux chars lourds, le 11eRC s'illustre souvent sur le front par le déploiement de forces blindées. Le régiment est devenu une référence auprès des autres unités concernant l'emploi des chars super lourds, proposant des formations et des opérations conjointes pour percer les lignes ennemies.",
-    image: imagePaths.portfolio.umbral,
+    image: operationImage6,
   },
     {
     title: "Batailles navales",
     description:
       "Sur la mer ou sous la surface, le 11eRC mène des opérations navales afin de protéger les eaux de l'empire, chasser les flottes coloniales, ou escorter les vaisseaux logistiques.",
-    image: imagePaths.portfolio.battleship,
+    image: operationImage4,
   },
   {
     title: "Infanterie",
     description:
       "Une escouade d'infanterie organisée permettant de tenir le front pendant que l'artillerie est en train de faire tomber l'objectif",
-    image: imagePaths.portfolio.infanterie,
+    image: operationImage5,
   }
 ];
 
@@ -233,7 +224,7 @@ export const activites: ActivityElement[] = [
  * Officer section
  */
 export const officer: OfficerSection = {
-  imageSrc: imagePaths.officerBackground,
+  imageSrc: officerBackgroundImage,
   officers: [
     {
       name: "John Doe",
