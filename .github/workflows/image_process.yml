@@ -94,7 +94,7 @@ jobs:
 
       - name: Process portfolio images
         run: |
-          mkdir -p public/images/portfolio
+          mkdir -p public/images/
           for file in $(find ./src/images/portfolio -type f -name '*.webp'); do
             filename=$(basename -- "$file")
             cwebp -q 70 "$file" -resize 320 0 -o "public/images/${filename%.*}-320.webp"
@@ -112,7 +112,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add public/images/portfolio/
+          git add public/images/
           git commit -m "images(Github Actions) add or update resized images in /public/images/portfolio"
           if [[ ${{ github.event_name }} == 'pull_request' ]]; then
             git pull --rebase origin ${{ github.head_ref }}
