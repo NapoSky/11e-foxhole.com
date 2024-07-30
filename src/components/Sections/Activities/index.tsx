@@ -6,6 +6,29 @@ import ResumeSection from "./ResumeSection";
 import ActivityItem from "./ActivityItem";
 import backgroundImage from "../../../images/activities-background.webp";
 
+/**
+ * Code required to factorize srcSet
+ */
+export const getBaseNameFromImport = (imagePath: string): string => {
+  if (!imagePath || typeof imagePath !== 'string') {
+    return '';
+  }
+  const filename = imagePath.split('/').pop();
+  return filename ? filename.replace(/-\d+\.webp$/, '') : '';
+};
+
+export const sizes = [320, 640, 1280, 1920];
+
+const generateSrcSet = (baseName: string, sizes: number[]): string => {
+  return sizes.map(size => `/images/${baseName}-${size}.webp ${size}w`).join(", ");
+};
+
+const getSrcSetFromImage = (image: string): string => {
+  const baseName = getBaseNameFromImport(image);
+  return generateSrcSet(baseName, sizes);
+};
+
+
 const Activities: FC = memo(() => {
   return (
     <Section className="bg-neutral-100" sectionId={SectionId.Activities}>
@@ -15,6 +38,7 @@ const Activities: FC = memo(() => {
             alt={`activities-background-image`}
             className="object-contain opacity-20"
             src={backgroundImage}
+            srcSet={getSrcSetFromImage(backgroundImage)}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1920px) 75vw, 100vw"
           />
         </div>
