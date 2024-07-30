@@ -1,6 +1,6 @@
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
-import Image from "next/image";
+import ResponsiveImage from "../ResponsiveImage";
 import {
   FC,
   memo,
@@ -26,7 +26,7 @@ const Operations: FC = memo(() => {
         </h2>
         <div className=" w-full columns-2">
           {operationItems.map((item, index) => {
-            const { title, image } = item;
+            const { title, image, srcSet } = item;
             return (
               <div className="pb-6" key={`${title}-${index}`}>
                 <div
@@ -34,10 +34,11 @@ const Operations: FC = memo(() => {
                     "relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl",
                   )}
                 >
-                  <Image
+                  <ResponsiveImage
                     alt={title}
                     placeholder="blur"
                     src={image}
+                    srcSet={srcSet}
                     sizes="(max-width: 768px) 100vw, 50vw, 33vw"
                     quality={75}
                   />
