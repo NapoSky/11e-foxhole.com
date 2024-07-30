@@ -1,5 +1,5 @@
 import { FC, memo } from "react";
-import Image from "next/image";
+import ResponsiveImage from "../../ResponsiveImage";
 import { activites, SectionId } from "../../../data/data";
 import Section from "../../Layout/Section";
 import ResumeSection from "./ResumeSection";
@@ -11,10 +11,9 @@ const Activities: FC = memo(() => {
     <Section className="bg-neutral-100" sectionId={SectionId.Activities}>
       <div className="relative flex flex-col">
         <div className="absolute h-full w-full flex items-center">
-          <Image
+          <ResponsiveImage
             alt={`activities-background-image`}
             className="object-contain opacity-20"
-            priority
             src={backgroundImage}
           />
         </div>

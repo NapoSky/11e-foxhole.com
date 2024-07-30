@@ -1,25 +1,26 @@
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
-import Image from "next/image";
+import ResponsiveImage from "../ResponsiveImage";
 import { FC, memo } from "react";
 
 import { descriptionData, SectionId } from "../../data/data";
 import Section from "../Layout/Section";
 
 const Description: FC = memo(() => {
-  const { imageSrc, name, description, actions } = descriptionData;
+  const { imageSrc, srcSet, name, description, actions } = descriptionData;
 
   return (
     <Section noPadding sectionId={SectionId.Description}>
       <div className="relative flex min-h-screen w-full items-center justify-center px-2 sm:px-4">
-        <Image
+        <ResponsiveImage
           alt={`${name}-image`}
           className="absolute h-full w-full object-cover"
           placeholder="blur"
-          priority={true} // Improve LCP by loading the image as soon as possible
+          priority="true" // Improve LCP by loading the image as soon as possible
           fill={true}
           src={imageSrc}
-          sizes="(max-width: 320px) 320px, (max-width: 640px) 640px, (max-width: 1280px) 1280px, 1920px" // Responsive images
+          srcSet={srcSet}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1920px) 75vw, 100vw" // Responsive images
         />
         {/* Adjusted container for better responsiveness */}
         <div className="z-10 w-full px-4 lg:max-w-screen-lg lg:px-0 mx-auto flex flex-col justify-center h-full">

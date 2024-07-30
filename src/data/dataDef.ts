@@ -1,4 +1,3 @@
-import { StaticImageData } from "next/image";
 import { FC, ForwardRefExoticComponent, SVGProps } from "react";
 
 import { IconProps } from "../components/Icon/Icon";
@@ -22,6 +21,7 @@ export interface HomepageMeta {
  */
 export interface Description {
   imageSrc: string;
+  srcSet?: string;
   name: string;
   description: JSX.Element;
   actions: DescriptionActionItem[];
@@ -63,7 +63,8 @@ export interface OperationItem {
   title: string;
   description: string;
   url?: string;
-  image: string | StaticImageData;
+  image: string;
+  srcSet?: string
 }
 
 /**
@@ -78,7 +79,7 @@ export interface ActivityElement {
  * Testimonial section
  */
 export interface OfficerSection {
-  imageSrc?: string | StaticImageData;
+  imageSrc?: string | { src: string };
   officers: Officers[];
 }
 
