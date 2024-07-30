@@ -35,10 +35,8 @@ jobs:
         git commit -m "Add or update resized images in /public/images"
         git push
 
-    - name: Push to staging
+    - name: Pull and Push to staging
       run: |
+        git pull origin staging --rebase
         git push origin HEAD:staging
 
-    - name: Push to main
-      run: |
-        git push origin HEAD:main
