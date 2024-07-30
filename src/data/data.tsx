@@ -231,7 +231,7 @@ export const activites: ActivityElement[] = [
     title: "Industrie",
     content: (
       <p>
-        Réputé pour ses infrastructures, le régiment organise chaque guerre un
+        Réputé pour ses infrastructures, le régiment pour organise chaque guerre un
         tissu industriel et ferroviaire afin de produire tout le nécessaire aux
         combats : pétrole, béton, super-chars, canons lourds ferroviaires,
         sous-marins, cuirassés, etc…
