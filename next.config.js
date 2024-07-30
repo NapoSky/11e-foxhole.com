@@ -36,7 +36,7 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: false,
   images: {
-    domains: ['11e-foxhole.com'],
+    deviceSizes: [320, 640, 1280, 1920],
     unoptimized: true,
   },
   exportPathMap: async function (defaultPathMap, { dev, dir, outDir }) {
