@@ -24,6 +24,7 @@
     "cssnano": "^7.0.4",
     "fs-extra": "^11.2.0",
     "next": "^14.2.5",
+    "next-images": "^1.8.5",
     "next-sitemap": "^4.2.3",
     "postcss": "^8.4.40",
     "postcss-preset-env": "^9.6.0",
@@ -41,8 +42,8 @@
     "strip-ansi-cjs": "^8.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.17.0",
-    "@typescript-eslint/parser": "^7.17.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^9.8.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.35.0",
