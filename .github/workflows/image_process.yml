@@ -16,7 +16,7 @@ jobs:
       portfolio-changed: ${{ steps.filter.outputs.portfolio }}
       manual-trigger: ${{ github.event_name == 'workflow_dispatch' }}
       
-      steps:
+    steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
