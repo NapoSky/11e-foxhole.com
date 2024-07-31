@@ -13,7 +13,7 @@
 
 This repository contains 11e-foxhole.com website which is maintained by the 11th Brigade (Warden) from Foxhole PC game.
 
-**Our official discord: [Discord](https://discord.gg/11e)**
+**Our official discord: [Discord](https://discord.com/invite/11e)**
 
 ## Howto
 ### 1. Install dependencies and run

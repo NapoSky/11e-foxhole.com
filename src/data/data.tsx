@@ -105,7 +105,7 @@ export const descriptionData: Description = {
   ),
   actions: [
     {
-      href: "https://discord.gg/11e",
+      href: "https://discord.com/invite/11e",
       text: "Rejoindre le discord",
       primary: true,
     },
@@ -130,7 +130,7 @@ export const footerData: Footer = {
       primary: true,
     },
     {
-      href: "https://discord.gg/11e",
+      href: "https://discord.com/invite/11e",
       text: "Rejoindre le discord",
       primary: true,
     },
@@ -287,7 +287,7 @@ export const officer: OfficerSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  { label: "Discord", Icon: DiscordIcon, href: "https://discord.gg/11e" },
+  { label: "Discord", Icon: DiscordIcon, href: "https://discord.com/invite/11e" },
   {
     label: "Youtube",
     Icon: YoutubeIcon,
