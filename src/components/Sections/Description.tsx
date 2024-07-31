@@ -20,7 +20,7 @@ const Description: FC = memo(() => {
           fill={true}
           src={imageSrc}
           srcSet={srcSet}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1920px) 75vw, 100vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1440px) 75vw, (max-width: 1920px) 75vw, (max-width: 3840px) 100vw, 100vw"
         />
         <div className="z-10 w-full px-4 lg:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm lg:px-0 mx-auto flex flex-col justify-center h-full mt-8 md:mt-16 sm:mt-8 mb-8 sm:mb-8 pb-16 md:pb-16">
           <div className="flex flex-col items-center gap-y-1 rounded-xl bg-gray-800/40 p-4 lg:p-6 text-center shadow-lg backdrop-blur-sm">

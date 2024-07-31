@@ -17,7 +17,7 @@ export const getBaseNameFromImport = (imagePath: string): string => {
   return filename ? filename.replace(/-\d+\.webp$/, '') : '';
 };
 
-export const sizes = [320, 640, 1280, 1920];
+export const sizes = [320, 640, 1280, 1920, 2560];
 
 const generateSrcSet = (baseName: string, sizes: number[]): string => {
   return sizes.map(size => `/images/${baseName}-${size}.webp ${size}w`).join(", ");
@@ -39,7 +39,7 @@ const Activities: FC = memo(() => {
             className="object-contain opacity-20"
             src={backgroundImage}
             srcSet={getSrcSetFromImage(backgroundImage)}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1920px) 75vw, 100vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1440px) 75vw, (max-width: 1920px) 75vw, (max-width: 3840px) 100vw, 100vw"
           />
         </div>
         <div className="z-10 flex flex-col divide-y-2 divide-neutral-300">
