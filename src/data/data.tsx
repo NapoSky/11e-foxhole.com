@@ -30,7 +30,7 @@ export const getBaseNameFromImport = (imagePath: string): string => {
   return filename ? filename.replace(/-\d+\.webp$/, '') : '';
 };
 
-export const sizes = [320, 640, 1280, 1920];
+export const sizes = [320, 640, 1280, 1920, 2560];
 
 const generateSrcSet = (baseName: string, sizes: number[]): string => {
   return sizes.map(size => `/images/${baseName}-${size}.webp ${size}w`).join(", ");

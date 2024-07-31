@@ -13,7 +13,7 @@ const nextConfig = {
         filename: (pathData) => {
           const name = path.basename(pathData.filename, path.extname(pathData.filename));
           const extension = path.extname(pathData.filename);
-          const sizes = [320, 640, 1280, 1920];
+          const sizes = [320, 640, 1280, 1920, 2560];
           const size = sizes.find(s => name.endsWith(`-${s}`)) || sizes[sizes.length - 1]; // Default to largest size if not found
           const baseName = name.replace(/-\d+$/, ''); // Remove size from name if present
           return `${baseName}-${size}${extension}`;
@@ -51,7 +51,7 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: false,
   images: {
-    deviceSizes: [320, 640, 1280, 1920],
+    deviceSizes: [320, 640, 1280, 1920, 2560],
     unoptimized: true,
   },
   exportPathMap: async function (defaultPathMap, { dev, dir, outDir }) {

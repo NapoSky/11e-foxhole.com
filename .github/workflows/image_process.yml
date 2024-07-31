@@ -54,26 +54,18 @@ jobs:
             cwebp -q 82 "$file" -resize 320 0 -o "public/images/${filename%.*}-320.webp"
             cwebp -q 82 "$file" -resize 640 0 -o "public/images/${filename%.*}-640.webp"
             cwebp -q 82 "$file" -resize 1280 0 -o "public/images/${filename%.*}-1280.webp"
-            cwebp -q 82 "$file" -resize 1920 0 -o "public/images/${filename%.*}-1920.webp"
+            cwebp -q 85 "$file" -resize 1920 0 -o "public/images/${filename%.*}-1920.webp"
+            cwebp -q 90 "$file" -resize 2560 0 -o "public/images/${filename%.*}-2560.webp"
           done
 
-      - name: Check for changes
-        id: changes_check
-        run: echo "CHANGES=$(git status --porcelain | wc -l > 0)" >> $GITHUB_ENV
-
       - name: Commit and push changes
-        if: env.changes == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add public/images/
           git commit -m "images(Github Actions) add or update resized images in /public/images"
-          if [[ ${{ github.event_name }} == 'pull_request' ]]; then
-            git pull --rebase origin ${{ github.head_ref }}
-            git push origin HEAD:${{ github.head_ref }}
-          else
-            git pull --rebase origin staging
-            git push origin HEAD:staging
+          git pull --ff-only origin ${{ github.head_ref }}
+          git push origin HEAD:${{ github.head_ref }}
 
   process-portfolio-images:
     runs-on: ubuntu-latest
@@ -98,19 +90,15 @@ jobs:
             cwebp -q 70 "$file" -resize 320 0 -o "public/images/${filename%.*}-320.webp"
             cwebp -q 70 "$file" -resize 640 0 -o "public/images/${filename%.*}-640.webp"
             cwebp -q 70 "$file" -resize 1280 0 -o "public/images/${filename%.*}-1280.webp"
-            cwebp -q 70 "$file" -resize 1920 0 -o "public/images/${filename%.*}-1920.webp"
+            cwebp -q 75 "$file" -resize 1920 0 -o "public/images/${filename%.*}-1920.webp"
+            cwebp -q 80 "$file" -resize 2560 0 -o "public/images/${filename%.*}-2560.webp"
           done
 
-      - name: Check for changes
-        id: changes_check
-        run: echo "CHANGES=$(git status --porcelain | wc -l > 0)" >> $GITHUB_ENV
-
       - name: Commit and push changes
-        if: env.changes == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add public/images/
+          git add public/images/ || echo "Nothing to commit" && exit 0
           git commit -m "images(Github Actions) add or update resized images in /public/images/portfolio"
           if [[ ${{ github.event_name }} == 'pull_request' ]]; then
             git pull --rebase origin ${{ github.head_ref }}
