@@ -63,7 +63,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add public/images/
-          git commit -m "images(Github Actions) add or update resized images in /public/images"
+          git commit -m "images(Github Actions) add or update resized images from /src/images" || echo "Nothing to commit"
           git pull --ff-only origin ${{ github.head_ref }}
           git push origin HEAD:${{ github.head_ref }}
 
@@ -98,11 +98,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add public/images/ || echo "Nothing to commit" && exit 0
-          git commit -m "images(Github Actions) add or update resized images in /public/images/portfolio"
-          if [[ ${{ github.event_name }} == 'pull_request' ]]; then
-            git pull --rebase origin ${{ github.head_ref }}
-            git push origin HEAD:${{ github.head_ref }}
-          else
-            git pull --rebase origin staging
-            git push origin HEAD:staging
+          git add public/images/
+          git commit -m "images(Github Actions) add or update resized images from /src/images/portfolio" || echo "Nothing to commit"
+          git pull --ff-only origin ${{ github.head_ref }}
+          git push origin HEAD:${{ github.head_ref }}
