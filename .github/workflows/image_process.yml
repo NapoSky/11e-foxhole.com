@@ -54,7 +54,8 @@ jobs:
             cwebp -q 82 "$file" -resize 320 0 -o "public/images/${filename%.*}-320.webp"
             cwebp -q 82 "$file" -resize 640 0 -o "public/images/${filename%.*}-640.webp"
             cwebp -q 82 "$file" -resize 1280 0 -o "public/images/${filename%.*}-1280.webp"
-            cwebp -q 82 "$file" -resize 1920 0 -o "public/images/${filename%.*}-1920.webp"
+            cwebp -q 85 "$file" -resize 1920 0 -o "public/images/${filename%.*}-1920.webp"
+            cwebp -q 90 "$file" -resize 2560 0 -o "public/images/${filename%.*}-2560.webp"
           done
 
       - name: Check for changes
@@ -98,7 +99,8 @@ jobs:
             cwebp -q 70 "$file" -resize 320 0 -o "public/images/${filename%.*}-320.webp"
             cwebp -q 70 "$file" -resize 640 0 -o "public/images/${filename%.*}-640.webp"
             cwebp -q 70 "$file" -resize 1280 0 -o "public/images/${filename%.*}-1280.webp"
-            cwebp -q 70 "$file" -resize 1920 0 -o "public/images/${filename%.*}-1920.webp"
+            cwebp -q 75 "$file" -resize 1920 0 -o "public/images/${filename%.*}-1920.webp"
+            cwebp -q 80 "$file" -resize 2560 0 -o "public/images/${filename%.*}-2560.webp"
           done
 
       - name: Check for changes

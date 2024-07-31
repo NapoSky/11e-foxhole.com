@@ -39,7 +39,7 @@ const Operations: FC = memo(() => {
                     placeholder="blur"
                     src={image}
                     srcSet={srcSet}
-                    sizes="(max-width: 768px) 100vw, 50vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1920px) 33vw, (max-width: 3840px) 25vw, 25vw"
                     quality={75}
                   />
                   <ItemOverlay item={item} />
