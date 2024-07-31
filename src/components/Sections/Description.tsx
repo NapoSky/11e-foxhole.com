@@ -16,21 +16,21 @@ const Description: FC = memo(() => {
           alt={`${name}-image`}
           className="absolute h-full w-full object-cover"
           placeholder="blur"
-          priority="true" // Improve LCP by loading the image as soon as possible
+          priority="true"
           fill={true}
           src={imageSrc}
           srcSet={srcSet}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1920px) 75vw, 100vw" // Responsive images
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1920px) 75vw, 100vw"
         />
-        {/* Adjusted container for better responsiveness */}
-        <div className="z-10 w-full px-4 lg:max-w-screen-lg lg:px-0 mx-auto flex flex-col justify-center h-full">
-          <div className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-4 lg:p-6 text-center shadow-lg backdrop-blur-sm">
-            <h1 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl">
+        <div className="z-10 w-full px-4 lg:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm lg:px-0 mx-auto flex flex-col justify-center h-full mt-8 md:mt-16 sm:mt-8 mb-8 sm:mb-8 pb-16 md:pb-16">
+          <div className="flex flex-col items-center gap-y-1 rounded-xl bg-gray-800/40 p-4 lg:p-6 text-center shadow-lg backdrop-blur-sm">
+            <h1 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
               {name}
             </h1>
-            {description}
-            {/* Adjusted action buttons container for better responsiveness */}
-            <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 px-2 sm:gap-x-4 sm:px-0">
+            <div className="text-base sm:text-lg md:text-xl text-stone-200 prose prose-stone max-w-4xl space-y-2 mt-4">
+              {description}
+            </div>
+            <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 px-2 sm:gap-x-4 sm:px-0 mt-4 mb-1 md:mb-2">
               {actions.map(({ href, text, primary, Icon }) => (
                 <a
                   className={classNames(
@@ -49,7 +49,7 @@ const Description: FC = memo(() => {
             </div>
           </div>
         </div>
-        <div className="absolute inset-x-0 bottom-3 flex justify-center">
+        <div className="absolute inset-x-0 bottom-3 md:bottom-12 sm:bottom-8 flex justify-center">
           <a
             aria-label="Aller au pied de page"
             className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
