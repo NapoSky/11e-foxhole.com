@@ -45,9 +45,9 @@ const getSrcSetFromImage = (image: string): string => {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: "11e Foxhole - A Warden Foxhole Brigade Community (FR/EN/CN)",
+  title: "11e Brigade Foxhole - A Warden Clan Community (FR/EN/CN)",
   description:
-    "Rejoignez le 11e Foxhole, un régiment Warden de Foxhole. Notre clan francophone recrute des joueurs pour des opérations stratégiques. Participez à des batailles épiques avec notre communauté française, anglaise et chinoise.",
+    "Rejoignez le 11e régiment Warden de Foxhole ! Notre clan francophone recrute pour des opérations stratégiques. Participez à des batailles épiques.",
 };
 
 /**
