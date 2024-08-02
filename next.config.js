@@ -65,10 +65,10 @@ const nextConfig = {
         const headersDest = path.join(outDir, '_headers');
         await fs.copy(headersSrc, headersDest);
 
-        // Copy _redirects file
-        const redirectsSrc = path.join(dir, '_redirects');
-        const redirectsDest = path.join(outDir, '_redirects');
-        await fs.copy(redirectsSrc, redirectsDest);
+        // Copy _redirects file if needed
+        //const redirectsSrc = path.join(dir, '_redirects');
+        //const redirectsDest = path.join(outDir, '_redirects');
+        //await fs.copy(redirectsSrc, redirectsDest);
       } catch (error) {
         console.error('Error copying files:', error);
       }
