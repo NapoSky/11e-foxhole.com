@@ -66,8 +66,8 @@ jobs:
           git config --local user.name "GitHub Action"
           git add public/images/
           git commit -m "images(Github Actions) add or update resized images from /src/images" || echo "Nothing to commit"
-          git pull --ff-only origin ${{ github.head_ref }}
-          git push origin HEAD:${{ github.head_ref }}
+          git pull --ff-only origin ${{ github.ref_name }}
+          git push origin HEAD:${{ github.ref_name }}
 
   process-portfolio-images:
     runs-on: ubuntu-latest
@@ -102,5 +102,5 @@ jobs:
           git config --local user.name "GitHub Action"
           git add public/images/
           git commit -m "images(Github Actions) add or update resized images from /src/images/portfolio" || echo "Nothing to commit"
-          git pull --ff-only origin ${{ github.head_ref }}
-          git push origin HEAD:${{ github.head_ref }}
+          git pull --ff-only origin ${{ github.ref_name }}
+          git push origin HEAD:${{ github.ref_name }}
