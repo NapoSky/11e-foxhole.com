@@ -60,11 +60,17 @@ const nextConfig = {
   exportPathMap: async function (defaultPathMap, { dev, dir, outDir }) {
     if (!dev) {
       try {
-        const redirectsSrc = path.join(dir, '_headers');
-        const redirectsDest = path.join(outDir, '_headers');
+        // Copy _headers file
+        const headersSrc = path.join(dir, '_headers');
+        const headersDest = path.join(outDir, '_headers');
+        await fs.copy(headersSrc, headersDest);
+
+        // Copy _redirects file
+        const redirectsSrc = path.join(dir, '_redirects');
+        const redirectsDest = path.join(outDir, '_redirects');
         await fs.copy(redirectsSrc, redirectsDest);
       } catch (error) {
-        console.error('Error copying _headers file:', error);
+        console.error('Error copying files:', error);
       }
     }
 
