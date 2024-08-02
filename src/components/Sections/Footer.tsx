@@ -26,7 +26,7 @@ const Footer: FC = memo(() => (
       </div>
       <a
         className="flex items-center gap-x-1 text-neutral-400 rounded-md p-2 ring-yellow focus:outline-none focus:ring-2"
-        href="https://11e-foxhole.com"
+        href="https://11e-foxhole.com/"
       >
         © Copyright {currentYear} 11e-Foxhole.com
       </a>

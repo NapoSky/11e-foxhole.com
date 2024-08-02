@@ -16,7 +16,7 @@ const Home: FC = memo(() => {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "url": "https://11e-foxhole.com",
+    "url": "https://11e-foxhole.com/",
     "name": "11e-Foxhole",
     "description": description,
     "publisher": {
