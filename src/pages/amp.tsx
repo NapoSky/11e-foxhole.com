@@ -42,10 +42,6 @@ const AmpHome: FC = () => {
                 <title>{title}</title>
                 <meta name="description" content={description} />
                 <link rel="canonical" href="https://11e-foxhole.com/" />
-                <style amp-custom>{`
-                    body { font-family: Arial, sans-serif; }
-                    /* Add your custom styles here */
-                `}</style>
             </Head>
             <header>
                 <h1>{title}</h1>
