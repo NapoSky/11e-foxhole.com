@@ -8,8 +8,5 @@ Disallow: /404
 Disallow: /500
 Disallow: /private/
 
-# Host
-Host: 11e-foxhole.com
-
 # Sitemaps
 Sitemap: https://11e-foxhole.com/sitemap.xml
