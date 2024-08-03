@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { homePageMeta } from '../data/data';
 
 const descriptionContent = `
-    <div>
         <h2>Bonjour à toi soldat !</h2>
         <p>Tu hésites à nous rejoindre ? Laisse-nous te convaincre…</p>
         <h3>Notre Histoire et Expertise</h3>
@@ -30,7 +29,6 @@ const descriptionContent = `
             N’hésite plus, rejoins le <strong>11ème Régiment de Callahan</strong> et contribue à
             notre légende ! Nous <strong>recrutons</strong> en permanence de nouveaux membres pour renforcer notre clan.
         </p>
-    </div>
 `;
 
 const AmpHome: FC = () => {
@@ -46,10 +44,9 @@ const AmpHome: FC = () => {
             <header>
                 <h1>{title}</h1>
                 <h2>{description}</h2>
-                <div dangerouslySetInnerHTML={{ __html: descriptionContent }} />
             </header>
             <main>
-                {/* Add your AMP components here */}
+                {descriptionContent}
             </main>
         </div>
     );
