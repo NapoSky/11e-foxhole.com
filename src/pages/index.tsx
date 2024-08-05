@@ -36,7 +36,6 @@ const Home: FC = memo(() => {
       <Operations />
       {/* <OfficerSection /> */}
       <Footer />
-      <link rel="amphtml" href="https://11e-foxhole.com/amp" />
     </Page>
   );
 });

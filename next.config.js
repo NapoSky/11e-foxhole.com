@@ -5,9 +5,6 @@ const path = require('path');
 
 const nextConfig = {
   output: "export",
-  amp: {
-    canonicalBase: 'https://11e-foxhole.com/',
-  },
   webpack: config => {
     config.module.rules.push({
       test: /\.(png|jpe?g|webp)$/,
