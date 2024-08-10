@@ -1,23 +1,46 @@
 import { FC } from 'react';
 import { useRouter } from 'next/router';
-import i18next from 'i18next';
+import ReactCountryFlag from 'react-country-flag';
 
 const LanguageSwitcher: FC = () => {
   const router = useRouter();
 
   const changeLanguage = (lng: string) => {
-    i18next.changeLanguage(lng); // Change la langue via i18next
-    const path = router.asPath.split('?')[0]; // Récupère l'URL actuelle
-
-    // Met à jour l'URL pour inclure le paramètre de langue
-    router.push(`${path}?lng=${lng}`, undefined, { shallow: true });
+    router.push(`/${lng}`);
   };
 
   return (
-    <div>
-      <button onClick={() => changeLanguage('fr')}>Français</button>
-      <button onClick={() => changeLanguage('en')}>English</button>
-      <button onClick={() => changeLanguage('cn')}>中文</button>
+    <div className="flex space-x-2">
+      <button onClick={() => changeLanguage('fr')} aria-label="Français">
+        <ReactCountryFlag
+          countryCode="FR"
+          svg
+          style={{
+            width: '2em',
+            height: '2em',
+          }}
+        />
+      </button>
+      <button onClick={() => changeLanguage('en')} aria-label="English">
+        <ReactCountryFlag
+          countryCode="GB"
+          svg
+          style={{
+            width: '2em',
+            height: '2em',
+          }}
+        />
+      </button>
+      <button onClick={() => changeLanguage('cn')} aria-label="中文">
+        <ReactCountryFlag
+          countryCode="CN"
+          svg
+          style={{
+            width: '2em',
+            height: '2em',
+          }}
+        />
+      </button>
     </div>
   );
 };

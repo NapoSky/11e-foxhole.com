@@ -4,22 +4,16 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import i18next from 'i18next';
 import GoogleAnalytics from '../components/GoogleAnalytics';
-import '../i18n'; // Importation de la configuration i18n avec le détecteur de langue
+import '../i18n'; // Importation de la configuration i18n
 
 function MyApp({ Component, pageProps }: AppProps) {
-
   const router = useRouter();
 
   useEffect(() => {
     const { locale } = router;
 
     if (locale) {
-      i18next.changeLanguage(locale);
-    } else {
-      const queryLng = new URLSearchParams(window.location.search).get('lng');
-      if (queryLng) {
-        i18next.changeLanguage(queryLng);
-      }
+      i18next.changeLanguage(locale); // Change la langue basée sur la locale
     }
   }, [router.locale]);
 

@@ -30,7 +30,6 @@ const getSrcSetFromImage = (image: string): string => {
 };
 
 const Activities: FC = memo(() => {
-  // Obtenez les données traduites dynamiques
   const { t } = useTranslation();
   const activites = getActivities(t);
   const SectionId = getSectionId(t);
@@ -38,13 +37,13 @@ const Activities: FC = memo(() => {
   return (
     <Section className="bg-neutral-100" sectionId={SectionId.Activities}>
       <div className="relative flex flex-col">
-        <div className="absolute h-full w-full flex items-center">
+        <div className="absolute h-full w-full flex items-center justify-center overflow-hidden">
           <ResponsiveImage
             alt={`activities-background-image`}
-            className="object-contain opacity-20"
+            className="object-contain max-w-full max-h-full opacity-20"
             src={backgroundImage}
             srcSet={getSrcSetFromImage(backgroundImage)}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1440px) 75vw, (max-width: 1920px) 75vw, (max-width: 3840px) 100vw, 100vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1440px) 50vw, (max-width: 1920px) 50vw, 100vw"
           />
         </div>
         <div className="z-10 flex flex-col divide-y-2 divide-neutral-300">
@@ -58,6 +57,9 @@ const Activities: FC = memo(() => {
     </Section>
   );
 });
+
+
+
 
 Activities.displayName = "Resume";
 export default Activities;
