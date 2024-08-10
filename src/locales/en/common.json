@@ -1,0 +1,96 @@
+{
+  "homepage": {
+    "meta": {
+      "title": "11th Brigade Foxhole - A Warden Clan Community (FR/EN/CN)",
+      "description": "Join the 11th Warden Regiment of Foxhole! Our French-speaking clan is recruiting for strategic operations. Participate in epic battles."
+    },
+    "descriptionData": {
+      "name": "11th Foreign Legion",
+      "description": {
+        "greeting": "Welcome to the 11th Foreign Legion",
+        "hesitate": "Don't hesitate to join our community and participate in our operations.",
+        "history": "Our History",
+        "historyContent": "The 11th Foreign Legion was founded to unite the bravest Wardens.",
+        "community": "Our Community",
+        "communityContent": "We are a close-knit community dedicated to victory.",
+        "join": "Join Us",
+        "joinContent": "Join our ranks to experience epic battles.",
+        "recruiting": "We are actively recruiting for our upcoming campaigns."
+      }
+    },
+    "operationItems": {
+      "formation": {
+        "title": "Training",
+        "description": "Training the troops on the use of all the military equipment of the Warden faction, from the differences between various rifles to the use of super weapons like railguns or ballistic missiles. Join our Foxhole regiment to benefit from these specialized trainings."
+      },
+      "artillery": {
+        "title": "Artillery",
+        "description": "The industrial power of the 11eFL allows the use of the largest caliber guns whenever the opportunity arises to bring down the most fortified enemy strongholds. We specialize in heavy artillery for decisive and strategic strikes."
+      },
+      "infiltration": {
+        "title": "Infiltration",
+        "description": "Infiltration of enemy lines with amphibious vehicles to plant highly explosive charges in enemy strategic complexes. These critical missions often unlock stalemates. We excel in these high-precision operations."
+      },
+      "ballisticMissiles": {
+        "title": "Ballistic Missile Launches",
+        "description": "When 300 mm cannons are no longer sufficient, only atomic destruction can turn the tide of war. Our mastery of ballistic missile launches enables large-scale strategic strikes."
+      },
+      "armoredColumn": {
+        "title": "Armored Column",
+        "description": "From reconnaissance vehicles to heavy tanks, the 11eFL is often distinguished on the front lines by the deployment of armored forces. Having become a reference for the use of super heavy tanks, our regiment offers training and joint operations to break through enemy lines. Join us to participate in these emblematic missions."
+      },
+      "navalBattles": {
+        "title": "Naval Battles",
+        "description": "On the sea or below the surface, the 11eFL conducts naval operations to protect the Empire's waters, hunt down colonial fleets, or escort logistical ships. We stand out with our naval expertise and efficient maritime operations."
+      },
+      "infantry": {
+        "title": "Infantry",
+        "description": "An organized infantry squad can hold the front while the artillery takes down the objective. Our regiment trains robust infantry units for decisive actions on the ground. Become an elite soldier in Foxhole by joining our regiment."
+      }
+    },
+    "activities": {
+      "combat": {
+        "title": "Combat",
+        "content": "The regiment fights on land, in the depths, or on the oceans: tank battles, battleship duels, bayonet fights, heroic grenade charges, submarine infiltrations, artillery bombardments, and discreet commando operations. These actions are essential for victory in Foxhole. Join our regiment to experience intense combat scenarios."
+      },
+      "logistics": {
+        "title": "Logistics",
+        "content": "By train, truck, or ship, the regiment delivers tens of thousands of resources harvested and produced daily, sent to the front for the Warden's victory. Logistics is the backbone of our regiment, ensuring uninterrupted support to our forces and allies on the field."
+      },
+      "construction": {
+        "title": "Construction",
+        "content": "The Warden's shield, the quality of the fortresses built by the regiment is unanimously recognized. Each war, our sappers build on the front lines, and our architects create strongholds to stop the colonial onslaught. Join our clan to participate in the construction of impregnable and strategic defenses."
+      },
+      "industry": {
+        "title": "Industry",
+        "content": "Renowned for its infrastructures, the regiment organizes for each war an industrial and railway network to produce everything necessary for combat: oil, concrete, super tanks, heavy railway guns, submarines, battleships, etc. Our regiment is distinguished by its industrial efficiency and ability to support the war effort."
+      },
+      "community": {
+        "title": "Community",
+        "content": "Mainly focused on Foxhole, the 11eFL has a secret HQ for meetups over a beer and a multi-gaming Discord to relax between military campaigns. Our regiment is a welcoming and tight-knit community where every member finds their place and role."
+      }
+    },
+    "footer": {
+      "youtube": "YouTube Channel",
+      "discord": "Join Discord"
+    },
+    "officers": {
+      "officer1": {
+        "name": "John Doe",
+        "text": "Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients."
+      },
+      "officer2": {
+        "name": "Jane Doe",
+        "text": "Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc)."
+      },
+      "officer3": {
+        "name": "Someone else",
+        "text": "Add several of these, and keep them as fresh as possible, but be sure to focus on quality testimonials with strong highlights of your skills/work ethic."
+      }
+    },
+    "social": {
+      "discord": "Discord",
+      "youtube": "YouTube"
+    }
+  }
+}

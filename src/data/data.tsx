@@ -18,6 +18,7 @@ import {
   ActivityElement,
   Social,
 } from "./dataDef";
+import i18next from 'i18next';
 
 /**
  * Code required to factorize srcSet
@@ -71,37 +72,19 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 export const descriptionData: Description = {
   imageSrc: headerImage,
   srcSet: getSrcSetFromImage(headerImage),
-  name: `11ème Régiment de Callahan`,
+  name: i18next.t('homepage.descriptionData.name'),
   description: (
     <div className="prose-sm text-stone-200 sm:prose-base lg:prose-lg space-y-2 max-w-4xl mx-auto">
-      <h2 className="text-stone-50 text-lg">Bonjour à toi soldat !</h2>
-      <p>Tu hésites à nous rejoindre ? Laisse-nous te convaincre…</p>
-      <h3 className="text-stone-50 text-base">Notre Histoire et Expertise</h3>
-      <p>
-        Fort de nos 7 ans d'histoire dans <strong className="text-stone-100">Foxhole</strong>, le 
-        <strong className="text-stone-100"> 11ème Régiment de Callahan</strong> [11eRC] est reconnu pour son
-        expertise et son engagement au sein de la faction warden. Nous offrons
-        un gameplay varié : Logistique, Infanterie, Artillerie, Blindés, Naval,
-        Fortifications et Complexes industriels...
-      </p>
-      <h3 className="text-stone-50 text-base">Une Communauté Multilingue</h3>
-      <p>
-        Tournée vers la communauté, le <strong className="text-stone-100">11e</strong> dispose d’une branche Anglophone [11eFL], 
-        d’une branche sinophone [11eCN] et d’une branche francophone [11eRC] permettant de jouer sur plusieurs fuseaux horaires. Nous comptons une solide base de joueurs québécois et français, créant
-        ainsi un environnement accueillant pour tous.
-      </p>
-      <h3 className="text-stone-50 text-base">Rejoignez Notre Clan</h3>
-      <p>
-        Nous offrons une expérience de jeu plaisante et enrichissante, le
-        régiment accueille les nouveaux joueurs comme les anciens, sans
-        conditions de skill ou de temps de jeu. Rejoins notre <strong className="text-stone-100">clan</strong> et fais partie d'une communauté soudée et passionnée.
-      </p>
-      <p>
-        N’hésite plus, rejoins le <strong className="text-stone-100">11ème Régiment de Callahan</strong> et contribue à
-        notre légende ! Nous <strong className="text-stone-100">recrutons</strong> en permanence de nouveaux membres pour renforcer notre clan.
-      </p>
+      <h2 className="text-stone-50 text-lg">{i18next.t('homepage.descriptionData.description.greeting')}</h2>
+      <p>{i18next.t('homepage.descriptionData.description.hesitate')}</p>
+      <h3 className="text-stone-50 text-base">{i18next.t('homepage.descriptionData.description.history')}</h3>
+      <p>{i18next.t('homepage.descriptionData.description.historyContent')}</p>
+      <h3 className="text-stone-50 text-base">{i18next.t('homepage.descriptionData.description.community')}</h3>
+      <p>{i18next.t('homepage.descriptionData.description.communityContent')}</p>
+      <h3 className="text-stone-50 text-base">{i18next.t('homepage.descriptionData.description.join')}</h3>
+      <p>{i18next.t('homepage.descriptionData.description.joinContent')}</p>
+      <p>{i18next.t('homepage.descriptionData.description.recruiting')}</p>
     </div>
-
   ),
   actions: [
     {
