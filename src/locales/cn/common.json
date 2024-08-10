@@ -7,18 +7,23 @@
     "descriptionData": {
       "name": "第11中国军团",
       "description": {
-        "greeting": "欢迎来到第11中国军团",
-        "hesitate": "不要犹豫，加入我们的社区，参与我们的行动。",
-        "history": "我们的历史",
-        "historyContent": "第11中国军团成立的目的是团结最勇敢的守望者。",
-        "community": "我们的社区",
-        "communityContent": "我们是一个紧密团结的社区，致力于胜利。",
-        "join": "加入我们",
-        "joinContent": "加入我们的行列，体验史诗般的战斗。",
-        "recruiting": "我们正在积极招募，参加我们即将到来的战役。"
+        "greeting": "你好，士兵！",
+        "hesitate": "你还在犹豫是否加入我们？让我们来说服你…",
+        "history": "我们的历史与专长",
+        "historyContent": "在Foxhole有7年的历史，第11中国军团 [11eCN] 因其在守卫者阵营中的专业知识和承诺而备受认可。我们提供多种玩法：后勤、步兵、炮兵、装甲、海军、防御工事和工业综合体...",
+        "community": "一个多语言社区",
+        "communityContent": "我们专注于社区建设，第11军团有一个英语分支 [11eFL]，一个中文分支 [11eCN]，以及一个法语分支 [11eRC]，使得在多个时区内进行游戏成为可能。我们有一支由魁北克和法国玩家组成的强大队伍，为所有人创造了一个欢迎的环境。",
+        "join": "加入我们的军团",
+        "joinContent": "我们提供一个愉快而丰富的游戏体验，欢迎新老玩家，无需技能或游戏时间要求。加入我们的军团，成为一个团结和充满热情的社区的一部分。",
+        "recruiting": "别再犹豫，加入第11中国军团，为我们的传奇做出贡献！我们正在不断招募新成员来增强我们的军团。"
+      },
+      "actions": {
+        "joinDiscord": "加入11eCN",
+        "youtubeChannel": "加入YouTube频道"
       }
     },
-    "operationItems": {
+    "operations": {
+      "title": "主要行动",
       "formation": {
         "title": "训练",
         "description": "训练部队使用守望者派系的所有军事装备，从各种步枪的区别到超级武器如轨道炮或弹道导弹的使用。加入我们的福克斯霍尔军团，享受这些专业训练。"
@@ -31,15 +36,15 @@
         "title": "渗透",
         "description": "使用两栖车辆渗透敌方防线，将高爆炸药安置在敌方战略设施内。这些关键任务通常能够打破僵局。我们擅长这些高精度操作。"
       },
-      "ballisticMissiles": {
+      "missiles": {
         "title": "弹道导弹发射",
         "description": "当300毫米火炮不足以应对时，只有原子破坏才能扭转战争的局势。我们掌握弹道导弹发射的技术，能够进行大规模的战略打击。"
       },
-      "armoredColumn": {
+      "tank": {
         "title": "装甲纵队",
         "description": "从侦察车到重型坦克，11eCN经常在前线部署装甲部队并展现卓越。作为超级重型坦克使用的参考，我们的军团提供训练和联合行动，以突破敌方防线。加入我们，参与这些标志性任务。"
       },
-      "navalBattles": {
+      "naval": {
         "title": "海战",
         "description": "在海上或水下，11eCN执行海军作战，保护帝国的水域，猎杀殖民舰队或护送后勤船只。我们以海军专业知识和高效的海上行动脱颖而出。"
       },
@@ -91,6 +96,15 @@
     "social": {
       "discord": "Discord",
       "youtube": "YouTube"
+    },
+    "sections": {
+      "Description": "团",
+      "Operations": "行动",
+      "Activities": "活动",
+      "Skills": "技能",
+      "Stats": "统计",
+      "Officers": "军官",
+      "Footer": "页脚"
     }
   }
 }

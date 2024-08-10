@@ -1,61 +1,48 @@
 import { Transition, TransitionChild } from "@headlessui/react";
 import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
+import { useTranslation } from 'react-i18next';
 import classNames from "classnames";
 import Link from "next/link";
 import {
   FC,
   Fragment,
   memo,
-  Suspense,
   useCallback,
   useMemo,
   useState,
+  useEffect,
 } from "react";
 
-import { SectionId } from "../../data/data";
+import { getSectionId } from "../../data/data"; 
 import { useNavObserver } from "../../hooks/useNavObserver";
 
 export const headerID = "headerNav";
 
-const HeaderServer: FC = memo(() => {
-  return (
-    <Suspense
-      fallback={
-        <>
-          <MobileNav
-            currentSection={null}
-            navSections={[
-              SectionId.Description,
-              SectionId.Activities,
-              SectionId.Operations,
-            ]}
-          />
-          <DesktopNav
-            currentSection={null}
-            navSections={[
-              SectionId.Description,
-              SectionId.Activities,
-              SectionId.Operations,
-            ]}
-          />
-        </>
-      }
-    >
-      <HeaderClient />
-    </Suspense>
-  );
-});
-
 const HeaderClient: FC = () => {
-  const [currentSection, setCurrentSection] = useState<SectionId | null>(null);
+  const { t, i18n } = useTranslation(); // Ajout de i18n pour forcer le re-render
+  const sectionId = getSectionId(t);
+
+  // Utiliser useEffect pour forcer le re-rendu lors du changement de langue
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      // Forcer un re-render en changeant une clé unique ou un state
+    };
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
+  const [currentSection, setCurrentSection] = useState<keyof typeof sectionId | null>(null);
+
   const navSections = useMemo(
-    () => [SectionId.Description, SectionId.Activities, SectionId.Operations],
-    []
+    () => [sectionId.Description, sectionId.Activities, sectionId.Operations],
+    [sectionId]
   );
 
-  const intersectionHandler = useCallback((section: SectionId | null) => {
-    section && setCurrentSection(section);
-  }, []);
+  const intersectionHandler = useCallback((section: string | null) => {
+    setCurrentSection(section as keyof typeof sectionId | null);
+  }, [sectionId]);
 
   useNavObserver(
     navSections.map((section) => `#${section}`).join(","),
@@ -70,10 +57,12 @@ const HeaderClient: FC = () => {
   );
 };
 
-const DesktopNav: FC<{
-  navSections: SectionId[];
-  currentSection: SectionId | null;
-}> = ({ navSections, currentSection }) => {
+interface NavProps {
+  navSections: string[];
+  currentSection: string | null;
+}
+
+const DesktopNav: FC<NavProps> = ({ navSections, currentSection }) => {
   const baseClass =
     "-m-1.5 p-1.5 rounded-md font-bold first-letter:uppercase hover:transition-colors hover:duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 sm:hover:text-orange-500 text-neutral-100";
   const activeClass = classNames(baseClass, "text-orange-500");
@@ -98,10 +87,7 @@ const DesktopNav: FC<{
   );
 };
 
-const MobileNav: FC<{
-  navSections: SectionId[];
-  currentSection: SectionId | null;
-}> = memo(({ navSections, currentSection }) => {
+const MobileNav: FC<NavProps> = memo(({ navSections, currentSection }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleOpen = useCallback(() => {
@@ -183,5 +169,4 @@ const NavItem: FC<{
   );
 });
 
-HeaderServer.displayName = "Header";
-export default HeaderServer;
+export default HeaderClient;

@@ -2,11 +2,16 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import ResponsiveImage from "../ResponsiveImage";
 import { FC, memo } from "react";
-
-import { descriptionData, SectionId } from "../../data/data";
+import { useTranslation } from 'react-i18next';
+import { getDescriptionData, getSectionId } from "../../data/data"; // Importez les fonctions au lieu des objets
 import Section from "../Layout/Section";
 
 const Description: FC = memo(() => {
+  // Obtenez les données traduites dynamiquement
+  const { t } = useTranslation();
+  const descriptionData = getDescriptionData(t);
+  const SectionId = getSectionId(t);
+
   const { imageSrc, srcSet, name, description, actions } = descriptionData;
 
   return (

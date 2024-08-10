@@ -23,7 +23,7 @@ i18n
     },
     lng: 'fr', // Langue par défaut au chargement
     fallbackLng: 'fr', // Langue de secours
-    debug: true, // Pour voir les logs de détection en mode développement
+    debug: false, // Pour voir les logs de détection en mode développement
     detection: {
       // Configuration du détecteur (uniquement en mode client)
       order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag'],

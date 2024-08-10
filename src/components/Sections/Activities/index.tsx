@@ -1,10 +1,11 @@
 import { FC, memo } from "react";
 import ResponsiveImage from "../../ResponsiveImage";
-import { activites, SectionId } from "../../../data/data";
+import { getActivities, getSectionId } from "../../../data/data"; // Importez les fonctions au lieu des objets
 import Section from "../../Layout/Section";
 import ResumeSection from "./ResumeSection";
 import ActivityItem from "./ActivityItem";
 import backgroundImage from "../../../images/activities-background.webp";
+import { useTranslation } from 'react-i18next';
 
 /**
  * Code required to factorize srcSet
@@ -28,8 +29,12 @@ const getSrcSetFromImage = (image: string): string => {
   return generateSrcSet(baseName, sizes);
 };
 
-
 const Activities: FC = memo(() => {
+  // Obtenez les données traduites dynamiques
+  const { t } = useTranslation();
+  const activites = getActivities(t);
+  const SectionId = getSectionId(t);
+
   return (
     <Section className="bg-neutral-100" sectionId={SectionId.Activities}>
       <div className="relative flex flex-col">

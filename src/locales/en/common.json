@@ -7,18 +7,23 @@
     "descriptionData": {
       "name": "11th Foreign Legion",
       "description": {
-        "greeting": "Welcome to the 11th Foreign Legion",
-        "hesitate": "Don't hesitate to join our community and participate in our operations.",
-        "history": "Our History",
-        "historyContent": "The 11th Foreign Legion was founded to unite the bravest Wardens.",
-        "community": "Our Community",
-        "communityContent": "We are a close-knit community dedicated to victory.",
-        "join": "Join Us",
-        "joinContent": "Join our ranks to experience epic battles.",
-        "recruiting": "We are actively recruiting for our upcoming campaigns."
+        "greeting": "Hello soldier!",
+        "hesitate": "Are you hesitating to join us? Let us convince you...",
+        "history": "Our History and Expertise",
+        "historyContent": "With 7 years of history in Foxhole, the 11th Foreign Legion [11eFL] is recognized for its expertise and commitment within the Warden faction. We offer a variety of gameplay: Logistics, Infantry, Artillery, Armored, Naval, Fortifications, and Industrial Complexes...",
+        "community": "A Multilingual Community",
+        "communityContent": "Focused on the community, the 11e has an English-speaking branch [11eFL], a Chinese-speaking branch [11eCN], and a French-speaking branch [11eRC], allowing play across multiple time zones. We have a strong base of players from Europe and North America, creating a welcoming environment for all.",
+        "join": "Join Our Clan",
+        "joinContent": "We offer a pleasant and enriching gaming experience, welcoming new and experienced players alike, with no skill or time requirements. Join our clan and be part of a close-knit and passionate community.",
+        "recruiting": "Don't hesitate, join the 11th Foreign Legion and contribute to our legend! We are constantly recruiting new members to strengthen our clan."
+      },
+      "actions": {
+        "joinDiscord": "Join the 11eFL",
+        "youtubeChannel": "Join the YouTube Channel"
       }
     },
-    "operationItems": {
+    "operations": {
+      "title": "Major Operations",
       "formation": {
         "title": "Training",
         "description": "Training the troops on the use of all the military equipment of the Warden faction, from the differences between various rifles to the use of super weapons like railguns or ballistic missiles. Join our Foxhole regiment to benefit from these specialized trainings."
@@ -31,15 +36,15 @@
         "title": "Infiltration",
         "description": "Infiltration of enemy lines with amphibious vehicles to plant highly explosive charges in enemy strategic complexes. These critical missions often unlock stalemates. We excel in these high-precision operations."
       },
-      "ballisticMissiles": {
+      "missiles": {
         "title": "Ballistic Missile Launches",
         "description": "When 300 mm cannons are no longer sufficient, only atomic destruction can turn the tide of war. Our mastery of ballistic missile launches enables large-scale strategic strikes."
       },
-      "armoredColumn": {
+      "tank": {
         "title": "Armored Column",
         "description": "From reconnaissance vehicles to heavy tanks, the 11eFL is often distinguished on the front lines by the deployment of armored forces. Having become a reference for the use of super heavy tanks, our regiment offers training and joint operations to break through enemy lines. Join us to participate in these emblematic missions."
       },
-      "navalBattles": {
+      "naval": {
         "title": "Naval Battles",
         "description": "On the sea or below the surface, the 11eFL conducts naval operations to protect the Empire's waters, hunt down colonial fleets, or escort logistical ships. We stand out with our naval expertise and efficient maritime operations."
       },
@@ -51,7 +56,7 @@
     "activities": {
       "combat": {
         "title": "Combat",
-        "content": "The regiment fights on land, in the depths, or on the oceans: tank battles, battleship duels, bayonet fights, heroic grenade charges, submarine infiltrations, artillery bombardments, and discreet commando operations. These actions are essential for victory in Foxhole. Join our regiment to experience intense combat scenarios."
+        "content": "The regiment fights on land, in the depths or on the oceans: tank battles, battleship duels, bayonet fights, heroic grenade charges, submarine infiltrations, artillery bombardments, and discreet commando operations. These actions are essential for victory in Foxhole. Join our regiment to experience intense combat scenarios."
       },
       "logistics": {
         "title": "Logistics",
@@ -91,6 +96,15 @@
     "social": {
       "discord": "Discord",
       "youtube": "YouTube"
+    },
+    "sections": {
+      "Description": "The Regiment",
+      "Operations": "Operations",
+      "Activities": "Activities",
+      "Skills": "Skills",
+      "Stats": "Statistics",
+      "Officers": "Officers",
+      "Footer": "Footer"
     }
   }
 }

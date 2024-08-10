@@ -16,9 +16,14 @@
         "join": "Rejoignez Notre Clan",
         "joinContent": "Nous offrons une expérience de jeu plaisante et enrichissante, le régiment accueille les nouveaux joueurs comme les anciens, sans conditions de skill ou de temps de jeu. Rejoins notre clan et fais partie d'une communauté soudée et passionnée.",
         "recruiting": "N’hésite plus, rejoins le 11ème Régiment de Callahan et contribue à notre légende ! Nous recrutons en permanence de nouveaux membres pour renforcer notre clan."
+      },
+      "actions": {
+        "joinDiscord": "Rejoindre le 11eRC",
+        "youtubeChannel": "Rejoindre le Discord"
       }
     },
-    "operationItems": {
+    "operations": {
+      "title": "Les opérations majeures",
       "formation": {
         "title": "Formation",
         "description": "Formation des troupes quant à l'utilisation de l'ensemble du matériel militaire de la faction Warden, en passant par la différence entre les différents fusils jusqu'à l'utilisation de super armes comme les canons sur rails ou les missiles ballistiques. Rejoignez notre régiment Foxhole pour profiter de ces formations spécialisées."
@@ -31,15 +36,15 @@
         "title": "Infiltration",
         "description": "Infiltration des lignes ennemies avec des véhicules amphibies pour faire exploser des charges hautement explosives dans les complexes stratégiques adverses. Ces missions critiques permettent souvent de débloquer des impasses. Nous excellons dans ces opérations de haute précision."
       },
-      "ballisticMissiles": {
+      "missiles": {
         "title": "Lancement de missiles ballistiques",
         "description": "Quand les canons de 300 mm ne suffisent plus, il ne reste que la destruction par l'atome pour renverser le cours de la guerre. Notre maîtrise du lancement de missiles ballistiques permet des frappes stratégiques de grande envergure."
       },
-      "armoredColumn": {
+      "tank": {
         "title": "Colonne de blindés",
         "description": "Des véhicules de reconnaissance aux chars lourds, le 11eRC s'illustre souvent sur le front par le déploiement de forces blindées. Devenu une référence pour l'emploi des chars super lourds, notre régiment propose des formations et des opérations conjointes pour percer les lignes ennemies. Participez à ces missions emblématiques en nous rejoignant."
       },
-      "navalBattles": {
+      "naval": {
         "title": "Batailles navales",
         "description": "Sur la mer ou sous la surface, le 11eRC mène des opérations navales pour protéger les eaux de l'empire, chasser les flottes coloniales ou escorter les vaisseaux logistiques. Nous nous distinguons par notre expertise navale et nos opérations maritimes efficaces."
       },
@@ -91,6 +96,15 @@
     "social": {
       "discord": "Discord",
       "youtube": "Youtube"
+    },
+    "sections": {
+      "Description": "Le Régiment",
+      "Operations": "Les Opérations",
+      "Activities": "Les Activités",
+      "Skills": "Compétences",
+      "Stats": "Statistiques",
+      "Officers": "Les Officiers",
+      "Footer": "Pied de page"
     }
   }
 }
