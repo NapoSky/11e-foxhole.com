@@ -40,6 +40,15 @@ jobs:
     if: needs.filter-paths.outputs.root-changed == 'true' || needs.filter-paths.outputs.manual-trigger == 'true'
 
     steps:
+      - name: Determine branch name
+        id: vars
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "BRANCH_NAME=${{ github.head_ref }}" >> $GITHUB_ENV
+          else
+            echo "BRANCH_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -83,8 +92,8 @@ jobs:
           git config --local user.name "GitHub Action"
           git add public/images/
           git commit -m "images(Github Actions) add or update resized images from /src/images" || echo "Nothing to commit"
-          git pull --ff-only origin ${{ github.ref_name }}
-          git push origin HEAD:${{ github.ref_name }}
+          git pull --ff-only origin ${{ env.BRANCH_NAME }}
+          git push origin HEAD:${{ env.BRANCH_NAME }}
 
   process-portfolio-images:
     runs-on: ubuntu-latest
@@ -92,6 +101,15 @@ jobs:
     if: needs.filter-paths.outputs.portfolio-changed == 'true' || needs.filter-paths.outputs.manual-trigger == 'true'
 
     steps:
+      - name: Determine branch name
+        id: vars
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "BRANCH_NAME=${{ github.head_ref }}" >> $GITHUB_ENV
+          else
+            echo "BRANCH_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -135,5 +153,5 @@ jobs:
           git config --local user.name "GitHub Action"
           git add public/images/portfolio/
           git commit -m "images(Github Actions) add or update resized images from /src/images/portfolio" || echo "Nothing to commit"
-          git pull --ff-only origin ${{ github.ref_name }}
-          git push origin HEAD:${{ github.ref_name }}
+          git pull --ff-only origin ${{ env.BRANCH_NAME }}
+          git push origin HEAD:${{ env.BRANCH_NAME }}
