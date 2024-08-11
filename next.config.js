@@ -15,8 +15,11 @@ const nextConfig = {
           const extension = path.extname(pathData.filename);
           const sizes = [320, 640, 1280, 1920, 2560];
           const size = sizes.find(s => name.endsWith(`-${s}`)) || sizes[sizes.length - 1]; // Default to largest size if not found
-          const baseName = name.replace(/-\d+$/, ''); // Remove size from name if present
-          return `${baseName}-${size}${extension}`;
+          // Extract locale from the filename if it exists
+          const localeMatch = name.match(/-(fr|en|cn)$/);
+          const locale = localeMatch ? localeMatch[1] : 'default'; // Default locale if not found
+          const baseName = name.replace(/-\d+$/, '').replace(/-(fr|en|cn)$/, ''); // Remove size and locale from name if present
+          return `${baseName}-${locale}-${size}${extension}`;
         },
         publicPath: '/images/',
       },
