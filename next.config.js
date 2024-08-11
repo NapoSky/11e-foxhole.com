@@ -19,7 +19,12 @@ const nextConfig = {
           const localeMatch = name.match(/-(fr|en|cn)$/);
           const locale = localeMatch ? localeMatch[1] : 'default'; // Default locale if not found
           const baseName = name.replace(/-\d+$/, '').replace(/-(fr|en|cn)$/, ''); // Remove size and locale from name if present
-          return `${baseName}-${locale}-${size}${extension}`;
+          if (locale) {
+            return `${baseName}-${locale}-${size}${extension}`;
+          }
+          else {
+            return `${baseName}-${size}${extension}`;
+          }
         },
         publicPath: '/images/',
       },
