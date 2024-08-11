@@ -5,6 +5,7 @@ on:
   pull_request:
     paths:
       - "src/images/*"
+      - "src/images/portfolio/*"
     branches:
       - staging
 
@@ -53,11 +54,27 @@ jobs:
           mkdir -p public/images
           for file in $(find ./src/images -maxdepth 1 -type f -name '*.webp'); do
             filename=$(basename -- "$file")
-            cwebp -q 82 "$file" -resize 320 0 -o "public/images/${filename%.*}-320.webp"
-            cwebp -q 82 "$file" -resize 640 0 -o "public/images/${filename%.*}-640.webp"
-            cwebp -q 82 "$file" -resize 1280 0 -o "public/images/${filename%.*}-1280.webp"
-            cwebp -q 85 "$file" -resize 1920 0 -o "public/images/${filename%.*}-1920.webp"
-            cwebp -q 90 "$file" -resize 2560 0 -o "public/images/${filename%.*}-2560.webp"
+            # Check if the filename contains a locale suffix
+            if [[ "$filename" =~ -fr\.webp$ ]] || [[ "$filename" =~ -en\.webp$ ]] || [[ "$filename" =~ -cn\.webp$ ]]; then
+              # Process images with locale
+              basename=$(echo "$filename" | sed -E 's/-(fr|en|cn)\.webp$//')
+              locale=$(echo "$filename" | sed -E 's/^.*-(fr|en|cn)\.webp$/\1/')
+              cwebp -q 82 "$file" -resize 320 0 -o "public/images/${basename}-${locale}-320.webp"
+              cwebp -q 82 "$file" -resize 640 0 -o "public/images/${basename}-${locale}-640.webp"
+              cwebp -q 82 "$file" -resize 1280 0 -o "public/images/${basename}-${locale}-1280.webp"
+              cwebp -q 85 "$file" -resize 1920 0 -o "public/images/${basename}-${locale}-1920.webp"
+              cwebp -q 90 "$file" -resize 2560 0 -o "public/images/${basename}-${locale}-2560.webp"
+            else
+              # Process images without locale for all locales
+              basename="${filename%.*}"
+              for locale in fr en cn; do
+                cwebp -q 82 "$file" -resize 320 0 -o "public/images/${basename}-${locale}-320.webp"
+                cwebp -q 82 "$file" -resize 640 0 -o "public/images/${basename}-${locale}-640.webp"
+                cwebp -q 82 "$file" -resize 1280 0 -o "public/images/${basename}-${locale}-1280.webp"
+                cwebp -q 85 "$file" -resize 1920 0 -o "public/images/${basename}-${locale}-1920.webp"
+                cwebp -q 90 "$file" -resize 2560 0 -o "public/images/${basename}-${locale}-2560.webp"
+              done
+            fi
           done
 
       - name: Commit and push changes
@@ -86,21 +103,37 @@ jobs:
 
       - name: Process portfolio images
         run: |
-          mkdir -p public/images/
+          mkdir -p public/images/portfolio
           for file in $(find ./src/images/portfolio -type f -name '*.webp'); do
             filename=$(basename -- "$file")
-            cwebp -q 70 "$file" -resize 320 0 -o "public/images/${filename%.*}-320.webp"
-            cwebp -q 70 "$file" -resize 640 0 -o "public/images/${filename%.*}-640.webp"
-            cwebp -q 70 "$file" -resize 1280 0 -o "public/images/${filename%.*}-1280.webp"
-            cwebp -q 75 "$file" -resize 1920 0 -o "public/images/${filename%.*}-1920.webp"
-            cwebp -q 80 "$file" -resize 2560 0 -o "public/images/${filename%.*}-2560.webp"
+            # Check if the filename contains a locale suffix
+            if [[ "$filename" =~ -fr\.webp$ ]] || [[ "$filename" =~ -en\.webp$ ]] || [[ "$filename" =~ -cn\.webp$ ]]; then
+              # Process images with locale
+              basename=$(echo "$filename" | sed -E 's/-(fr|en|cn)\.webp$//')
+              locale=$(echo "$filename" | sed -E 's/^.*-(fr|en|cn)\.webp$/\1/')
+              cwebp -q 70 "$file" -resize 320 0 -o "public/images/${basename}-${locale}-320.webp"
+              cwebp -q 70 "$file" -resize 640 0 -o "public/images/${basename}-${locale}-640.webp"
+              cwebp -q 70 "$file" -resize 1280 0 -o "public/images/${basename}-${locale}-1280.webp"
+              cwebp -q 75 "$file" -resize 1920 0 -o "public/images/${basename}-${locale}-1920.webp"
+              cwebp -q 80 "$file" -resize 2560 0 -o "public/images/${basename}-${locale}-2560.webp"
+            else
+              # Process images without locale for all locales
+              basename="${filename%.*}"
+              for locale in fr en cn; do
+                cwebp -q 70 "$file" -resize 320 0 -o "public/images/${basename}-${locale}-320.webp"
+                cwebp -q 70 "$file" -resize 640 0 -o "public/images/${basename}-${locale}-640.webp"
+                cwebp -q 70 "$file" -resize 1280 0 -o "public/images/${basename}-${locale}-1280.webp"
+                cwebp -q 75 "$file" -resize 1920 0 -o "public/images${basename}-${locale}-1920.webp"
+                cwebp -q 80 "$file" -resize 2560 0 -o "public/images/${basename}-${locale}-2560.webp"
+              done
+            fi
           done
 
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add public/images/
+          git add public/images/portfolio/
           git commit -m "images(Github Actions) add or update resized images from /src/images/portfolio" || echo "Nothing to commit"
           git pull --ff-only origin ${{ github.ref_name }}
           git push origin HEAD:${{ github.ref_name }}

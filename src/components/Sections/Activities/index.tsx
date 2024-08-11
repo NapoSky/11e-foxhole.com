@@ -4,7 +4,9 @@ import { getActivities, getSectionId } from "../../../data/data"; // Importez le
 import Section from "../../Layout/Section";
 import ResumeSection from "./ResumeSection";
 import ActivityItem from "./ActivityItem";
-import backgroundImage from "../../../images/activities-background.webp";
+import activitiesImageFr from "../../../images/header-background-fr.webp";
+import activitiesImageEn from "../../images/header-background-en.webp";
+import activitiesImageCn from "../../../images/header-background-cn.webp";
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -15,24 +17,52 @@ export const getBaseNameFromImport = (imagePath: string): string => {
     return '';
   }
   const filename = imagePath.split('/').pop();
-  return filename ? filename.replace(/-\d+\.webp$/, '') : '';
+  return filename ? filename.replace(/-\d+\.webp$/, '').replace(/-(fr|en|cn)$/, '') : '';
 };
 
 export const sizes = [320, 640, 1280, 1920, 2560];
 
-const generateSrcSet = (baseName: string, sizes: number[]): string => {
-  return sizes.map(size => `/images/${baseName}-${size}.webp ${size}w`).join(", ");
+// Fonction pour extraire la locale du nom de fichier
+const extractLocaleFromImagePath = (imagePath: string): string | null => {
+  const match = imagePath.match(/-(fr|en|cn)\.webp$/);
+  return match ? match[1] : null; // Retourne la locale si trouvée, sinon null
 };
 
-const getSrcSetFromImage = (image: string): string => {
+// Fonction pour générer le srcSet en fonction du nom de base et de la locale
+const generateSrcSet = (cleanBaseName: string, sizes: number[], locale: string | null): string => {
+  if (locale) {
+    return sizes.map(size => `/images/${cleanBaseName}-${locale}-${size}.webp ${size}w`).join(", ");
+  }
+  return sizes.map(size => `/images/${cleanBaseName}-${size}.webp ${size}w`).join(", ");
+};
+
+// Fonction pour obtenir le srcSet à partir d'une image
+export const getSrcSetFromImage = (image: string): string => {
   const baseName = getBaseNameFromImport(image);
-  return generateSrcSet(baseName, sizes);
+  const locale = extractLocaleFromImagePath(image);
+  return generateSrcSet(baseName, sizes, locale);
+};
+
+// Fonction pour sélectionner l'image en fonction de la locale courante
+export const selectImageByLocale = (locale: string): string => {
+  switch (locale) {
+    case 'fr':
+      return activitiesImageFr;
+    case 'en':
+      return activitiesImageEn;
+    case 'cn':
+      return activitiesImageCn;
+    default:
+      return activitiesImageFr; // Par défaut, retourner l'image en francais si la locale n'est pas supportée
+  }
 };
 
 const Activities: FC = memo(() => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const activites = getActivities(t);
   const SectionId = getSectionId(t);
+  const locale = i18n.language; // Récupère la locale actuelle
+  const selectedImage = selectImageByLocale(locale);
 
   return (
     <Section className="bg-neutral-100" sectionId={SectionId.Activities}>
@@ -41,8 +71,8 @@ const Activities: FC = memo(() => {
           <ResponsiveImage
             alt={`activities-background-image`}
             className="object-contain max-w-full max-h-full opacity-20"
-            src={backgroundImage}
-            srcSet={getSrcSetFromImage(backgroundImage)}
+            src={selectedImage}
+            srcSet={getSrcSetFromImage(selectedImage)}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1440px) 50vw, (max-width: 1920px) 50vw, 100vw"
           />
         </div>
