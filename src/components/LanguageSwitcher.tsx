@@ -13,32 +13,26 @@ const LanguageSwitcher: FC = () => {
     <div className="flex space-x-2">
       <button onClick={() => changeLanguage('fr')} aria-label="Français">
         <ReactCountryFlag
+          alt="Français"
           countryCode="FR"
           svg
-          style={{
-            width: '2em',
-            height: '2em',
-          }}
+          className="w-8 h-8"
         />
       </button>
       <button onClick={() => changeLanguage('en')} aria-label="English">
         <ReactCountryFlag
+          alt="English"
           countryCode="GB"
           svg
-          style={{
-            width: '2em',
-            height: '2em',
-          }}
+          className="w-8 h-8"
         />
       </button>
       <button onClick={() => changeLanguage('cn')} aria-label="中文">
         <ReactCountryFlag
+          alt="中文"
           countryCode="CN"
           svg
-          style={{
-            width: '2em',
-            height: '2em',
-          }}
+          className="w-8 h-8"
         />
       </button>
     </div>
