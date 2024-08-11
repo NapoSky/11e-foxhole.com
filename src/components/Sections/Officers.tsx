@@ -11,7 +11,8 @@ import {
 } from "react";
 
 import { isApple, isMobile } from "../../config";
-import { SectionId, officer } from "../../data/data";
+import { getOfficerSection, getSectionId } from "../../data/data";
+import { useTranslation } from 'react-i18next';
 import { Officers } from "../../data/dataDef";
 import useInterval from "../../hooks/useInterval";
 import useWindow from "../../hooks/useWindow";
@@ -19,6 +20,8 @@ import QuoteIcon from "../Icon/QuoteIcon";
 import Section from "../Layout/Section";
 
 const OfficerSection: FC = memo(() => {
+  const { t } = useTranslation();
+  const SectionId = getSectionId(t); // Obtenir les données traduites dynamiques
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [scrollValue, setScrollValue] = useState(0);
   const [parallaxEnabled, setParallaxEnabled] = useState(false);
@@ -28,7 +31,7 @@ const OfficerSection: FC = memo(() => {
 
   const { width } = useWindow();
 
-  const { imageSrc, officers } = officer;
+  const { imageSrc, officers } = getOfficerSection(t);
 
   const resolveSrc = useMemo(() => {
     if (!imageSrc) return undefined;
@@ -63,6 +66,7 @@ const OfficerSection: FC = memo(() => {
     },
     [],
   );
+
   const next = useCallback(() => {
     if (activeIndex + 1 === officers.length) {
       setTestimonial(0)();
