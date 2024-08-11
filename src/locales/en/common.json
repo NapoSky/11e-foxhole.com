@@ -2,51 +2,51 @@
   "homepage": {
     "meta": {
       "title": "11th Brigade Foxhole - A Warden Clan Community (FR/EN/CN)",
-      "description": "Join the 11th Warden Regiment of Foxhole! Our multi language speaking clan is recruiting for strategic operations. Participate in epic battles."
+      "description": "Join the 11th Warden Regiment of Foxhole! Our lingual clan is recruiting for strategic operations. Participate in epic battles."
     },
     "descriptionData": {
       "name": "11th Foreign Legion",
       "description": {
-        "greeting": "Hello soldier!",
-        "hesitate": "Are you hesitating to join us? Let us convince you...",
+        "greeting": "Hello, soldier!",
+        "hesitate": "Are you wondering whether you should join us? Let us help you...",
         "history": "Our History and Expertise",
-        "historyContent": "With 7 years of history in Foxhole, the 11th Foreign Legion [11eFL] is recognized for its expertise and commitment within the Warden faction. We offer a variety of gameplay: Logistics, Infantry, Artillery, Armored, Naval, Fortifications, and Industrial Complexes...",
+        "historyContent": "With 7 years of history in Foxhole, the 11th Foreign Legion [11eFL] is known for its expertise and commitment within the Warden faction. We offer a variety of gameplay: Logistics, Infantry, Artillery, Armored, Naval, Fortifications, and Industrial Complexes...",
         "community": "A Multilingual Community",
-        "communityContent": "Focused on the community, the 11e has an English-speaking branch [11eFL], a Chinese-speaking branch [11eCN], and a French-speaking branch [11eRC], allowing play across multiple time zones. We have a strong base of players from Europe and North America, creating a welcoming environment for all.",
+        "communityContent": "Focused on community, the 11e has an English-speaking branch [11eFL], a Chinese-speaking branch [11eCN], and a French-speaking branch [11eRC], allowing presence across multiple time zones. We have a strong player base from Europe and North America, creating a welcoming environment for all.",
         "join": "Join Our Clan",
-        "joinContent": "We offer a pleasant and enriching gaming experience, welcoming new and experienced players alike, with no skill or time requirements. Join our clan and be part of a close-knit and passionate community.",
-        "recruiting": "Don't hesitate, join the 11th Foreign Legion and contribute to our legend! We are constantly recruiting new members to strengthen our clan."
+        "joinContent": "We offer a pleasant and enriching gaming experience, welcoming new and experienced players alike without regard to their skill or playtime. Join our clan to be part of a close-knit and passionate community.",
+        "recruiting": "Don't wait any longer, join the 11th Foreign Legion and contribute to our legend! We are always recruiting new members to strengthen our clan."
       },
       "actions": {
         "joinDiscord": "Join the 11eFL",
-        "youtubeChannel": "Join the YouTube Channel"
+        "youtubeChannel": "YouTube Channel"
       }
     },
     "operations": {
       "title": "Major Operations",
       "formation": {
         "title": "Training",
-        "description": "Training the troops on the use of all the military equipment of the Warden faction, from the differences between various rifles to the use of super weapons like railguns or ballistic missiles. Join our Foxhole regiment to benefit from these specialized trainings."
+        "description": "Frequent training sessions allow our troops to familiarize themselves with the entire arsenal of the Warden faction. From rifles to railguns and balistic missiles, no tool is left aside. Join our Foxhole regiment to benefit from these specialized trainings and discover everything the game has to offer."
       },
       "artillery": {
         "title": "Artillery",
-        "description": "The industrial power of the 11eFL allows the use of the largest caliber guns whenever the opportunity arises to bring down the most fortified enemy strongholds. We specialize in heavy artillery for decisive and strategic strikes."
+        "description": "The industrial power of the 11e allows the use of the largest caliber guns, whenever the opportunity arises, to bring down the most fortified enemy strongholds. We specialize in heavy artillery for decisive and strategic strikes."
       },
       "infiltration": {
         "title": "Infiltration",
-        "description": "Infiltration of enemy lines with amphibious vehicles to plant highly explosive charges in enemy strategic complexes. These critical missions often unlock stalemates. We excel in these high-precision operations."
+        "description": "Infiltration of enemy lines with amphibious vehicles to plant highly explosive charges in strategic enemy complexes. We excel in these high-precision operations that often break stalemates."
       },
       "missiles": {
         "title": "Ballistic Missile Launches",
-        "description": "When 300 mm cannons are no longer sufficient, only atomic destruction can turn the tide of war. Our mastery of ballistic missile launches enables large-scale strategic strikes."
+        "description": "When 300mm guns are no longer enough, only atomic destruction can turn the tide of war. Our mastery of ballistic missile launches enables large-scale strategic strikes."
       },
       "tank": {
         "title": "Armored Column",
-        "description": "From reconnaissance vehicles to heavy tanks, the 11eFL is often distinguished on the front lines by the deployment of armored forces. Having become a reference for the use of super heavy tanks, our regiment offers training and joint operations to break through enemy lines. Join us to participate in these emblematic missions."
+        "description": "From reconnaissance vehicles to heavy tanks, the 11e often distinguishes itselft on the front line during the deployment of armored forces. Having become an authority on the use of super heavy tanks, our regiment offers training and joint operations to break through enemy lines. Join us to participate in these emblematic missions."
       },
       "naval": {
         "title": "Naval Battles",
-        "description": "On the sea or below the surface, the 11eFL conducts naval operations to protect the Empire's waters, hunt down colonial fleets, or escort logistical ships. We stand out with our naval expertise and efficient maritime operations."
+        "description": "On the sea or below the surface, the 11e conducts naval operations to protect the Empire's waters, hunt down colonial fleets, or escort logistical ships. We stand out thanks to our naval expertise and efficient naval operations."
       },
       "infantry": {
         "title": "Infantry",
@@ -56,23 +56,23 @@
     "activities": {
       "combat": {
         "title": "Combat",
-        "content": "The regiment fights on land, in the depths or on the oceans: tank battles, battleship duels, bayonet fights, heroic grenade charges, submarine infiltrations, artillery bombardments, and discreet commando operations. These actions are essential for victory in Foxhole. Join our regiment to experience intense combat scenarios."
+        "content": "The regiment fights on land, in the depths or on the oceans: tank battles, battleship duels, bayonet fights, heroic grenade charges, submarine infiltrations, artillery bombardments, and discreet commando operations. All of these actions are paramount to winning in Foxhole. Join our regiment to experience intense combat scenarios."
       },
       "logistics": {
         "title": "Logistics",
-        "content": "By train, truck, or ship, the regiment delivers tens of thousands of resources harvested and produced daily, sent to the front for the Warden's victory. Logistics is the backbone of our regiment, ensuring uninterrupted support to our forces and allies on the field."
+        "content": "By train, truck, or ship, the regiment harvests, produces and delivers tens of thousands of resources every day to the front for the Warden's victory. Logistics is the backbone of our regiment, ensuring uninterrupted support to our forces and allies on the field."
       },
       "construction": {
         "title": "Construction",
-        "content": "The Warden's shield, the quality of the fortresses built by the regiment is unanimously recognized. Each war, our sappers build on the front lines, and our architects create strongholds to stop the colonial onslaught. Join our clan to participate in the construction of impregnable and strategic defenses."
+        "content": "The Warden's shield: fortresses built by the regiment are of unanimously recognized quality. Each war, our sappers build on the front lines, and our architects create strongholds to stop the colonial onslaught. Join our clan to participate in the construction of impregnable and strategic defenses."
       },
       "industry": {
         "title": "Industry",
-        "content": "Renowned for its infrastructures, the regiment organizes for each war an industrial and railway network to produce everything necessary for combat: oil, concrete, super tanks, heavy railway guns, submarines, battleships, etc. Our regiment is distinguished by its industrial efficiency and ability to support the war effort."
+        "content": "Renowned for its infrastructures, the regiment establishes each war an industrial and railway network to produce all that is needed for combat: oil, concrete, super tanks, heavy railway guns, submarines, battleships, etc. Our regiment is known for its extremely efficient industries and its ability to support the war effort."
       },
       "community": {
         "title": "Community",
-        "content": "Mainly focused on Foxhole, the 11eFL has a secret HQ for meetups over a beer and a multi-gaming Discord to relax between military campaigns. Our regiment is a welcoming and tight-knit community where every member finds their place and role."
+        "content": "Mainly focused on Foxhole, the 11eFL has a secret HQ for meetups over a beer and a gaming Discord to relax between military campaigns. Our regiment is a welcoming and tight-knit community where every member finds their place and role."
       }
     },
     "footer": {
