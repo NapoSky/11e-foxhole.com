@@ -22,21 +22,19 @@ const Page: NextPage<PageProps> = memo(
     const [translatedTitle, setTranslatedTitle] = useState(title);
     const [translatedDescription, setTranslatedDescription] = useState(description);
 
-    useEffect(() => {
-      // Forcer la langue à 'fr' lors du premier rendu
-      // Trick pour forcer la langue FR sur la page racine '/'
-      if (i18n.language !== 'fr') {
-        i18n.changeLanguage('fr').then(() => {
-          // Met à jour les traductions une fois la langue changée pour les pages [locale]
-          setTranslatedTitle(t(title));
-          setTranslatedDescription(t(description));
-        });
-      } else {
-        // Si la langue est déjà 'fr', pas besoin de changer, juste définir les traductions
-        setTranslatedTitle(t(title));
-        setTranslatedDescription(t(description));
-      }
-    }, [i18n, t, title, description]);
+useEffect(() => {
+  // Vérifier si l'utilisateur est sur la page racine
+  if (window.location.pathname === '/' && i18n.language !== 'fr') {
+    i18n.changeLanguage('fr').then(() => {
+      setTranslatedTitle(t(title));
+      setTranslatedDescription(t(description));
+    });
+  } else {
+    setTranslatedTitle(t(title));
+    setTranslatedDescription(t(description));
+  }
+}, [i18n, t, title, description]);
+
 
     return (
       <>
