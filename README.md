@@ -22,7 +22,9 @@ Once you have your own copy of this repo, open the folder in your favorite termi
 
 ### 2. Customize the data to make it your own
 
-All of the data for the site is driven via a file at `/src/data/data.tsx`. This is where you'll find the existing content, and updating the values here will be reflected on the site. If you have the site running as described above, you should see these changes reflected on save. The data types for all of these items are given in the same folder in the `dataDef.ts` file. Example images can be found at `src/images/` and are imported in the data file. To change, simply update these images using the same name and location, or add new images and update the imports. 
+All of the data for the site is driven via translations in `/src/locales/<lang>/common.json`. This is where you'll find the existing text content, and updating the values here will be reflected on the site. If you have the site running as described above, you should see these changes reflected on save. Example images can be found at `src/images/` and are rendered in `public/images`. They support locale and sizes to be reflected as `public/images/imageName-Lang-Size.webp`. To change, simply update these images using the same name and location, or add new images and update the imports. 
+
+Also, if you need some help, take a look at [the contribute doc](CONTRIBUTE.md) !
 
 ### 3. Make any other changes you like
 
@@ -42,13 +44,15 @@ As the repository is directly connected to Cloudflare Pages, every dev working o
 
 ### NapoSky
 
-<a href="https://steamcommunity.com/id/napoleon59w/"><img src="https://github.com/gauravghongde/social-icons/blob/master/PNG/Color/Steam.png?raw=true" width="60"></a><a href="https://www.linkedin.com/in/amompach/"><img src="https://github.com/aritraroy/social-icons/blob/master/linkedin-icon.png?raw=true" width="60"></a>
+<a href="https://steamcommunity.com/id/napoleon59w/"><img src="https://github.com/gauravghongde/social-icons/blob/master/PNG/Color/Steam.png?raw=true" width="55"></a><a href="https://www.linkedin.com/in/amompach/"><img src="https://github.com/aritraroy/social-icons/blob/master/linkedin-icon.png?raw=true" width="60"></a>
 
 [![GitHub followers](https://img.shields.io/github/followers/naposky.svg?style=social&label=Follow)](https://github.com/naposky/)
 
-## Mallig
+#### Binouz *(as senior knowledge support)*
 
-[![GitHub followers](https://img.shields.io/github/followers/mallig98.svg?style=social&label=Follow)](https://github.com/mallig98/)
+<a href="https://www.linkedin.com/in/aubin-rebillat-b3a8584b/"><img src="https://github.com/aritraroy/social-icons/blob/master/linkedin-icon.png?raw=true" width="30"></a>
+
+[![GitHub followers](https://img.shields.io/github/followers/binouz.svg?style=social&label=Follow)](https://github.com/binouz/)
 
 #### Tim Baker *(maintainer of react-resume-template)*
 
