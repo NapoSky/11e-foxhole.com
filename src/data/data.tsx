@@ -101,36 +101,40 @@ export type SectionId = (ReturnType<typeof getSectionId>)[keyof ReturnType<typeo
 /**
  * Description section
  */
-export const getDescriptionData = (t: (key: string) => string): Description => ({
-  imageSrc: headerImage,
-  srcSet: getSrcSetFromImage(headerImage),
-  name: t('homepage.descriptionData.name'),
-  description: (
-    <div className="prose-sm text-stone-200 sm:prose-base lg:prose-lg space-y-2 max-w-4xl mx-auto">
-      <h2 className="text-stone-50 text-lg">{t('homepage.descriptionData.description.greeting')}</h2>
-      <p>{t('homepage.descriptionData.description.hesitate')}</p>
-      <h3 className="text-stone-50 text-base">{t('homepage.descriptionData.description.history')}</h3>
-      <p>{t('homepage.descriptionData.description.historyContent')}</p>
-      <h3 className="text-stone-50 text-base">{t('homepage.descriptionData.description.community')}</h3>
-      <p>{t('homepage.descriptionData.description.communityContent')}</p>
-      <h3 className="text-stone-50 text-base">{t('homepage.descriptionData.description.join')}</h3>
-      <p>{t('homepage.descriptionData.description.joinContent')}</p>
-      <p>{t('homepage.descriptionData.description.recruiting')}</p>
-    </div>
-  ),
-  actions: [
-    {
-      href: "https://discord.com/invite/11e",
-      text: t('homepage.descriptionData.actions.joinDiscord'),
-      primary: true,
-    },
-    {
-      href: "https://www.youtube.com/@11emeregimentdecallahan",
-      text: t('homepage.descriptionData.actions.youtubeChannel'),
-      primary: true,
-    },
-  ],
-});
+export const getDescriptionData = (t: (key: string) => string, locale: string): Description => {
+  const selectedImage = selectImageByLocale(locale); // Sélection de l'image en fonction de la locale
+
+  return {
+    imageSrc: selectedImage,
+    srcSet: getSrcSetFromImage(selectedImage), // Génère le srcSet en fonction de l'image sélectionnée
+    name: t('homepage.descriptionData.name'),
+    description: (
+      <div className="prose-sm text-stone-200 sm:prose-base lg:prose-lg space-y-2 max-w-4xl mx-auto">
+        <h2 className="text-stone-50 text-lg">{t('homepage.descriptionData.description.greeting')}</h2>
+        <p>{t('homepage.descriptionData.description.hesitate')}</p>
+        <h3 className="text-stone-50 text-base">{t('homepage.descriptionData.description.history')}</h3>
+        <p>{t('homepage.descriptionData.description.historyContent')}</p>
+        <h3 className="text-stone-50 text-base">{t('homepage.descriptionData.description.community')}</h3>
+        <p>{t('homepage.descriptionData.description.communityContent')}</p>
+        <h3 className="text-stone-50 text-base">{t('homepage.descriptionData.description.join')}</h3>
+        <p>{t('homepage.descriptionData.description.joinContent')}</p>
+        <p>{t('homepage.descriptionData.description.recruiting')}</p>
+      </div>
+    ),
+    actions: [
+      {
+        href: "https://discord.com/invite/11e",
+        text: t('homepage.descriptionData.actions.joinDiscord'),
+        primary: true,
+      },
+      {
+        href: "https://www.youtube.com/@11emeregimentdecallahan",
+        text: t('homepage.descriptionData.actions.youtubeChannel'),
+        primary: true,
+      },
+    ],
+  };
+};
 
 /**
  * Footer section

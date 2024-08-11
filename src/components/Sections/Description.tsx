@@ -10,8 +10,9 @@ import { useRouter } from 'next/router';
 
 const Description: FC = memo(() => {
   // Obtenez les données traduites dynamiquement
-  const { t } = useTranslation();
-  const descriptionData = getDescriptionData(t);
+  const { t, i18n } = useTranslation();
+  const locale = i18n.language; // Récupère la locale courante
+  const descriptionData = getDescriptionData(t, locale);
   const SectionId = getSectionId(t);
 
   // Utilisation de `router.pathname` pour récupérer le chemin de base actuel

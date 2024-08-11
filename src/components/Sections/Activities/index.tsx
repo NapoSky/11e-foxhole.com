@@ -4,9 +4,9 @@ import { getActivities, getSectionId } from "../../../data/data"; // Importez le
 import Section from "../../Layout/Section";
 import ResumeSection from "./ResumeSection";
 import ActivityItem from "./ActivityItem";
-import activitiesImageFr from "../../../images/header-background-fr.webp";
-import activitiesImageEn from "../../images/header-background-en.webp";
-import activitiesImageCn from "../../../images/header-background-cn.webp";
+import activitiesImageFr from "../../../images/activities-background-fr.webp";
+import activitiesImageEn from "../../../images/activities-background-en.webp";
+import activitiesImageCn from "../../../images/activities-background-cn.webp";
 import { useTranslation } from 'react-i18next';
 
 /**
