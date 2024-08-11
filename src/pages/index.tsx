@@ -1,16 +1,8 @@
 // pages/index.tsx
-import { GetStaticProps } from 'next';
 import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
-import GoogleAnalytics from '../components/GoogleAnalytics';
-import Schema from '../components/Schema';
 import Page from '../components/Layout/Page';
-import Footer from '../components/Sections/Footer';
-import Description from '../components/Sections/Description';
-import Operations from '../components/Sections/Operations';
-import Activities from '../components/Sections/Activities';
-import Header from '../components/Sections/Header';
 
 const IndexPage: FC = () => {
   const { t } = useTranslation();
@@ -37,21 +29,9 @@ const IndexPage: FC = () => {
 
   return (
     <Page description={description} title={title} schemaData={schemaData} fullUrl={fullurl}>
-      <GoogleAnalytics />
-      <Header />
-      <Schema schema={schemaData} />
-      <Description />
-      <Activities />
-      <Operations />
-      <Footer />
+      {/* Tout le contenu est déjà géré dans Page.tsx */}
     </Page>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: {}, // Pas de props spécifiques pour la racine
-  };
 };
 
 export default IndexPage;
