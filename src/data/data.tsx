@@ -66,7 +66,7 @@ export const selectImageByLocale = (locale: string): string => {
     case 'cn':
       return headerImageCn;
     default:
-      return headerImageEn; // Par défaut, retourner l'image en anglais si la locale n'est pas supportée
+      return headerImageFr; // Par défaut, retourner l'image en anglais si la locale n'est pas supportée
   }
 };
 

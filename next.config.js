@@ -17,7 +17,7 @@ const nextConfig = {
           const size = sizes.find(s => name.endsWith(`-${s}`)) || sizes[sizes.length - 1]; // Default to largest size if not found
           // Extract locale from the filename if it exists
           const localeMatch = name.match(/-(fr|en|cn)$/);
-          const locale = localeMatch ? localeMatch[1] : 'default'; // Default locale if not found
+          const locale = localeMatch ? localeMatch[1] : null; // Default locale if not found
           const baseName = name.replace(/-\d+$/, '').replace(/-(fr|en|cn)$/, ''); // Remove size and locale from name if present
           if (locale) {
             return `${baseName}-${locale}-${size}${extension}`;
