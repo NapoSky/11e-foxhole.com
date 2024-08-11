@@ -37,7 +37,7 @@ export const sizes = [320, 640, 1280, 1920, 2560];
 
 // Fonction pour extraire la locale du nom de fichier
 const extractLocaleFromImagePath = (imagePath: string): string | null => {
-  const match = imagePath.match(/-(fr|en|cn)\.webp$/);
+  const match = imagePath.match(/-(fr|en|cn)(-\d+)?\.webp$/);
   return match ? match[1] : null; // Retourne la locale si trouvée, sinon null
 };
 
