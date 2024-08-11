@@ -2,15 +2,15 @@
   "homepage": {
     "meta": {
       "title": "11th Brigade Foxhole - A Warden Clan Community (FR/EN/CN)",
-      "description": "Join the 11th Warden Regiment of Foxhole! Our multilingual clan is recruiting for strategic operations. Participate in epic battles."
+      "description": "Join the 11th Warden Foxhole Regiment! Our multilingual clan is recruiting for strategic operations. Participate in epic battles."
     },
     "descriptionData": {
       "name": "11th Foreign Legion",
       "description": {
         "greeting": "Hello, soldier!",
-        "hesitate": "Are you wondering whether you should join us? Let us help you...",
+        "hesitate": "Are you wondering whether you should join us? Let us know!",
         "history": "Our History and Expertise",
-        "historyContent": "With 7 years of history in Foxhole, the 11th Foreign Legion [11eFL] is known for its expertise and commitment within the Warden faction. We offer a variety of gameplay: Logistics, Infantry, Artillery, Armored, Naval, Fortifications, and Industrial Complexes...",
+        "historyContent": "With 7 years of history in Foxhole, 11e is known for its expertise and commitment within the Warden faction. We offer a variety of gameplay: Logistics, Infantry, Artillery, Armored, Naval, Fortifications, and Facility Complexes...",
         "community": "A Multilingual Community",
         "communityContent": "Focused on community, the 11e has an English-speaking branch [11eFL], a Chinese-speaking branch [11eCN], and a French-speaking branch [11eRC], allowing presence across multiple time zones. We have a strong player base from Europe and North America, creating a welcoming environment for all.",
         "join": "Join Our Clan",
@@ -26,15 +26,15 @@
       "title": "Major Operations",
       "formation": {
         "title": "Training",
-        "description": "Frequent training sessions allow our troops to familiarize themselves with the entire arsenal of the Warden faction. From rifles to railguns and balistic missiles, no tool is left aside. Join our Foxhole regiment to benefit from these specialized trainings and discover everything the game has to offer."
+        "description": "Frequent training sessions allow our troops to familiarize themselves with the entire arsenal of the Warden faction. From rifles to rail artillery and ballistic missiles, we use it all. Join our regiment to benefit from these specialized trainings and discover everything the game has to offer."
       },
       "artillery": {
         "title": "Artillery",
-        "description": "The industrial power of the 11e allows the use of the largest caliber guns, whenever the opportunity arises, to bring down the most fortified enemy strongholds. We specialize in heavy artillery for decisive and strategic strikes."
+        "description": "The industrial power of the 11e allows the use of the largest caliber guns, whenever the opportunity arises, to lay low the most fortified enemy strongholds. We specialize in heavy artillery for decisive and strategic strikes."
       },
       "infiltration": {
         "title": "Infiltration",
-        "description": "Infiltration of enemy lines with amphibious vehicles to plant highly explosive charges in strategic enemy complexes. We excel in these high-precision operations that often break stalemates."
+        "description": "Infiltration of enemy lines with amphibious vehicles to plant explosive charges in strategic enemy complexes. We excel in these high-precision operations that often break stalemates."
       },
       "missiles": {
         "title": "Ballistic Missile Launches",
@@ -42,11 +42,11 @@
       },
       "tank": {
         "title": "Armored Column",
-        "description": "From reconnaissance vehicles to heavy tanks, the 11e often distinguishes itselft on the front line during the deployment of armored forces. Having become an authority on the use of super heavy tanks, our regiment offers training and joint operations to break through enemy lines. Join us to participate in these emblematic missions."
+        "description": "From reconnaissance vehicles to heavy tanks, the 11e often distinguishes itselft on the front line when we deploy armor. Having become an authority on the use of super heavy tanks, our regiment offers training and joint operations to break through enemy lines. Join us to participate in these critical missions."
       },
       "naval": {
         "title": "Naval Battles",
-        "description": "On the sea or below the surface, the 11e conducts naval operations to protect the Empire's waters, hunt down colonial fleets, or escort logistical ships. We stand out thanks to our naval expertise and efficient naval operations."
+        "description": "On the sea or below the surface, the 11e conducts naval operations to protect the Empire's waters, hunt down colonial fleets, or escort logistics ships. We stand out thanks to our naval expertise and efficient naval operations."
       },
       "infantry": {
         "title": "Infantry",
@@ -56,11 +56,11 @@
     "activities": {
       "combat": {
         "title": "Combat",
-        "content": "The regiment fights on land, in the depths or on the oceans: tank battles, battleship duels, bayonet fights, heroic grenade charges, submarine infiltrations, artillery bombardments, and discreet commando operations. All of these actions are paramount to winning in Foxhole. Join our regiment to experience intense combat scenarios."
+        "content": "The regiment fights on land, in the depths or on the oceans: tank battles, battleship duels, bayonet fights, heroic grenade charges, submarine infiltrations, artillery bombardments, and discreet commando operations. All of these tactics are paramount to winning in Foxhole. Join our regiment to experience intense combat."
       },
       "logistics": {
         "title": "Logistics",
-        "content": "By train, truck, or ship, the regiment harvests, produces and delivers tens of thousands of resources every day to the front for the Warden's victory. Logistics is the backbone of our regiment, ensuring uninterrupted support to our forces and allies on the field."
+        "content": "By train, truck, or ship, the regiment harvests, produces and delivers tens of thousands of resources every day to the front for a Warden victory. Logistics is the backbone of our regiment, ensuring uninterrupted support to our forces and allies on the field."
       },
       "construction": {
         "title": "Construction",
@@ -68,11 +68,11 @@
       },
       "industry": {
         "title": "Industry",
-        "content": "Renowned for its infrastructures, the regiment establishes each war an industrial and railway network to produce all that is needed for combat: oil, concrete, super tanks, heavy railway guns, submarines, battleships, etc. Our regiment is known for its extremely efficient industries and its ability to support the war effort."
+        "content": "Renowned for its infrastructure, the regiment establishes an industrial and railway network every war to produce all that is needed for combat: oil, concrete, super tanks, heavy railway guns, submarines, battleships, etc. Our regiment is known for its extremely efficient facilites and its ability to support the war effort with large scale logistics."
       },
       "community": {
         "title": "Community",
-        "content": "Mainly focused on Foxhole, the 11eFL has a secret HQ for meetups over a beer and a gaming Discord to relax between military campaigns. Our regiment is a welcoming and tight-knit community where every member finds their place and role."
+        "content": "Mainly focused on Foxhole, the 11e has a secret HQ for meetups over a beer and a gaming Discord to relax between military campaigns. Our regiment is a welcoming and tight-knit community where every member finds their place and role."
       }
     },
     "footer": {
