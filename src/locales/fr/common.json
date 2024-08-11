@@ -5,17 +5,17 @@
       "description": "Rejoignez le 11e régiment Warden de Foxhole ! Notre clan francophone recrute pour des opérations stratégiques. Participez à des batailles épiques."
     },
     "descriptionData": {
-      "name": "11ème Régiment de Callahan",
+      "name": "11e Régiment de Callahan",
       "description": {
-        "greeting": "Bonjour à toi soldat !",
+        "greeting": "Bonjour à toi, soldat !",
         "hesitate": "Tu hésites à nous rejoindre ? Laisse-nous te convaincre…",
         "history": "Notre Histoire et Expertise",
-        "historyContent": "Fort de nos 7 ans d'histoire dans Foxhole, le 11ème Régiment de Callahan [11eRC] est reconnu pour son expertise et son engagement au sein de la faction warden. Nous offrons un gameplay varié : Logistique, Infanterie, Artillerie, Blindés, Naval, Fortifications et Complexes industriels...",
+        "historyContent": "Fort de 7 ans d'histoire dans Foxhole, le 11e Régiment de Callahan [11eRC] est reconnu pour son expertise et son engagement au sein de la faction warden. Nous offrons un gameplay varié : logistique, infanterie, artillerie, blindés, naval, fortifications et complexes industriels...",
         "community": "Une Communauté Multilingue",
-        "communityContent": "Tournée vers la communauté, le 11e dispose d’une branche Anglophone [11eFL], d’une branche sinophone [11eCN] et d’une branche francophone [11eRC] permettant de jouer sur plusieurs fuseaux horaires. Nous comptons une solide base de joueurs québécois et français, créant ainsi un environnement accueillant pour tous.",
+        "communityContent": "Tourné vers la communauté, le 11e dispose d’une branche anglophone [11eFL], d’une branche sinophone [11eCN] et d’une branche francophone [11eRC] permettant une présence sur plusieurs fuseaux horaires. Nous comptons une solide base de joueurs québécois et français, créant ainsi un environnement accueillant pour tous.",
         "join": "Rejoignez Notre Clan",
-        "joinContent": "Nous offrons une expérience de jeu plaisante et enrichissante, le régiment accueille les nouveaux joueurs comme les anciens, sans conditions de skill ou de temps de jeu. Rejoins notre clan et fais partie d'une communauté soudée et passionnée.",
-        "recruiting": "N’hésite plus, rejoins le 11ème Régiment de Callahan et contribue à notre légende ! Nous recrutons en permanence de nouveaux membres pour renforcer notre clan."
+        "joinContent": "Nous offrons une expérience de jeu plaisante et enrichissante, le régiment accueille les nouveaux joueurs comme les anciens, sans exigences en matière de skill ou de temps de jeu. Rejoins notre clan et fais partie d'une communauté soudée et passionnée.",
+        "recruiting": "N’hésite plus, rejoins le 11e Régiment de Callahan et contribue à notre légende ! Nous recrutons en permanence de nouveaux membres pour renforcer notre clan."
       },
       "actions": {
         "joinDiscord": "Rejoindre le 11eRC",
@@ -26,53 +26,53 @@
       "title": "Les opérations majeures",
       "formation": {
         "title": "Formation",
-        "description": "Formation des troupes quant à l'utilisation de l'ensemble du matériel militaire de la faction Warden, en passant par la différence entre les différents fusils jusqu'à l'utilisation de super armes comme les canons sur rails ou les missiles ballistiques. Rejoignez notre régiment Foxhole pour profiter de ces formations spécialisées."
+        "description": "Des formations régulières permettent aux troupes de se familiariser avec l'ensemble du matériel militaire de la faction Warden : des fusils aux missiles balistiques en passant par les canons sur rail, rien n'est laissé de côté. Rejoignez notre régiment Foxhole pour découvrir tous les aspects du jeu et profiter de ces formations spécialisées."
       },
       "artillery": {
         "title": "Artillerie",
-        "description": "La puissance industrielle du 11eRC permet d'utiliser, dès qu'il y en a l'occasion, les canons de plus gros calibres pour faire tomber les forteresses ennemies les plus fortifiées. Nous nous spécialisons dans l'artillerie lourde pour des frappes décisives et stratégiques."
+        "description": "La puissance industrielle du 11e permet d'utiliser, dès qu'il y en a l'occasion, les canons de gros calibres afin d faire tomber les forteresses ennemies les plus fortifiées. Nous nous spécialisons dans l'artillerie lourde pour les frappes décisives et stratégiques."
       },
       "infiltration": {
         "title": "Infiltration",
-        "description": "Infiltration des lignes ennemies avec des véhicules amphibies pour faire exploser des charges hautement explosives dans les complexes stratégiques adverses. Ces missions critiques permettent souvent de débloquer des impasses. Nous excellons dans ces opérations de haute précision."
+        "description": "Infiltration des lignes ennemies à bord de véhicules amphibies pour faire exploser des charges hautement explosives dans les complexes stratégiques adverses. Ces missions critiques permettent souvent de débloquer des impasses. Nous excellons dans ces opérations de haute précision."
       },
       "missiles": {
         "title": "Lancement de missiles ballistiques",
-        "description": "Quand les canons de 300 mm ne suffisent plus, il ne reste que la destruction par l'atome pour renverser le cours de la guerre. Notre maîtrise du lancement de missiles ballistiques permet des frappes stratégiques de grande envergure."
+        "description": "Quand les canons de 300mm ne suffisent plus, il ne reste que la destruction par l'atome pour renverser le cours de la guerre. Notre maîtrise du lancement de missiles ballistiques permet des frappes stratégiques de grande envergure."
       },
       "tank": {
         "title": "Colonne de blindés",
-        "description": "Des véhicules de reconnaissance aux chars lourds, le 11eRC s'illustre souvent sur le front par le déploiement de forces blindées. Devenu une référence pour l'emploi des chars super lourds, notre régiment propose des formations et des opérations conjointes pour percer les lignes ennemies. Participez à ces missions emblématiques en nous rejoignant."
+        "description": "Des véhicules de reconnaissance aux chars lourds, le 11e s'illustre souvent sur le front lors de déploiements de forces blindées. Devenu une référence pour l'emploi des chars super lourds, notre régiment organise régulièrement des opérations conjointes pour percer les lignes ennemies. Participez à ces missions emblématiques en nous rejoignant."
       },
       "naval": {
         "title": "Batailles navales",
-        "description": "Sur la mer ou sous la surface, le 11eRC mène des opérations navales pour protéger les eaux de l'empire, chasser les flottes coloniales ou escorter les vaisseaux logistiques. Nous nous distinguons par notre expertise navale et nos opérations maritimes efficaces."
+        "description": "Sur la mer ou sous la surface, le 11e mène des opérations navales pour protéger les eaux de l'empire, chasser les flottes coloniales ou escorter les vaisseaux logistiques. Nous nous distinguons par notre expertise navale et nos opérations maritimes efficaces."
       },
       "infantry": {
         "title": "Infanterie",
-        "description": "Une escouade d'infanterie organisée permet de tenir le front pendant que l'artillerie fait tomber l'objectif. Notre régiment forme des unités d'infanterie robustes pour des actions décisives sur le terrain. Devenez un soldat d'élite dans Foxhole en rejoignant notre régiment."
+        "description": "Une escouade d'infanterie organisée permet de tenir le front pendant que l'artillerie fait tomber l'objectif. Notre régiment forme des unités d'infanterie robustes pour des actions décisives sur le terrain. Devenez un soldat d'élite dans Foxhole en nous rejoignant."
       }
     },
     "activities": {
       "combat": {
         "title": "Combat",
-        "content": "Le régiment combat sur terre, dans les profondeurs ou sur les océans : batailles de chars, duels de cuirassés, combats à la baïonnette, charges héroïques à la grenade, infiltrations en sous-marins, pilonnage d’artillerie et opérations discrètes de commandos. Ces actions sont essentielles pour la victoire dans Foxhole. Rejoignez notre régiment pour vivre des expériences de combat intenses."
+        "content": "Le régiment combat sur terre, dans les profondeurs ou sur les océans. Batailles de chars, duels de cuirassés, combats à la baïonnette, charges héroïques à la grenade, infiltrations en sous-marins, pilonnage d’artillerie et opérations discrètes de commandos sont autant d'actions essentielles à la victoire dans Foxhole. Rejoignez notre régiment et vivez des expériences de combat intenses."
       },
       "logistics": {
         "title": "Logistique",
-        "content": "Par train, par camion ou par bateau, le régiment livre quotidiennement des dizaines de milliers de ressources récoltées et produites, envoyées sur le front pour la victoire des wardens. La logistique est le pilier de notre régiment, assurant un soutien ininterrompu à nos forces ainsi qu'a nos alliés sur le terrain."
+        "content": "Par train, par camion ou par bateau, le régiment récolte, produit et livre quotidiennement des dizaines de milliers de ressources pour la victoire des wardens. La logistique est le pilier de notre régiment, assurant un soutien ininterrompu à nos forces ainsi qu'à nos alliés sur le terrain."
       },
       "construction": {
         "title": "Construction",
-        "content": "Bouclier des wardens, la qualité des forteresses construites par le régiment est unanimement reconnue. Chaque guerre, nos sapeurs bâtissent sur le front, et nos architectes créent des points d’arrêt à la déferlante coloniale. Rejoignez notre clan pour participer à la construction de défenses impénétrables et stratégiques."
+        "content": "Bouclier des wardens, les forteresses construites par le régiment sont d'une qualité unanimement reconnue. Chaque guerre, nos sapeurs bâtissent sur le front et nos architectes créent des points d’arrêt à la déferlante coloniale. Rejoignez notre clan pour participer à la construction de défenses impénétrables et stratégiques."
       },
       "industry": {
         "title": "Industrie",
-        "content": "Réputé pour ses infrastructures, le régiment organise pour chaque guerre un tissu industriel et ferroviaire pour produire tout le nécessaire aux combats : pétrole, béton, super-chars, canons lourds ferroviaires, sous-marins, cuirassés, etc. Notre régiment se distingue par son efficacité industrielle et sa capacité à soutenir l'effort de guerre."
+        "content": "Réputé pour ses infrastructures, le 11e organise chaque guerre un tissu industriel et ferroviaire pour produire tout le nécessaire aux combats : pétrole, béton, super-chars, canons lourds ferroviaires, sous-marins, cuirassés, etc. Nous nous distinguons par son efficacité industrielle et sa capacité à soutenir l'effort de guerre."
       },
       "community": {
         "title": "Communauté",
-        "content": "Principalement tourné vers Foxhole, le 11eRC dispose d’un QG secret pour des rencontres autour d’une bière et d’un discord multi-gaming pour se détendre entre deux campagnes militaires. Notre régiment est une communauté accueillante et soudée, où chaque membre trouve sa place et son rôle."
+        "content": "Principalement tourné vers Foxhole, le 11eRC dispose d’un QG secret pour des rencontres autour d’une bière et d’un discord multigaming pour se détendre entre deux campagnes militaires. Notre régiment est une communauté accueillante et soudée, où chaque membre trouve sa place et son rôle."
       }
     },
     "footer": {
