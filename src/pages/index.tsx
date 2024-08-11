@@ -1,17 +1,26 @@
-import { FC, memo } from "react";
-import GoogleAnalytics from "../components/GoogleAnalytics";
-import Schema from "../components/Schema";
-import Page from "../components/Layout/Page";
-import Footer from "../components/Sections/Footer";
-import Description from "../components/Sections/Description";
-import Operations from "../components/Sections/Operations";
-import Activities from "../components/Sections/Activities";
-import Header from "../components/Sections/Header";
-// import OfficerSection from '../components/Sections/Officers';
-import { homePageMeta } from "../data/data";
+// pages/index.tsx
+import { GetStaticProps } from 'next';
+import { FC, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
+import GoogleAnalytics from '../components/GoogleAnalytics';
+import Schema from '../components/Schema';
+import Page from '../components/Layout/Page';
+import Footer from '../components/Sections/Footer';
+import Description from '../components/Sections/Description';
+import Operations from '../components/Sections/Operations';
+import Activities from '../components/Sections/Activities';
+import Header from '../components/Sections/Header';
 
-const Home: FC = memo(() => {
-  const { title, description } = homePageMeta;
+const IndexPage: FC = () => {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    i18next.changeLanguage('fr'); // Français par défaut
+  }, []);
+
+  const title = t('homepage.meta.title');
+  const description = t('homepage.meta.description');
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -25,7 +34,6 @@ const Home: FC = memo(() => {
     },
   };
 
-  
   return (
     <Page description={description} title={title}>
       <GoogleAnalytics />
@@ -34,10 +42,15 @@ const Home: FC = memo(() => {
       <Description />
       <Activities />
       <Operations />
-      {/* <OfficerSection /> */}
       <Footer />
     </Page>
   );
-});
+};
 
-export default Home;
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {}, // Pas de props spécifiques pour la racine
+  };
+};
+
+export default IndexPage;
