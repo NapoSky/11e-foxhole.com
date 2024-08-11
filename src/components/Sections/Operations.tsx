@@ -10,21 +10,26 @@ import {
   useRef,
   useState,
 } from "react";
+import { useTranslation } from 'react-i18next';
 
 import { isMobile } from "../../config";
-import { operationItems, SectionId } from "../../data/data";
+import { getOperationItems, getSectionId } from "../../data/data";
 import { OperationItem } from "../../data/dataDef";
 import useDetectOutsideClick from "../../hooks/useDetectOutsideClick";
 import Section from "../Layout/Section";
 
 const Operations: FC = memo(() => {
+  const { t } = useTranslation();
+  const SectionId = getSectionId(t);
+  const operationItems = getOperationItems(t);
+
   return (
     <Section className="bg-neutral-1000" sectionId={SectionId.Operations}>
       <div className="flex flex-col gap-y-8">
         <h2 className="self-center text-xl font-bold text-white">
-          Les Opérations majeures
+          {t('homepage.operations.title')}
         </h2>
-        <div className=" w-full columns-2">
+        <div className="w-full columns-2">
           {operationItems.map((item, index) => {
             const { title, image, srcSet } = item;
             return (
@@ -53,7 +58,7 @@ const Operations: FC = memo(() => {
   );
 });
 
-Operations.displayName = "Portfolio";
+Operations.displayName = "Operations";
 export default Operations;
 
 const ItemOverlay: FC<{ item: OperationItem }> = memo(
@@ -63,7 +68,6 @@ const ItemOverlay: FC<{ item: OperationItem }> = memo(
     const linkRef = useRef<HTMLAnchorElement>(null);
 
     useEffect(() => {
-      // Avoid hydration styling errors by setting mobile in useEffect
       if (isMobile) {
         setMobile(true);
       }
@@ -80,8 +84,7 @@ const ItemOverlay: FC<{ item: OperationItem }> = memo(
       [mobile, showOverlay],
     );
 
-    // if no url, don't render the link
-    if(!url)
+    if (!url)
       return (
         <div
           className={classNames(
@@ -103,8 +106,7 @@ const ItemOverlay: FC<{ item: OperationItem }> = memo(
           </div>
         </div>
       );
-    
-    // if url, render the link
+
     return (
       <a
         className={classNames(

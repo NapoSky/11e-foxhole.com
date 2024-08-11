@@ -1,61 +1,48 @@
 import { Transition, TransitionChild } from "@headlessui/react";
 import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
+import { useTranslation } from 'react-i18next';
 import classNames from "classnames";
 import Link from "next/link";
 import {
   FC,
   Fragment,
   memo,
-  Suspense,
   useCallback,
   useMemo,
   useState,
+  useEffect,
 } from "react";
 
-import { SectionId } from "../../data/data";
+import { getSectionId } from "../../data/data"; 
 import { useNavObserver } from "../../hooks/useNavObserver";
-
+import LanguageSwitcher from "../LanguageSwitcher";
 export const headerID = "headerNav";
 
-const HeaderServer: FC = memo(() => {
-  return (
-    <Suspense
-      fallback={
-        <>
-          <MobileNav
-            currentSection={null}
-            navSections={[
-              SectionId.Description,
-              SectionId.Activities,
-              SectionId.Operations,
-            ]}
-          />
-          <DesktopNav
-            currentSection={null}
-            navSections={[
-              SectionId.Description,
-              SectionId.Activities,
-              SectionId.Operations,
-            ]}
-          />
-        </>
-      }
-    >
-      <HeaderClient />
-    </Suspense>
-  );
-});
-
 const HeaderClient: FC = () => {
-  const [currentSection, setCurrentSection] = useState<SectionId | null>(null);
+  const { t, i18n } = useTranslation(); // Ajout de i18n pour forcer le re-render
+  const sectionId = getSectionId(t);
+
+  // Utiliser useEffect pour forcer le re-rendu lors du changement de langue
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      // Forcer un re-render en changeant une clé unique ou un state
+    };
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
+  const [currentSection, setCurrentSection] = useState<keyof typeof sectionId | null>(null);
+
   const navSections = useMemo(
-    () => [SectionId.Description, SectionId.Activities, SectionId.Operations],
-    []
+    () => [sectionId.Description, sectionId.Activities, sectionId.Operations],
+    [sectionId]
   );
 
-  const intersectionHandler = useCallback((section: SectionId | null) => {
-    section && setCurrentSection(section);
-  }, []);
+  const intersectionHandler = useCallback((section: string | null) => {
+    setCurrentSection(section as keyof typeof sectionId | null);
+  }, [sectionId]);
 
   useNavObserver(
     navSections.map((section) => `#${section}`).join(","),
@@ -70,43 +57,57 @@ const HeaderClient: FC = () => {
   );
 };
 
-const DesktopNav: FC<{
-  navSections: SectionId[];
-  currentSection: SectionId | null;
-}> = ({ navSections, currentSection }) => {
+interface NavProps {
+  navSections: string[];
+  currentSection: string | null;
+}
+
+const DesktopNav: FC<NavProps> = ({ navSections, currentSection }) => {
   const baseClass =
     "-m-1.5 p-1.5 rounded-md font-bold first-letter:uppercase hover:transition-colors hover:duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 sm:hover:text-orange-500 text-neutral-100";
   const activeClass = classNames(baseClass, "text-orange-500");
   const inactiveClass = classNames(baseClass, "text-neutral-100");
+  
   return (
     <header
       className="fixed top-0 z-50 hidden w-full bg-neutral-900/50 p-4 backdrop-blur sm:block"
       id={headerID}
     >
-      <nav className="flex justify-center gap-x-8">
-        {navSections.map((section) => (
-          <NavItem
-            activeClass={activeClass}
-            current={section === currentSection}
-            inactiveClass={inactiveClass}
-            key={section}
-            section={section}
-          />
-        ))}
+      <nav className="flex justify-between items-center">
+        {/* Section centrée */}
+        <div className="flex-grow">
+          <div className="flex justify-center gap-x-8">
+            {navSections.map((section) => (
+              <NavItem
+                activeClass={activeClass}
+                current={section === currentSection}
+                inactiveClass={inactiveClass}
+                key={section}
+                section={section}
+              />
+            ))}
+          </div>
+        </div>
+        {/* LanguageSwitcher à droite */}
+        <div className="flex items-center">
+          <LanguageSwitcher />
+        </div>
       </nav>
     </header>
   );
 };
 
-const MobileNav: FC<{
-  navSections: SectionId[];
-  currentSection: SectionId | null;
-}> = memo(({ navSections, currentSection }) => {
+
+const MobileNav: FC<NavProps> = memo(({ navSections, currentSection }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleOpen = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
+
+  const closeMenu = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   const baseClass =
     "p-2 rounded-md first-letter:uppercase transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500";
@@ -115,6 +116,7 @@ const MobileNav: FC<{
     "bg-neutral-900 text-white font-bold"
   );
   const inactiveClass = classNames(baseClass, "text-neutral-200 font-medium");
+
   return (
     <>
       <button
@@ -135,7 +137,11 @@ const MobileNav: FC<{
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-stone-900 z-50 bg-opacity-75" />
+          {/* Ajout du gestionnaire de clic pour fermer le menu */}
+          <div
+            className="fixed inset-0 bg-stone-900 z-50 bg-opacity-75"
+            onClick={closeMenu}
+          />
         </TransitionChild>
         <TransitionChild
           as={Fragment}
@@ -143,10 +149,13 @@ const MobileNav: FC<{
           enterFrom="-translate-x-full"
           enterTo="translate-x-0"
           leave="transition ease-in-out duration-300 transform"
-          leaveFrom="translate-x-0"
+          leaveFrom="-translate-x-0"
           leaveTo="-translate-x-full"
         >
-          <nav className="w-2/4 fixed inset-y-0 left-0 z-50 flex flex-col gap-y-2 p-4 bg-stone-800">
+          <nav
+            className="w-2/4 fixed inset-y-0 left-0 z-50 flex flex-col gap-y-2 p-4 bg-stone-800"
+            onClick={(e) => e.stopPropagation()} // Empêche la fermeture du menu lors du clic à l'intérieur
+          >
             {navSections.map((section) => (
               <NavItem
                 activeClass={activeClass}
@@ -157,12 +166,18 @@ const MobileNav: FC<{
                 section={section}
               />
             ))}
+            {/* LanguageSwitcher en dessous des sections du menu */}
+            <div className="mt-4">
+              <LanguageSwitcher />
+            </div>
           </nav>
         </TransitionChild>
       </Transition>
     </>
   );
 });
+
+
 
 const NavItem: FC<{
   section: string;
@@ -183,5 +198,4 @@ const NavItem: FC<{
   );
 });
 
-HeaderServer.displayName = "Header";
-export default HeaderServer;
+export default HeaderClient;
