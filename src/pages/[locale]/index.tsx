@@ -1,52 +1,24 @@
-// pages/[locale]/index.tsx
+// src/pages/[locale]/index.tsx
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { FC, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import { FC } from 'react';
 import i18next from 'i18next';
-import GoogleAnalytics from '../../components/GoogleAnalytics';
-import Schema from '../../components/Schema';
 import Page from '../../components/Layout/Page';
-import Footer from '../../components/Sections/Footer';
-import Description from '../../components/Sections/Description';
-import Operations from '../../components/Sections/Operations';
-import Activities from '../../components/Sections/Activities';
-import Header from '../../components/Sections/Header';
+import { getHomePageMeta } from '../../data/data';
 
 type LocalePageProps = {
   locale: string;
+  title: string;
+  description: string;
+  schemaData: any;
+  fullUrl: string;
 };
 
-const LocalePage: FC<LocalePageProps> = ({ locale }) => {
-  const { t } = useTranslation();
-
-  useEffect(() => {
-    i18next.changeLanguage(locale);
-  }, [locale]);
-
-  const title = t('homepage.meta.title');
-  const description = t('homepage.meta.description');
-
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": `https://11e-foxhole.com/${locale}`,
-    "name": "11e-Foxhole",
-    "description": description,
-    "publisher": {
-      "@type": "Organization",
-      "name": "11e-Foxhole",
-    },
-  };
+const LocalePage: FC<LocalePageProps> = ({ locale, title, description, schemaData, fullUrl }) => {
+  i18next.changeLanguage(locale);
 
   return (
-    <Page description={description} title={title}>
-      <GoogleAnalytics />
-      <Header />
-      <Schema schema={schemaData} />
-      <Description />
-      <Activities />
-      <Operations />
-      <Footer />
+    <Page title={title} description={description} schemaData={schemaData} fullUrl={fullUrl}>
+      {/* Votre contenu de page ici */}
     </Page>
   );
 };
@@ -54,7 +26,7 @@ const LocalePage: FC<LocalePageProps> = ({ locale }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [
-      { params: { locale: 'fr' } }, // Obligatoire pour générer le path fr
+      { params: { locale: 'fr' } },
       { params: { locale: 'en' } },
       { params: { locale: 'cn' } },
     ],
@@ -63,9 +35,34 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const locale = context.params?.locale || 'fr'; // Français par défaut
+  const locale = context.params?.locale || 'fr';
+  const pathname = `/${locale}`; // Ajoutez d'autres segments de chemin si nécessaire
+  const baseUrl = 'https://11e-foxhole.com';
+  const fullUrl = `${baseUrl}${pathname}`;
+
+  const t = i18next.getFixedT ? i18next.getFixedT(locale) : i18next.t.bind(i18next);
+  const meta = getHomePageMeta(t);
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": fullUrl,
+    "name": "11e-Foxhole",
+    "description": meta.description,
+    "publisher": {
+      "@type": "Organization",
+      "name": "11e-Foxhole",
+    },
+  };
+
   return {
-    props: { locale },
+    props: {
+      locale,
+      title: meta.title,
+      description: meta.description,
+      schemaData,
+      fullUrl,
+    },
   };
 };
 

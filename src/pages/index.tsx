@@ -21,6 +21,7 @@ const IndexPage: FC = () => {
 
   const title = t('homepage.meta.title');
   const description = t('homepage.meta.description');
+  const fullurl = "https://11e-foxhole.com/";
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -35,7 +36,7 @@ const IndexPage: FC = () => {
   };
 
   return (
-    <Page description={description} title={title}>
+    <Page description={description} title={title} schemaData={schemaData} fullUrl={fullurl}>
       <GoogleAnalytics />
       <Header />
       <Schema schema={schemaData} />
