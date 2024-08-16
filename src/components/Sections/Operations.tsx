@@ -19,12 +19,13 @@ import useDetectOutsideClick from "../../hooks/useDetectOutsideClick";
 import Section from "../Layout/Section";
 
 const Operations: FC = memo(() => {
-  const { t } = useTranslation();
-  const SectionId = getSectionId(t);
-  const operationItems = getOperationItems(t);
+  const { t, i18n } = useTranslation(); // Utilisation de i18n pour la locale
+  const locale = i18n.language; // Récupère la locale actuelle via i18n
+
+  const operationItems = getOperationItems(t, locale); // Passe la locale à getOperationItems
 
   return (
-    <Section className="bg-neutral-1000" sectionId={SectionId.Operations}>
+    <Section className="bg-neutral-1000" sectionId={getSectionId(t).Operations}>
       <div className="flex flex-col gap-y-8">
         <h2 className="self-center text-xl font-bold text-white">
           {t('homepage.operations.title')}
@@ -32,6 +33,7 @@ const Operations: FC = memo(() => {
         <div className="w-full columns-2">
           {operationItems.map((item, index) => {
             const { title, image, srcSet } = item;
+
             return (
               <div className="pb-6" key={`${title}-${index}`}>
                 <div
@@ -72,11 +74,12 @@ const ItemOverlay: FC<{ item: OperationItem }> = memo(
         setMobile(true);
       }
     }, []);
+
     useDetectOutsideClick(linkRef, () => setShowOverlay(false));
 
     const handleItemClick = useCallback(
       (event: MouseEvent<HTMLElement>) => {
-        if (mobile && !showOverlay) {
+        if (mobile) {
           event.preventDefault();
           setShowOverlay(!showOverlay);
         }

@@ -67,15 +67,15 @@ const DesktopNav: FC<NavProps> = ({ navSections, currentSection }) => {
     "-m-1.5 p-1.5 rounded-md font-bold first-letter:uppercase hover:transition-colors hover:duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 sm:hover:text-orange-500 text-neutral-100";
   const activeClass = classNames(baseClass, "text-orange-500");
   const inactiveClass = classNames(baseClass, "text-neutral-100");
-  
+
   return (
     <header
       className="fixed top-0 z-50 hidden w-full bg-neutral-900/50 p-4 backdrop-blur sm:block"
       id={headerID}
     >
-      <nav className="flex justify-between items-center">
+      <nav className="relative flex justify-between items-center">
         {/* Section centrée */}
-        <div className="flex-grow">
+        <div className="absolute left-1/2 transform -translate-x-1/2">
           <div className="flex justify-center gap-x-8">
             {navSections.map((section) => (
               <NavItem
@@ -89,7 +89,7 @@ const DesktopNav: FC<NavProps> = ({ navSections, currentSection }) => {
           </div>
         </div>
         {/* LanguageSwitcher à droite */}
-        <div className="flex items-center">
+        <div className="ml-auto">
           <LanguageSwitcher />
         </div>
       </nav>
@@ -121,7 +121,7 @@ const MobileNav: FC<NavProps> = memo(({ navSections, currentSection }) => {
     <>
       <button
         aria-label="Menu Button"
-        className="fixed right-2 top-2 z-40 rounded-md bg-orange-500 p-2 ring-offset-gray-800/60 hover:bg-orange-400 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 sm:hidden"
+        className="fixed top-2 right-2 z-40 rounded-full bg-orange-500 bg-opacity-50 p-3 ring-offset-gray-800/60 hover:bg-orange-400 hover:bg-opacity-50 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible focus-visible:ring-offset-2 sm:hidden"
         onClick={toggleOpen}
       >
         <Bars3BottomRightIcon className="h-8 w-8 text-white" />
@@ -139,7 +139,7 @@ const MobileNav: FC<NavProps> = memo(({ navSections, currentSection }) => {
         >
           {/* Ajout du gestionnaire de clic pour fermer le menu */}
           <div
-            className="fixed inset-0 bg-stone-900 z-50 bg-opacity-75"
+            className="fixed inset-0 bg-stone-900 z-50 bg-opacity-40"
             onClick={closeMenu}
           />
         </TransitionChild>
@@ -153,9 +153,14 @@ const MobileNav: FC<NavProps> = memo(({ navSections, currentSection }) => {
           leaveTo="-translate-x-full"
         >
           <nav
-            className="w-2/4 fixed inset-y-0 left-0 z-50 flex flex-col gap-y-2 p-4 bg-stone-800"
+            className="w-2/4 fixed z-50 flex flex-col gap-y-2 p-4 bg-stone-800 bg-opacity-90"
             onClick={(e) => e.stopPropagation()} // Empêche la fermeture du menu lors du clic à l'intérieur
           >
+            {/* Mini Header au-dessus des sections */}
+            <div>
+              <h2 className="text-white text-l font-bold">11e-Foxhole.com</h2>
+            <hr className="border-t border-white mt-2" />
+            </div>
             {navSections.map((section) => (
               <NavItem
                 activeClass={activeClass}
