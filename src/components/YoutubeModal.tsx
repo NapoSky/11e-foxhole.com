@@ -130,7 +130,7 @@ const YouTubeModal: React.FC = () => {
               <div className="relative w-full h-0 pb-[56.25%]">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&disablekb=1&cc_load_policy=1&iv_load_policy=3`}
+                  src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&rel=0&modestbranding=1&disablekb=1&cc_load_policy=1&iv_load_policy=3`}
                   allowFullScreen
                   title={t("homepage.modales.youtube")}
                 ></iframe>
