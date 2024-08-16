@@ -1,13 +1,6 @@
-import headerImageFr from "../images/header-background-fr.webp";
-import headerImageEn from "../images/header-background-en.webp";
-import headerImageCn from "../images/header-background-cn.webp";
-import rscImage from "../images/portfolio/RSC.webp";
-import formationImage from "../images/portfolio/formation.webp";
-import luvHavocImage from "../images/portfolio/Luv_Havoc.webp";
-import battleshipImage from "../images/portfolio/battleship.webp";
-import infanterieImage from "../images/portfolio/Infanterie.webp";
-import umbralImage from "../images/portfolio/umbral.webp";
-import nukeImage from "../images/portfolio/nuke_108.webp";
+/** Import images **/
+import { imageMap } from "../utils/imageData";
+/** Acitivities Logo */
 import officerBackground from "../images/officer_background.webp";
 import DiscordIcon from "../components/Icon/DiscordIcon";
 import YoutubeIcon from "../components/Icon/YoutubeIcon";
@@ -57,18 +50,17 @@ export const getSrcSetFromImage = (image: string): string => {
 };
 
 // Fonction pour sélectionner l'image en fonction de la locale courante
-export const selectImageByLocale = (locale: string): string => {
-  switch (locale) {
-    case 'fr':
-      return headerImageFr;
-    case 'en':
-      return headerImageEn;
-    case 'cn':
-      return headerImageCn;
-    default:
-      return headerImageFr; // Par défaut, retourner l'image en anglais si la locale n'est pas supportée
+export const getImageByLocale = (imageId: keyof typeof imageMap, locale: string): string => {
+  const imageData = imageMap[imageId];
+  if (typeof imageData === 'string') {
+    return imageData; // Cas où il n'y a pas de variation selon la locale
   }
+  if (locale in imageData) {
+    return imageData[locale as keyof typeof imageData]; // Assertion pour TypeScript
+  }
+  return imageData['fr']; // Retourne l'image en anglais par défaut si la locale n'est pas trouvée
 };
+
 
 /**
  * Page meta data
@@ -102,7 +94,7 @@ export type SectionId = (ReturnType<typeof getSectionId>)[keyof ReturnType<typeo
  * Description section
  */
 export const getDescriptionData = (t: (key: string) => string, locale: string): Description => {
-  const selectedImage = selectImageByLocale(locale); // Sélection de l'image en fonction de la locale
+  const selectedImage = getImageByLocale('header', locale); // Sélection de l'image en fonction de la locale
 
   return {
     imageSrc: selectedImage,
@@ -157,49 +149,49 @@ export const getFooterData = (t: (key: string) => string): Footer => ({
 /**
  * Operations section
  */
-export const getOperationItems = (t: (key: string) => string): OperationItem[] => [
+export const getOperationItems = (t: (key: string) => string, locale: string): OperationItem[] => [
   {
     title: t('homepage.operations.formation.title'),
     description: t('homepage.operations.formation.description'),
-    image: formationImage,
-    srcSet: getSrcSetFromImage(formationImage),
+    image: getImageByLocale('formation', locale),
+    srcSet: getSrcSetFromImage(getImageByLocale('formation', locale)),
   },
   {
     title: t('homepage.operations.artillery.title'),
     description: t('homepage.operations.artillery.description'),
-    image: rscImage,
-    srcSet: getSrcSetFromImage(rscImage),
+    image: getImageByLocale('artillery', locale),
+    srcSet: getSrcSetFromImage(getImageByLocale('artillery', locale)),
   },
   {
     title: t('homepage.operations.infiltration.title'),
     description: t('homepage.operations.infiltration.description'),
-    image: luvHavocImage,
-    srcSet: getSrcSetFromImage(luvHavocImage),
+    image: getImageByLocale('infiltration', locale),
+    srcSet: getSrcSetFromImage(getImageByLocale('infiltration', locale)),
   },
   {
     title: t('homepage.operations.missiles.title'),
     description: t('homepage.operations.missiles.description'),
-    image: nukeImage,
-    srcSet: getSrcSetFromImage(nukeImage),
+    image: getImageByLocale('nuke', locale),
+    srcSet: getSrcSetFromImage(getImageByLocale('nuke', locale)),
   },
   {
     title: t('homepage.operations.tank.title'),
     description: t('homepage.operations.tank.description'),
-    image: umbralImage,
-    srcSet: getSrcSetFromImage(umbralImage),
+    image: getImageByLocale('tank', locale),
+    srcSet: getSrcSetFromImage(getImageByLocale('tank', locale)),
   },
   {
     title: t('homepage.operations.naval.title'),
     description: t('homepage.operations.naval.description'),
-    image: battleshipImage,
-    srcSet: getSrcSetFromImage(battleshipImage),
+    image: getImageByLocale('battleship', locale),
+    srcSet: getSrcSetFromImage(getImageByLocale('battleship', locale)),
   },
   {
     title: t('homepage.operations.infantry.title'),
     description: t('homepage.operations.infantry.description'),
-    image: infanterieImage,
-    srcSet: getSrcSetFromImage(infanterieImage),
-  }
+    image: getImageByLocale('infanterie', locale),
+    srcSet: getSrcSetFromImage(getImageByLocale('infanterie', locale)),
+  },
 ];
 
 /**
