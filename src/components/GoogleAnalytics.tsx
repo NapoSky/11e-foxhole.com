@@ -1,15 +1,15 @@
-import { useEffect } from 'react';
-import Script from 'next/script';
+import { useEffect } from "react";
+import Script from "next/script";
 
 // At the top of your file, add a global declaration to extend the Window interface
 declare global {
-    interface Window {
-      dataLayer: any[];
-      gtag: (...args: any[]) => void;
-    }
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
   }
+}
 
-const GA_TRACKING_ID = 'G-0P4RSJ2Z61'; // Replace 'YOUR_TRACKING_ID' with your GA tracking ID.
+const GA_TRACKING_ID = "G-0P4RSJ2Z61"; // Replace 'YOUR_TRACKING_ID' with your GA tracking ID.
 
 const GoogleAnalytics = () => {
   useEffect(() => {
@@ -19,8 +19,8 @@ const GoogleAnalytics = () => {
       window.dataLayer.push(args);
     }
     window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', GA_TRACKING_ID);
+    gtag("js", new Date());
+    gtag("config", GA_TRACKING_ID);
   }, []);
 
   return (
@@ -32,7 +32,7 @@ const GoogleAnalytics = () => {
         strategy="worker"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
       />
-      <Script id="google-analytics" strategy="worker"> 
+      <Script id="google-analytics" strategy="worker">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

@@ -12,7 +12,7 @@ import {
 
 import { isApple, isMobile } from "../../config";
 import { getOfficerSection, getSectionId } from "../../data/data";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { Officers } from "../../data/dataDef";
 import useInterval from "../../hooks/useInterval";
 import useWindow from "../../hooks/useWindow";

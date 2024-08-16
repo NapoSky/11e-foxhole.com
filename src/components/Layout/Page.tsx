@@ -12,7 +12,9 @@ import Description from "../../components/Sections/Description";
 import Operations from "../../components/Sections/Operations";
 import Activities from "../../components/Sections/Activities";
 
-type PageProps = PropsWithChildren<HomepageMeta & { schemaData: any; fullUrl: string }>;
+type PageProps = PropsWithChildren<
+  HomepageMeta & { schemaData: any; fullUrl: string }
+>;
 
 const Page: NextPage<PageProps> = memo(
   ({ children, title, description, schemaData, fullUrl }) => {
@@ -20,21 +22,21 @@ const Page: NextPage<PageProps> = memo(
 
     // États pour les valeurs traduites des balises meta
     const [translatedTitle, setTranslatedTitle] = useState(title);
-    const [translatedDescription, setTranslatedDescription] = useState(description);
+    const [translatedDescription, setTranslatedDescription] =
+      useState(description);
 
-useEffect(() => {
-  // Vérifier si l'utilisateur est sur la page racine
-  if (window.location.pathname === '/' && i18n.language !== 'fr') {
-    i18n.changeLanguage('fr').then(() => {
-      setTranslatedTitle(t(title));
-      setTranslatedDescription(t(description));
-    });
-  } else {
-    setTranslatedTitle(t(title));
-    setTranslatedDescription(t(description));
-  }
-}, [i18n, t, title, description]);
-
+    useEffect(() => {
+      // Vérifier si l'utilisateur est sur la page racine
+      if (window.location.pathname === "/" && i18n.language !== "fr") {
+        i18n.changeLanguage("fr").then(() => {
+          setTranslatedTitle(t(title));
+          setTranslatedDescription(t(description));
+        });
+      } else {
+        setTranslatedTitle(t(title));
+        setTranslatedDescription(t(description));
+      }
+    }, [i18n, t, title, description]);
 
     return (
       <>
@@ -57,7 +59,7 @@ useEffect(() => {
             {JSON.stringify(schemaData)}
           </script>
         </Head>
-        
+
         <GoogleAnalytics />
         <Header />
         <Schema schema={schemaData} />
@@ -69,7 +71,7 @@ useEffect(() => {
         {children}
       </>
     );
-  }
+  },
 );
 
 Page.displayName = "Page";

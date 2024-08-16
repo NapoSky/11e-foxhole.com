@@ -1,9 +1,9 @@
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
 import { FC, memo } from "react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { getSectionId } from "../../data/data"; // Importez la fonction au lieu de l'objet
 import Socials from "../Socials";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 const currentYear = new Date().getFullYear();
 
@@ -11,9 +11,9 @@ const Footer: FC = memo(() => {
   const { t } = useTranslation();
   const SectionId = getSectionId(t); // Obtenez les données traduites dynamiques
 
-    // Utilisation de `router.pathname` pour récupérer le chemin de base actuel
-    const router = useRouter();
-    const gotophref = `${router.asPath.split('#')[0]}#${SectionId.Description}`;
+  // Utilisation de `router.pathname` pour récupérer le chemin de base actuel
+  const router = useRouter();
+  const gotophref = `${router.asPath.split("#")[0]}#${SectionId.Description}`;
 
   return (
     <div

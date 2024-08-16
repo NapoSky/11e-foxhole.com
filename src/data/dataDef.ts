@@ -64,7 +64,7 @@ export interface OperationItem {
   description: string;
   url?: string;
   image: string;
-  srcSet?: string
+  srcSet?: string;
 }
 
 /**

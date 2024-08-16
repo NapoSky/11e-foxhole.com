@@ -2,11 +2,10 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import ResponsiveImage from "../ResponsiveImage";
 import { FC, memo } from "react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { getDescriptionData, getSectionId } from "../../data/data"; // Importez les fonctions au lieu des objets
 import Section from "../Layout/Section";
-import { useRouter } from 'next/router';
-
+import { useRouter } from "next/router";
 
 const Description: FC = memo(() => {
   // Obtenez les données traduites dynamiquement
@@ -17,13 +16,16 @@ const Description: FC = memo(() => {
 
   // Utilisation de `router.pathname` pour récupérer le chemin de base actuel
   const router = useRouter();
-  const godownhref = `${router.asPath.split('#')[0]}#${SectionId.Footer}`;
-  
+  const godownhref = `${router.asPath.split("#")[0]}#${SectionId.Footer}`;
+
   const { imageSrc, srcSet, name, description, actions } = descriptionData;
 
   return (
     <Section noPadding sectionId={SectionId.Description}>
-      <div id={SectionId.Description} className="relative flex min-h-screen w-full items-center justify-center px-2 sm:px-4">
+      <div
+        id={SectionId.Description}
+        className="relative flex min-h-screen w-full items-center justify-center px-2 sm:px-4"
+      >
         <ResponsiveImage
           alt={`${name}-image`}
           className="absolute h-full w-full object-cover"
