@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 
 const YouTubeModal: React.FC = () => {
   const [videoId, setVideoId] = useState<string | null>(null);
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [isExpandedDesktop, setIsExpandedDesktop] = useState<boolean>(false);
+  const [isExpandedMobile, setIsExpandedMobile] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,11 +36,18 @@ const YouTubeModal: React.FC = () => {
     }
   };
 
-  const toggleExpansion = () => {
-    if (!isExpanded && !videoId) {
+  const toggleExpansionDesktop = () => {
+    if (!isExpandedDesktop && !videoId) {
       fetchLatestVideo();
     }
-    setIsExpanded(!isExpanded);
+    setIsExpandedDesktop(!isExpandedDesktop);
+  };
+
+  const toggleExpansionMobile = () => {
+    if (!isExpandedMobile && !videoId) {
+      fetchLatestVideo();
+    }
+    setIsExpandedMobile(!isExpandedMobile);
   };
 
   useEffect(() => {
@@ -50,11 +58,11 @@ const YouTubeModal: React.FC = () => {
         containerRef.current &&
         !containerRef.current.contains(event.target as Node)
       ) {
-        setIsExpanded(false);
+        setIsExpandedMobile(false);
       }
     };
 
-    if (isExpanded) {
+    if (isExpandedMobile) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -63,32 +71,32 @@ const YouTubeModal: React.FC = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isExpanded, isMobile]);
+  }, [isExpandedMobile, isMobile]);
 
   return (
     <>
       {/* Affichage pour les écrans de taille moyenne et plus (PC) */}
       <div
         className={`fixed bottom-5 right-5 bg-inherit shadow-lg rounded-lg z-50 duration-300 hidden md:block pointer-events-auto ${
-          isExpanded ? "w-80 h-auto" : "w-48 h-12"
+          isExpandedDesktop ? "w-80 h-auto" : "w-48 h-12"
         }`}
       >
         <div
-          className="flex items-center justify-between w-full h-12 cursor-pointer bg-gray-800 text-white"
-          onClick={toggleExpansion}
+          className="flex items-center justify-between w-full rounded h-12 pr-2 cursor-pointer bg-gray-800 text-white"
+          onClick={toggleExpansionDesktop}
         >
           <span className="text-sm font-medium flex-grow flex items-center justify-start pl-2 leading-none">
             {t("homepage.modales.youtube")}
           </span>
           <span
-            className={`transform transition-transform flex items-center pr-2 leading-none ${
-              isExpanded ? "rotate-180" : "rotate-0"
+            className={`transform transition-transform flex items-center ml-1 leading-none ${
+              isExpandedDesktop ? "rotate-180" : "rotate-0"
             }`}
           >
             ▼
           </span>
         </div>
-        {isExpanded && videoId && (
+        {isExpandedDesktop && videoId && (
           <div className="w-full p-2">
             <div className="relative w-full h-0 pb-[56.25%]">
               <iframe
@@ -106,14 +114,14 @@ const YouTubeModal: React.FC = () => {
       <div
         ref={containerRef}
         className={`fixed top-1/2 right-0 transform -translate-y-1/2 bg-red-950 bg-opacity-60 text-white shadow-lg rounded-l-lg overflow-hidden z-50 transition-all duration-300 block md:hidden ${
-          isExpanded ? "h-auto w-60 p-2" : "h-36 w-5"
+          isExpandedMobile ? "h-auto w-60 p-2" : "h-36 w-5"
         }`}
       >
         <div
           className="flex items-center justify-center h-full cursor-pointer"
-          onClick={toggleExpansion}
+          onClick={toggleExpansionMobile}
         >
-          {!isExpanded && (
+          {!isExpandedMobile && (
             <span className="text-white text-xs font-mono font-medium leading-none">
               ▶<br />
               <br />
@@ -129,7 +137,7 @@ const YouTubeModal: React.FC = () => {
             </span>
           )}
         </div>
-        {isExpanded && videoId && (
+        {isExpandedMobile && videoId && (
           <div className="mt-2 w-full">
             <div className="relative w-full h-0 pb-[56.25%]">
               <iframe
