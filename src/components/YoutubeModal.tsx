@@ -23,7 +23,7 @@ const YouTubeModal: React.FC = () => {
 
   const fetchLatestVideo = async () => {
     try {
-      const apiKey = "AIzaSyDs_moLvYMFnCaskcIOwUqJUfg6vePKIHI";
+      const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
       const channelId = "UCnAShvmJ9v4GltbvQdiXPTQ";
       const response = await fetch(
         `https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=${channelId}&maxResults=1&type=video&key=${apiKey}`
