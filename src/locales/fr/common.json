@@ -105,6 +105,9 @@
       "Stats": "Statistiques",
       "Officers": "Les Officiers",
       "Footer": "Pied de page"
+    },
+    "modales": {
+      "youtube": "Dernière video Youtube"
     }
   }
 }

@@ -105,6 +105,9 @@
       "Stats": "数据",
       "Officers": "军官",
       "Footer": "页脚"
+    },
+    "modales": {
+      "youtube": "最新 Youtube 视频"
     }
   }
 }

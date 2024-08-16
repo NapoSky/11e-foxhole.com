@@ -63,7 +63,7 @@ const Description: FC = memo(() => {
             </div>
           </div>
         </div>
-        <div className="absolute inset-x-0 bottom-3 md:bottom-12 sm:bottom-8 flex justify-center z-50">
+        <div className="absolute inset-x-0 bottom-3 md:bottom-12 sm:bottom-8 flex justify-center z-10">
           <a
             aria-label="Aller au pied de page"
             className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"

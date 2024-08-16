@@ -11,6 +11,7 @@ import Footer from "../../components/Sections/Footer";
 import Description from "../../components/Sections/Description";
 import Operations from "../../components/Sections/Operations";
 import Activities from "../../components/Sections/Activities";
+import YouTubeModal from "../../components/YoutubeModal";
 
 type PageProps = PropsWithChildren<
   HomepageMeta & { schemaData: any; fullUrl: string }
@@ -62,6 +63,7 @@ const Page: NextPage<PageProps> = memo(
 
         <GoogleAnalytics />
         <Header />
+        <YouTubeModal />
         <Schema schema={schemaData} />
         <Description />
         <Activities />
