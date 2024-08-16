@@ -7,17 +7,19 @@ import ActivityItem from "./ActivityItem";
 import activitiesImageFr from "../../../images/activities-background-fr.webp";
 import activitiesImageEn from "../../../images/activities-background-en.webp";
 import activitiesImageCn from "../../../images/activities-background-cn.webp";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 /**
  * Code required to factorize srcSet
  */
 export const getBaseNameFromImport = (imagePath: string): string => {
-  if (!imagePath || typeof imagePath !== 'string') {
-    return '';
+  if (!imagePath || typeof imagePath !== "string") {
+    return "";
   }
-  const filename = imagePath.split('/').pop();
-  return filename ? filename.replace(/-\d+\.webp$/, '').replace(/-(fr|en|cn)$/, '') : '';
+  const filename = imagePath.split("/").pop();
+  return filename
+    ? filename.replace(/-\d+\.webp$/, "").replace(/-(fr|en|cn)$/, "")
+    : "";
 };
 
 export const sizes = [320, 640, 1280, 1920, 2560];
@@ -29,11 +31,19 @@ const extractLocaleFromImagePath = (imagePath: string): string | null => {
 };
 
 // Fonction pour générer le srcSet en fonction du nom de base et de la locale
-const generateSrcSet = (cleanBaseName: string, sizes: number[], locale: string | null): string => {
+const generateSrcSet = (
+  cleanBaseName: string,
+  sizes: number[],
+  locale: string | null,
+): string => {
   if (locale) {
-    return sizes.map(size => `/images/${cleanBaseName}-${locale}-${size}.webp ${size}w`).join(", ");
+    return sizes
+      .map((size) => `/images/${cleanBaseName}-${locale}-${size}.webp ${size}w`)
+      .join(", ");
   }
-  return sizes.map(size => `/images/${cleanBaseName}-${size}.webp ${size}w`).join(", ");
+  return sizes
+    .map((size) => `/images/${cleanBaseName}-${size}.webp ${size}w`)
+    .join(", ");
 };
 
 // Fonction pour obtenir le srcSet à partir d'une image
@@ -46,11 +56,11 @@ export const getSrcSetFromImage = (image: string): string => {
 // Fonction pour sélectionner l'image en fonction de la locale courante
 export const selectImageByLocale = (locale: string): string => {
   switch (locale) {
-    case 'fr':
+    case "fr":
       return activitiesImageFr;
-    case 'en':
+    case "en":
       return activitiesImageEn;
-    case 'cn':
+    case "cn":
       return activitiesImageCn;
     default:
       return activitiesImageFr; // Par défaut, retourner l'image en francais si la locale n'est pas supportée
@@ -87,9 +97,6 @@ const Activities: FC = memo(() => {
     </Section>
   );
 });
-
-
-
 
 Activities.displayName = "Resume";
 export default Activities;

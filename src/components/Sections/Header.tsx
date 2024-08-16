@@ -1,6 +1,6 @@
 import { Transition, TransitionChild } from "@headlessui/react";
 import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import Link from "next/link";
 import {
@@ -13,7 +13,7 @@ import {
   useEffect,
 } from "react";
 
-import { getSectionId } from "../../data/data"; 
+import { getSectionId } from "../../data/data";
 import { useNavObserver } from "../../hooks/useNavObserver";
 import LanguageSwitcher from "../LanguageSwitcher";
 export const headerID = "headerNav";
@@ -27,26 +27,31 @@ const HeaderClient: FC = () => {
     const handleLanguageChange = () => {
       // Forcer un re-render en changeant une clé unique ou un state
     };
-    i18n.on('languageChanged', handleLanguageChange);
+    i18n.on("languageChanged", handleLanguageChange);
 
     return () => {
-      i18n.off('languageChanged', handleLanguageChange);
+      i18n.off("languageChanged", handleLanguageChange);
     };
   }, [i18n]);
-  const [currentSection, setCurrentSection] = useState<keyof typeof sectionId | null>(null);
+  const [currentSection, setCurrentSection] = useState<
+    keyof typeof sectionId | null
+  >(null);
 
   const navSections = useMemo(
     () => [sectionId.Description, sectionId.Activities, sectionId.Operations],
-    [sectionId]
+    [sectionId],
   );
 
-  const intersectionHandler = useCallback((section: string | null) => {
-    setCurrentSection(section as keyof typeof sectionId | null);
-  }, [sectionId]);
+  const intersectionHandler = useCallback(
+    (section: string | null) => {
+      setCurrentSection(section as keyof typeof sectionId | null);
+    },
+    [sectionId],
+  );
 
   useNavObserver(
     navSections.map((section) => `#${section}`).join(","),
-    intersectionHandler
+    intersectionHandler,
   );
 
   return (
@@ -97,7 +102,6 @@ const DesktopNav: FC<NavProps> = ({ navSections, currentSection }) => {
   );
 };
 
-
 const MobileNav: FC<NavProps> = memo(({ navSections, currentSection }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -113,7 +117,7 @@ const MobileNav: FC<NavProps> = memo(({ navSections, currentSection }) => {
     "p-2 rounded-md first-letter:uppercase transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500";
   const activeClass = classNames(
     baseClass,
-    "bg-neutral-900 text-white font-bold"
+    "bg-neutral-900 text-white font-bold",
   );
   const inactiveClass = classNames(baseClass, "text-neutral-200 font-medium");
 
@@ -159,7 +163,7 @@ const MobileNav: FC<NavProps> = memo(({ navSections, currentSection }) => {
             {/* Mini Header au-dessus des sections */}
             <div>
               <h2 className="text-white text-l font-bold">11e-Foxhole.com</h2>
-            <hr className="border-t border-white mt-2" />
+              <hr className="border-t border-white mt-2" />
             </div>
             {navSections.map((section) => (
               <NavItem
@@ -181,8 +185,6 @@ const MobileNav: FC<NavProps> = memo(({ navSections, currentSection }) => {
     </>
   );
 });
-
-
 
 const NavItem: FC<{
   section: string;

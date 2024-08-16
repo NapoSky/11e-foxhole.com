@@ -22,7 +22,7 @@ const Section: FC<SectionProps> = memo(
         </div>
       </section>
     );
-  }
+  },
 );
 
 Section.displayName = "Section";

@@ -8,7 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { isMobile } from "../../config";
 import { getOperationItems, getSectionId } from "../../data/data";
 import { OperationItem } from "../../data/dataDef";
@@ -26,7 +26,7 @@ const Operations: FC = memo(() => {
     <Section className="bg-neutral-1000" sectionId={getSectionId(t).Operations}>
       <div className="flex flex-col gap-y-8">
         <h2 className="self-center text-xl font-bold text-white">
-          {t('homepage.operations.title')}
+          {t("homepage.operations.title")}
         </h2>
         <div className="w-full columns-2">
           {operationItems.map((item, index) => {
@@ -34,9 +34,7 @@ const Operations: FC = memo(() => {
 
             return (
               <div className="pb-6" key={`${title}-${index}`}>
-                <div
-                  className="relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl"
-                >
+                <div className="relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl">
                   <ResponsiveImage
                     alt={title}
                     placeholder="blur"
@@ -92,7 +90,7 @@ const ItemOverlay: FC<{ item: OperationItem }> = memo(
         <>
           <div
             className={`absolute inset-0 h-full w-full bg-gray-900 transition-all duration-300 ${
-              showOverlay ? 'opacity-80' : 'opacity-0'
+              showOverlay ? "opacity-80" : "opacity-0"
             }`}
             onClick={handleItemClick}
           >
@@ -111,7 +109,9 @@ const ItemOverlay: FC<{ item: OperationItem }> = memo(
                 className="relative max-h-[80vh] w-[90vw] overflow-y-auto rounded-lg bg-gray-900 p-4 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
-                <h2 className="text-center text-lg font-bold text-white">{title}</h2>
+                <h2 className="text-center text-lg font-bold text-white">
+                  {title}
+                </h2>
                 <p className="mt-4 text-sm text-white">{description}</p>
               </div>
             </div>
@@ -122,9 +122,7 @@ const ItemOverlay: FC<{ item: OperationItem }> = memo(
 
     // Comportement sur desktop : Overlay sur l'image
     return (
-      <div
-        className="absolute inset-0 h-full w-full bg-gray-900 opacity-0 hover:opacity-80 transition-opacity duration-300"
-      >
+      <div className="absolute inset-0 h-full w-full bg-gray-900 opacity-0 hover:opacity-80 transition-opacity duration-300">
         <div className="relative h-full w-full p-4">
           <div className="flex h-full w-full flex-col gap-y-2 overflow-y-auto overscroll-contain">
             <h2 className="text-center font-bold text-white opacity-100">
@@ -140,7 +138,7 @@ const ItemOverlay: FC<{ item: OperationItem }> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
 
 ItemOverlay.displayName = "ItemOverlay";
