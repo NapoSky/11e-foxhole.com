@@ -1,14 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
+interface YouTubeWindow extends Window {
+  YT: any;
+  onYouTubeIframeAPIReady: () => void;
+}
+
 const YouTubeModal: React.FC = () => {
   const [videoId, setVideoId] = useState<string | null>(null);
   const [isExpandedDesktop, setIsExpandedDesktop] = useState<boolean>(false);
   const [isExpandedMobile, setIsExpandedMobile] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const { t } = useTranslation();
+  const playerInstance = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
+  // Détection du mode mobile uniquement côté client
   useEffect(() => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -22,6 +29,63 @@ const YouTubeModal: React.FC = () => {
     };
   }, []);
 
+  // Appeler l'API YouTube uniquement côté client
+  useEffect(() => {
+    if (typeof window !== "undefined" && (isExpandedDesktop || isExpandedMobile)) {
+      loadYouTubeAPI();
+    }
+  }, [isExpandedDesktop, isExpandedMobile]);
+
+  const loadYouTubeAPI = () => {
+    const win = window as unknown as YouTubeWindow;
+    if (!win.YT) {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag?.parentNode?.insertBefore(tag, firstScriptTag);
+
+      // Attendre que l'API soit prête
+      win.onYouTubeIframeAPIReady = initializePlayer;
+    } else {
+      initializePlayer();
+    }
+  };
+
+  const initializePlayer = () => {
+    const win = window as unknown as YouTubeWindow;
+
+    if (!videoId) return;
+
+
+    if (playerInstance.current) {
+      playerInstance.current.destroy(); // Réinitialiser le lecteur
+    }
+
+    playerInstance.current = new win.YT.Player("player", {
+      videoId: videoId,
+      host: 'https://www.youtube-nocookie.com',
+      playerVars: {
+        autoplay: 1,
+        rel: 0,
+        modestbranding: 1,
+        disablekb: 1,
+        cc_load_policy: 1,
+        iv_load_policy: 3,
+        playsinline: 1,
+        origin: window.location.origin,
+        host: "https://www.youtube-nocookie.com",
+      },
+      events: {
+        onReady: onPlayerReady,
+      },
+    });
+  };
+
+  const onPlayerReady = (event: any) => {
+    event.target.setVolume(35);
+    event.target.playVideo();
+  };
+
   const fetchLatestVideo = async () => {
     try {
       const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
@@ -30,22 +94,24 @@ const YouTubeModal: React.FC = () => {
         `https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=${channelId}&maxResults=1&type=video&key=${apiKey}`
       );
       const data = await response.json();
-      setVideoId(data.items[0]?.id?.videoId || null);
+      if (data.items && data.items.length > 0) {
+        setVideoId(data.items[0]?.id?.videoId || null);
+      } 
     } catch (error) {
       console.error("Error fetching the latest YouTube video:", error);
     }
   };
 
-  const toggleExpansionDesktop = () => {
+  const toggleExpansionDesktop = async () => {
     if (!isExpandedDesktop && !videoId) {
-      fetchLatestVideo();
+      await fetchLatestVideo();
     }
     setIsExpandedDesktop(!isExpandedDesktop);
   };
 
-  const toggleExpansionMobile = () => {
+  const toggleExpansionMobile = async () => {
     if (!isExpandedMobile && !videoId) {
-      fetchLatestVideo();
+      await fetchLatestVideo();
     }
     setIsExpandedMobile(!isExpandedMobile);
   };
@@ -99,12 +165,7 @@ const YouTubeModal: React.FC = () => {
         {isExpandedDesktop && videoId && (
           <div className="w-full p-2">
             <div className="relative w-full h-0 pb-[56.25%]">
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&disablekb=1&cc_load_policy=1&iv_load_policy=3&playsinline=1`}
-                allowFullScreen
-                title={t("homepage.modales.youtube")}
-              ></iframe>
+              <div id="player" className="absolute inset-0 w-full h-full"></div> {/* Lecteur YouTube */}
             </div>
           </div>
         )}
@@ -140,12 +201,7 @@ const YouTubeModal: React.FC = () => {
         {isExpandedMobile && videoId && (
           <div className="mt-2 w-full">
             <div className="relative w-full h-0 pb-[56.25%]">
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&disablekb=1&cc_load_policy=1&iv_load_policy=3&playsinline=1`}
-                allowFullScreen
-                title={t("homepage.modales.youtube")}
-              ></iframe>
+              <div id="player" className="absolute inset-0 w-full h-full"></div> {/* Lecteur YouTube */}
             </div>
           </div>
         )}
