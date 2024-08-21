@@ -16,6 +16,7 @@ import {
 import { getSectionId } from "../../data/data";
 import { useNavObserver } from "../../hooks/useNavObserver";
 import LanguageSwitcher from "../LanguageSwitcher";
+import DocumentLangUpdater from "../DocumentLangUpdater";
 export const headerID = "headerNav";
 
 const HeaderClient: FC = () => {
@@ -56,6 +57,7 @@ const HeaderClient: FC = () => {
 
   return (
     <>
+      <DocumentLangUpdater />
       <MobileNav
         currentSection={currentSection}
         navSections={navSections}

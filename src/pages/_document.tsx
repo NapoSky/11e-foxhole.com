@@ -6,8 +6,11 @@ import { Head, Html, Main, NextScript } from "next/document";
 // rebuild the next/head fields each time it's called, and won't overwrite next/document's Head.
 
 export default function Document() {
+    // Utilisation de i18n.language pour définir la langue par défaut
+    //const lang = i18n.language || "fr";
+ 
   return (
-    <Html lang="en">
+    <Html>
       <Head>
         {/* google translate breaks react:
           - https://github.com/facebook/react/issues/11538

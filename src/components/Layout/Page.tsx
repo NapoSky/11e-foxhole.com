@@ -6,7 +6,6 @@ import { useTranslation } from "react-i18next";
 import { HomepageMeta } from "../../data/dataDef";
 import GoogleAnalytics from "../../components/GoogleAnalytics";
 import Header from "../../components/Sections/Header";
-import Schema from "../../components/Schema";
 import Footer from "../../components/Sections/Footer";
 import Description from "../../components/Sections/Description";
 import Operations from "../../components/Sections/Operations";
@@ -39,13 +38,19 @@ const Page: NextPage<PageProps> = memo(
       }
     }, [i18n, t, title, description]);
 
+    // Générer l'URL canonical en fonction de la langue actuelle dans i18next
+      const canonicalUrl =
+      i18n.language === "fr"
+        ? "https://11e-foxhole.com/"
+        : `https://11e-foxhole.com/${i18n.language}`;
+
     return (
       <>
         <Head>
           <title>{translatedTitle}</title>
           <meta name="description" content={translatedDescription} />
 
-          <link rel="canonical" href={fullUrl} />
+          <link rel="canonical" href={canonicalUrl} />
           <link href="/favicon.ico" rel="icon" sizes="any" />
           <link href="/site.webmanifest" rel="manifest" />
 
@@ -64,7 +69,6 @@ const Page: NextPage<PageProps> = memo(
         <GoogleAnalytics />
         <Header />
         <YouTubeModal />
-        <Schema schema={schemaData} />
         <Description />
         <Activities />
         <Operations />

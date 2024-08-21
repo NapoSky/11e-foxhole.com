@@ -1,6 +1,6 @@
 // src/pages/[locale]/index.tsx
 import { GetStaticPaths, GetStaticProps } from "next";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import i18next from "i18next";
 import Page from "../../components/Layout/Page";
 import { getHomePageMeta } from "../../data/data";
@@ -20,7 +20,10 @@ const LocalePage: FC<LocalePageProps> = ({
   schemaData,
   fullUrl,
 }) => {
-  i18next.changeLanguage(locale);
+  // Utiliser useEffect pour changer la langue après le rendu initial
+  useEffect(() => {
+    i18next.changeLanguage(locale);
+  }, [locale]);
 
   return (
     <Page
