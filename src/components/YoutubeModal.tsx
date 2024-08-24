@@ -31,7 +31,10 @@ const YouTubeModal: React.FC = () => {
 
   // Appeler l'API YouTube uniquement côté client
   useEffect(() => {
-    if (typeof window !== "undefined" && (isExpandedDesktop || isExpandedMobile)) {
+    if (
+      typeof window !== "undefined" &&
+      (isExpandedDesktop || isExpandedMobile)
+    ) {
       loadYouTubeAPI();
     }
   }, [isExpandedDesktop, isExpandedMobile]);
@@ -56,14 +59,13 @@ const YouTubeModal: React.FC = () => {
 
     if (!videoId) return;
 
-
     if (playerInstance.current) {
       playerInstance.current.destroy(); // Réinitialiser le lecteur
     }
 
     playerInstance.current = new win.YT.Player("player", {
       videoId: videoId,
-      host: 'https://www.youtube-nocookie.com',
+      host: "https://www.youtube-nocookie.com",
       playerVars: {
         autoplay: 1,
         rel: 0,
@@ -91,14 +93,14 @@ const YouTubeModal: React.FC = () => {
       const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
       const channelId = "UCnAShvmJ9v4GltbvQdiXPTQ";
       const response = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=${channelId}&maxResults=1&type=video&key=${apiKey}`
+        `https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=${channelId}&maxResults=1&type=video&key=${apiKey}`,
       );
       const data = await response.json();
       if (data.items && data.items.length > 0) {
         setVideoId(data.items[0]?.id?.videoId || null);
-      } 
+      }
     } catch (error) {
-      console.error("Error fetching the latest YouTube video:", error);
+      // On ignore
     }
   };
 
@@ -165,7 +167,8 @@ const YouTubeModal: React.FC = () => {
         {isExpandedDesktop && videoId && (
           <div className="w-full p-2">
             <div className="relative w-full h-0 pb-[56.25%]">
-              <div id="player" className="absolute inset-0 w-full h-full"></div> {/* Lecteur YouTube */}
+              <div id="player" className="absolute inset-0 w-full h-full"></div>{" "}
+              {/* Lecteur YouTube */}
             </div>
           </div>
         )}
@@ -193,15 +196,15 @@ const YouTubeModal: React.FC = () => {
               u<br />
               b<br />
               e<br />
-              <br />
-              ▶
+              <br />▶
             </span>
           )}
         </div>
         {isExpandedMobile && videoId && (
           <div className="mt-2 w-full">
             <div className="relative w-full h-0 pb-[56.25%]">
-              <div id="player" className="absolute inset-0 w-full h-full"></div> {/* Lecteur YouTube */}
+              <div id="player" className="absolute inset-0 w-full h-full"></div>{" "}
+              {/* Lecteur YouTube */}
             </div>
           </div>
         )}
