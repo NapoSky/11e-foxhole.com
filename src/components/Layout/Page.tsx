@@ -1,74 +1,94 @@
-// src/components/Layout/Page.tsx
 import { NextPage } from "next";
 import Head from "next/head";
 import { memo, PropsWithChildren, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { HomepageMeta } from "../../data/dataDef";
+import {
+  HomepageMeta,
+  ActivityElement,
+  Description,
+  OperationItem,
+} from "../../data/dataDef";
+import { SectionId } from "../../data/data";
 import GoogleAnalytics from "../../components/GoogleAnalytics";
 import Header from "../../components/Sections/Header";
 import Schema from "../Schema";
 import Footer from "../../components/Sections/Footer";
-import Description from "../../components/Sections/Description";
+import DescriptionComponent from "../../components/Sections/Description";
 import Operations from "../../components/Sections/Operations";
 import Activities from "../../components/Sections/Activities";
 import YouTubeModal from "../../components/YoutubeModal";
+import i18next from "i18next";
+//import Description from "../../components/Sections/Description";
 
 type PageProps = PropsWithChildren<
-  HomepageMeta & { schemaData: any; fullUrl: string }
+  HomepageMeta & {
+    schemaData: any;
+    fullUrl: string;
+    locale: string;
+    descriptionData: Description;
+    translations: {
+      header: string;
+      description: string;
+      activities: string;
+      operations: string;
+    };
+    activities: ActivityElement[];
+    operations: OperationItem[]; // Ajout de la propriété operations
+    sectionId: SectionId;
+  }
 >;
 
 const Page: NextPage<PageProps> = memo(
-  ({ children, title, description, schemaData, fullUrl }) => {
-    const { t, i18n } = useTranslation();
-
-    // États pour les valeurs traduites des balises meta
-    const [translatedTitle, setTranslatedTitle] = useState(title);
-    const [translatedDescription, setTranslatedDescription] =
-      useState(description);
+  ({
+    children,
+    title,
+    description,
+    schemaData,
+    fullUrl,
+    locale,
+    descriptionData,
+    activities,
+    operations, // Ajout de l'argument operations
+    sectionId,
+  }) => {
+    const [canonicalUrl, setCanonicalUrl] = useState(fullUrl);
 
     useEffect(() => {
-      // Vérifier si l'utilisateur est sur la page racine
-      if (window.location.pathname === "/" && i18n.language !== "fr") {
-        i18n.changeLanguage("fr").then(() => {
-          setTranslatedTitle(t(title));
-          setTranslatedDescription(t(description));
-        });
-      } else {
-        setTranslatedTitle(t(title));
-        setTranslatedDescription(t(description));
-      }
-    }, [i18n, t, title, description]);
-
-    // Générer l'URL canonical en fonction de la langue actuelle dans i18next
-    const canonicalUrl =
-      i18n.language === "fr"
-        ? "https://11e-foxhole.com/"
-        : `https://11e-foxhole.com/${i18n.language}`;
+      i18next.changeLanguage(locale);
+      const url =
+        locale === "fr"
+          ? "https://11e-foxhole.com/"
+          : `https://11e-foxhole.com/${locale}`;
+      setCanonicalUrl(url);
+    }, [locale]);
 
     return (
       <>
         <Head>
-          <title>{translatedTitle}</title>
-          <meta name="description" content={translatedDescription} />
+          <title>{title}</title>
+          <meta name="description" content={description} />
 
           <link rel="canonical" href={canonicalUrl} />
           <link href="/favicon.ico" rel="icon" sizes="any" />
           <link href="/site.webmanifest" rel="manifest" />
 
-          <meta property="og:title" content={translatedTitle} />
-          <meta property="og:description" content={translatedDescription} />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={description} />
           <meta property="og:url" content={fullUrl} />
 
-          <meta name="twitter:title" content={translatedTitle} />
-          <meta name="twitter:description" content={translatedDescription} />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={description} />
         </Head>
         <Schema schema={schemaData} />
         <GoogleAnalytics />
-        <Header />
+        <Header sectionId={sectionId} locale={locale} />
         <YouTubeModal />
-        <Description />
-        <Activities />
-        <Operations />
+        <DescriptionComponent descriptionData={descriptionData} />
+        <Activities
+          activities={activities}
+          sectionId={sectionId}
+          locale={locale}
+        />
+        <Operations operations={operations} sectionId={sectionId.Operations} />
         <Footer />
 
         {children}

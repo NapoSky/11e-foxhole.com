@@ -1,9 +1,22 @@
 // src/pages/[locale]/index.tsx
-import { GetStaticPaths, GetStaticProps } from "next";
-import { FC, useEffect } from "react";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { useEffect } from "react";
 import i18next from "i18next";
 import Page from "../../components/Layout/Page";
-import { getHomePageMeta } from "../../data/data";
+import {
+  getHomePageMeta,
+  getSectionId,
+  SectionId,
+  getActivities,
+  getOperationItems,
+  getDescriptionData,
+} from "../../data/data";
+import {
+  HomepageMeta,
+  ActivityElement,
+  OperationItem,
+  Description,
+} from "../../data/dataDef";
 
 type LocalePageProps = {
   locale: string;
@@ -11,16 +24,30 @@ type LocalePageProps = {
   description: string;
   schemaData: any;
   fullUrl: string;
+  descriptionData: Description;
+  activities: ActivityElement[];
+  operations: OperationItem[];
+  sectionId: SectionId;
+  translations: {
+    header: string;
+    description: string;
+    activities: string;
+    operations: string;
+  };
 };
 
-const LocalePage: FC<LocalePageProps> = ({
+const LocalePage: NextPage<LocalePageProps> = ({
   locale,
   title,
   description,
   schemaData,
   fullUrl,
+  descriptionData,
+  activities,
+  operations,
+  sectionId,
+  translations,
 }) => {
-  // Utiliser useEffect pour changer la langue après le rendu initial
   useEffect(() => {
     i18next.changeLanguage(locale);
   }, [locale]);
@@ -31,9 +58,13 @@ const LocalePage: FC<LocalePageProps> = ({
       description={description}
       schemaData={schemaData}
       fullUrl={fullUrl}
-    >
-      {/* Votre contenu de page ici */}
-    </Page>
+      locale={locale}
+      descriptionData={descriptionData}
+      activities={activities}
+      operations={operations}
+      sectionId={sectionId}
+      translations={translations} // Clés de traduction d'origine
+    />
   );
 };
 
@@ -49,15 +80,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const locale = context.params?.locale || "fr";
-  const pathname = `/${locale}`; // Ajoutez d'autres segments de chemin si nécessaire
-  const baseUrl = "https://11e-foxhole.com";
-  const fullUrl = `${baseUrl}${pathname}`;
+  const locale = context.params?.locale as string;
+  const fullUrl = `https://11e-foxhole.com/${locale}`;
+  const t = i18next.getFixedT(locale);
+  const meta: HomepageMeta = getHomePageMeta(t);
+  const descriptionData = getDescriptionData(t, locale);
+  const activities = getActivities(t);
+  const operations = getOperationItems(t, locale);
+  const sectionId = getSectionId(t);
 
-  const t = i18next.getFixedT
-    ? i18next.getFixedT(locale)
-    : i18next.t.bind(i18next);
-  const meta = getHomePageMeta(t);
+  const translations = {
+    header: t("homepage.sections.header"), // Clé de traduction d'origine
+    description: t("homepage.sections.description"), // Clé de traduction d'origine
+    activities: t("homepage.sections.activities"), // Clé de traduction d'origine
+    operations: t("homepage.sections.operations"), // Clé de traduction d'origine
+  };
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -78,6 +115,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
       description: meta.description,
       schemaData,
       fullUrl,
+      descriptionData,
+      activities,
+      operations,
+      sectionId,
+      translations, // Clés de traduction d'origine
     },
   };
 };

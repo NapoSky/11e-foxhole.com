@@ -23,8 +23,20 @@ export interface Description {
   imageSrc: string;
   srcSet?: string;
   name: string;
-  description: JSX.Element;
+  description: DescriptionText; // Change this line
   actions: DescriptionActionItem[];
+}
+
+export interface DescriptionText {
+  greeting: string;
+  hesitate: string;
+  history: string;
+  historyContent: string;
+  community: string;
+  communityContent: string;
+  join: string;
+  joinContent: string;
+  recruiting: string;
 }
 
 interface DescriptionActionItem {
@@ -35,7 +47,7 @@ interface DescriptionActionItem {
 }
 
 /**
- * Description section
+ * Footer section
  */
 export interface Footer {
   actions: FooterActionItem[];
@@ -72,7 +84,7 @@ export interface OperationItem {
  */
 export interface ActivityElement {
   title: string;
-  content: JSX.Element;
+  content: string; // Change to string instead of JSX.Element
 }
 
 /**
