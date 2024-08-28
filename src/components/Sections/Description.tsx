@@ -70,6 +70,8 @@ const Description: FC<DescriptionProps> = memo(({ descriptionData }) => {
                       : "border-white ring-white",
                   )}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   key={text}
                 >
                   {text}
