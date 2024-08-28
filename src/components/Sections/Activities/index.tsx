@@ -4,22 +4,39 @@ import { getActivities, getSectionId } from "../../../data/data";
 import Section from "../../Layout/Section";
 import ResumeSection from "./ResumeSection";
 import ActivityItem from "./ActivityItem";
+import { getBaseNameFromImport, generateSrcSet, sizes } from "../../../data/data"; // Assurez-vous d'importer correctement ces fonctions
+
 import activitiesImageFr from "../../../images/activities-background-fr.webp";
 import activitiesImageEn from "../../../images/activities-background-en.webp";
 import activitiesImageCn from "../../../images/activities-background-cn.webp";
 
-// Fonction pour sélectionner l'image en fonction de la locale courante
-export const selectImageByLocale = (locale: string): string => {
+// Fonction pour obtenir src et srcSet en fonction de la locale courante
+export const selectImageByLocale = (locale: string): { src: string, srcSet: string } => {
+  let imagePath: string;
+
   switch (locale) {
     case "fr":
-      return activitiesImageFr;
+      imagePath = activitiesImageFr;
+      break;
     case "en":
-      return activitiesImageEn;
+      imagePath = activitiesImageEn;
+      break;
     case "cn":
-      return activitiesImageCn;
+      imagePath = activitiesImageCn;
+      break;
     default:
-      return activitiesImageFr;
+      imagePath = activitiesImageFr;
+      break;
   }
+
+  const baseName = getBaseNameFromImport(imagePath);
+  // Note: `generateSrcSet` doit pouvoir gérer l'ajout de la locale
+  const srcSet = generateSrcSet(baseName, sizes, locale);
+
+  return {
+    src: imagePath,
+    srcSet,
+  };
 };
 
 // Définition des props pour le composant Activities
@@ -31,7 +48,7 @@ type ActivitiesProps = {
 
 const Activities: FC<ActivitiesProps> = memo(
   ({ activities, sectionId, locale }) => {
-    const selectedImage = selectImageByLocale(locale);
+    const { src, srcSet } = selectImageByLocale(locale);
 
     return (
       <Section className="bg-neutral-100" sectionId={sectionId.Activities}>
@@ -40,7 +57,8 @@ const Activities: FC<ActivitiesProps> = memo(
             <ResponsiveImage
               alt={`activities-background-image`}
               className="object-contain max-w-full max-h-full opacity-20"
-              src={selectedImage}
+              src={src}
+              srcSet={srcSet}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1440px) 50vw, (max-width: 1920px) 50vw, 100vw"
             />
           </div>

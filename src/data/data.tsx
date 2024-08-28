@@ -37,7 +37,7 @@ const extractLocaleFromImagePath = (imagePath: string): string | null => {
 };
 
 // Fonction pour générer le srcSet en fonction du nom de base et de la locale
-const generateSrcSet = (
+export const generateSrcSet = (
   cleanBaseName: string,
   sizes: number[],
   locale: string | null,
