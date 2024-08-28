@@ -9,9 +9,5 @@ Disallow: /500
 Disallow: /private/
 Disallow: /cdn-cgi/
 
-# Bloquer le crawl du sous-domaine stgsite.11e-foxhole.com
-User-agent: *
-Disallow: https://stgsite.11e-foxhole.com/
-
 # Sitemaps
 Sitemap: https://11e-foxhole.com/sitemap.xml
