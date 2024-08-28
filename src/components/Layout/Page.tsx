@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import { memo, PropsWithChildren, useEffect, useState } from "react";
+import { memo, PropsWithChildren } from "react";
 import {
   HomepageMeta,
   ActivityElement,
@@ -16,8 +16,6 @@ import DescriptionComponent from "../../components/Sections/Description";
 import Operations from "../../components/Sections/Operations";
 import Activities from "../../components/Sections/Activities";
 import YouTubeModal from "../../components/YoutubeModal";
-import i18next from "i18next";
-//import Description from "../../components/Sections/Description";
 
 type PageProps = PropsWithChildren<
   HomepageMeta & {
@@ -32,7 +30,7 @@ type PageProps = PropsWithChildren<
       operations: string;
     };
     activities: ActivityElement[];
-    operations: OperationItem[]; // Ajout de la propriété operations
+    operations: OperationItem[];
     sectionId: SectionId;
   }
 >;
@@ -47,19 +45,14 @@ const Page: NextPage<PageProps> = memo(
     locale,
     descriptionData,
     activities,
-    operations, // Ajout de l'argument operations
+    operations,
     sectionId,
   }) => {
-    const [canonicalUrl, setCanonicalUrl] = useState(fullUrl);
-
-    useEffect(() => {
-      i18next.changeLanguage(locale);
-      const url =
-        locale === "fr"
-          ? "https://11e-foxhole.com/"
-          : `https://11e-foxhole.com/${locale}`;
-      setCanonicalUrl(url);
-    }, [locale]);
+    // Déterminer le lien canonique
+    const isFrenchPath = fullUrl.endsWith('/fr');
+    const finalCanonicalUrl = isFrenchPath
+      ? 'https://11e-foxhole.com/'
+      : fullUrl;
 
     return (
       <>
@@ -67,7 +60,9 @@ const Page: NextPage<PageProps> = memo(
           <title>{title}</title>
           <meta name="description" content={description} />
 
-          <link rel="canonical" href={canonicalUrl} />
+          {/* Définir le lien canonique */}
+          <link rel="canonical" href={finalCanonicalUrl} />
+
           <link href="/favicon.ico" rel="icon" sizes="any" />
           <link href="/site.webmanifest" rel="manifest" />
 
@@ -83,18 +78,14 @@ const Page: NextPage<PageProps> = memo(
         <Header sectionId={sectionId} locale={locale} />
         <YouTubeModal />
         <DescriptionComponent descriptionData={descriptionData} />
-        <Activities
-          activities={activities}
-          sectionId={sectionId}
-          locale={locale}
-        />
+        <Activities activities={activities} sectionId={sectionId} locale={locale} />
         <Operations operations={operations} sectionId={sectionId.Operations} />
         <Footer />
 
         {children}
       </>
     );
-  },
+  }
 );
 
 Page.displayName = "Page";
