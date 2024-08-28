@@ -94,16 +94,11 @@ export const getSectionId = (t: TFunction) => {
     Stats: t("homepage.sections.Stats"),
     Officers: t("homepage.sections.Officers"),
     Footer: t("homepage.sections.Footer"),
-  };
+  } as const;
 };
 
-export type SectionId = ReturnType<typeof getSectionId>[keyof ReturnType<
-  typeof getSectionId
->];
+export type SectionId = ReturnType<typeof getSectionId>;
 
-/**
- * Description section
- */
 export const getDescriptionData = (
   t: (key: string) => string,
   locale: string,
@@ -114,27 +109,17 @@ export const getDescriptionData = (
     imageSrc: selectedImage,
     srcSet: getSrcSetFromImage(selectedImage), // Génère le srcSet en fonction de l'image sélectionnée
     name: t("homepage.descriptionData.name"),
-    description: (
-      <div className="prose-sm text-stone-200 sm:prose-base lg:prose-lg space-y-2 max-w-4xl mx-auto">
-        <h2 className="text-stone-50 text-lg">
-          {t("homepage.descriptionData.description.greeting")}
-        </h2>
-        <p>{t("homepage.descriptionData.description.hesitate")}</p>
-        <h3 className="text-stone-50 text-base">
-          {t("homepage.descriptionData.description.history")}
-        </h3>
-        <p>{t("homepage.descriptionData.description.historyContent")}</p>
-        <h3 className="text-stone-50 text-base">
-          {t("homepage.descriptionData.description.community")}
-        </h3>
-        <p>{t("homepage.descriptionData.description.communityContent")}</p>
-        <h3 className="text-stone-50 text-base">
-          {t("homepage.descriptionData.description.join")}
-        </h3>
-        <p>{t("homepage.descriptionData.description.joinContent")}</p>
-        <p>{t("homepage.descriptionData.description.recruiting")}</p>
-      </div>
-    ),
+    description: {
+      greeting: `<h2 class="text-stone-50 text-lg font-bold">${t("homepage.descriptionData.description.greeting")}</h2>`,
+      hesitate: `<p>${t("homepage.descriptionData.description.hesitate")}</p>`,
+      history: `<h3 class="text-stone-50 text-base font-semibold">${t("homepage.descriptionData.description.history")}</h3>`,
+      historyContent: `<p>${t("homepage.descriptionData.description.historyContent")}</p>`,
+      community: `<h3 class="text-stone-50 text-base font-semibold">${t("homepage.descriptionData.description.community")}</h3>`,
+      communityContent: `<p>${t("homepage.descriptionData.description.communityContent")}</p>`,
+      join: `<h3 class="text-stone-50 text-base font-semibold">${t("homepage.descriptionData.description.join")}</h3>`,
+      joinContent: `<p>${t("homepage.descriptionData.description.joinContent")}</p>`,
+      recruiting: `<p>${t("homepage.descriptionData.description.recruiting")}</p>`,
+    },
     actions: [
       {
         href: "https://discord.com/invite/11e",
@@ -227,43 +212,23 @@ export const getActivities = (
 ): ActivityElement[] => [
   {
     title: t("homepage.activities.combat.title"),
-    content: (
-      <div>
-        <p>{t("homepage.activities.combat.content")}</p>
-      </div>
-    ),
+    content: t("homepage.activities.combat.content"), // Convert HTML content to a string
   },
   {
     title: t("homepage.activities.logistics.title"),
-    content: (
-      <div>
-        <p>{t("homepage.activities.logistics.content")}</p>
-      </div>
-    ),
+    content: t("homepage.activities.logistics.content"),
   },
   {
     title: t("homepage.activities.construction.title"),
-    content: (
-      <div>
-        <p>{t("homepage.activities.construction.content")}</p>
-      </div>
-    ),
+    content: t("homepage.activities.construction.content"),
   },
   {
     title: t("homepage.activities.industry.title"),
-    content: (
-      <div>
-        <p>{t("homepage.activities.industry.content")}</p>
-      </div>
-    ),
+    content: t("homepage.activities.industry.content"),
   },
   {
     title: t("homepage.activities.community.title"),
-    content: (
-      <div>
-        <p>{t("homepage.activities.community.content")}</p>
-      </div>
-    ),
+    content: t("homepage.activities.community.content"),
   },
 ];
 

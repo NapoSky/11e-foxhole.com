@@ -10,26 +10,27 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 import { isMobile } from "../../config";
-import { getOperationItems, getSectionId } from "../../data/data";
 import { OperationItem } from "../../data/dataDef";
 import useDetectOutsideClick from "../../hooks/useDetectOutsideClick";
 import Section from "../Layout/Section";
 import ResponsiveImage from "../ResponsiveImage";
 
-const Operations: FC = memo(() => {
-  const { t, i18n } = useTranslation();
-  const locale = i18n.language;
+type OperationsProps = {
+  operations: OperationItem[];
+  sectionId: string;
+};
 
-  const operationItems = getOperationItems(t, locale);
+const Operations: FC<OperationsProps> = memo(({ operations, sectionId }) => {
+  const { t } = useTranslation();
 
   return (
-    <Section className="bg-neutral-1000" sectionId={getSectionId(t).Operations}>
+    <Section className="bg-neutral-1000" sectionId={sectionId}>
       <div className="flex flex-col gap-y-8">
         <h2 className="self-center text-xl font-bold text-white">
           {t("homepage.operations.title")}
         </h2>
         <div className="w-full columns-2">
-          {operationItems.map((item, index) => {
+          {operations.map((item, index) => {
             const { title, image, srcSet } = item;
 
             return (
@@ -120,7 +121,6 @@ const ItemOverlay: FC<{ item: OperationItem }> = memo(
       );
     }
 
-    // Comportement sur desktop : Overlay sur l'image
     return (
       <div className="absolute inset-0 h-full w-full bg-gray-900 opacity-0 hover:opacity-80 transition-opacity duration-300">
         <div className="relative h-full w-full p-4">

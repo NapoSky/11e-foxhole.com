@@ -2,35 +2,38 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import ResponsiveImage from "../ResponsiveImage";
 import { FC, memo } from "react";
-import { useTranslation } from "react-i18next";
-import { getDescriptionData, getSectionId } from "../../data/data"; // Importez les fonctions au lieu des objets
 import Section from "../Layout/Section";
 import { useRouter } from "next/router";
+import { Description as DescriptionType } from "../../data/dataDef";
+import { useTranslation } from "react-i18next";
+import { getSectionId } from "../../data/data"; // Assurez-vous que la fonction getSectionId est correctement importée
 
-const Description: FC = memo(() => {
-  // Obtenez les données traduites dynamiquement
-  const { t, i18n } = useTranslation();
-  const locale = i18n.language; // Récupère la locale courante
-  const descriptionData = getDescriptionData(t, locale);
-  const SectionId = getSectionId(t);
+interface DescriptionProps {
+  descriptionData: DescriptionType;
+}
 
-  // Utilisation de `router.pathname` pour récupérer le chemin de base actuel
+const Description: FC<DescriptionProps> = memo(({ descriptionData }) => {
   const router = useRouter();
-  const godownhref = `${router.asPath.split("#")[0]}#${SectionId.Footer}`;
+  const { t } = useTranslation();
+
+  // Obtenez les IDs des sections traduits
+  const sectionIds = getSectionId(t);
+
+  // Utilisez l'ID pour le footer
+  const godownhref = `${router.asPath.split("#")[0]}#${sectionIds.Footer}`;
 
   const { imageSrc, srcSet, name, description, actions } = descriptionData;
 
   return (
-    <Section noPadding sectionId={SectionId.Description}>
+    <Section noPadding sectionId={sectionIds.Description}>
       <div
-        id={SectionId.Description}
+        id={sectionIds.Description}
         className="relative flex min-h-screen w-full items-center justify-center px-2 sm:px-4"
       >
         <ResponsiveImage
           alt={`${name}-image`}
           className="absolute h-full w-full object-cover"
           placeholder="blur"
-          priority="true"
           fill={true}
           src={imageSrc}
           srcSet={srcSet}
@@ -41,9 +44,22 @@ const Description: FC = memo(() => {
             <h1 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
               {name}
             </h1>
-            <div className="text-base sm:text-lg md:text-xl text-stone-200 prose prose-stone max-w-4xl space-y-2 mt-4">
-              {description}
-            </div>
+            <div
+              className="prose-sm text-stone-200 sm:prose-base lg:prose-lg space-y-2 max-w-4xl mx-auto mt-4"
+              dangerouslySetInnerHTML={{
+                __html: `
+                ${description.greeting}
+                ${description.hesitate}
+                ${description.history}
+                ${description.historyContent}
+                ${description.community}
+                ${description.communityContent}
+                ${description.join}
+                ${description.joinContent}
+                ${description.recruiting}
+              `,
+              }}
+            />
             <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 px-2 sm:gap-x-4 sm:px-0 mt-4 mb-1 md:mb-2">
               {actions.map(({ href, text, primary, Icon }) => (
                 <a
