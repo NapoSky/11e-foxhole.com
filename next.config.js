@@ -56,7 +56,6 @@ const nextConfig = {
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
-  swcMinify: true,
   trailingSlash: false,
   images: {
     deviceSizes: [320, 640, 1280, 1920, 2560],

@@ -5,6 +5,7 @@ const reactPlugin = require('eslint-plugin-react');
 const reactHooksPlugin = require('eslint-plugin-react-hooks');
 const typescriptEslintPlugin = require('@typescript-eslint/eslint-plugin');
 const prettierPlugin = require('eslint-plugin-prettier');
+const nextPlugin = require('@next/eslint-plugin-next');
 
 module.exports = [
   {
@@ -19,8 +20,7 @@ module.exports = [
         es6: true,
       },
       parserOptions: {
-        project: './tsconfig.json', // Ensure this path points to your tsconfig.json
-        sourceType: 'module',
+        project: './tsconfig.json',
         ecmaFeatures: {
           jsx: true,
         },
@@ -36,6 +36,7 @@ module.exports = [
       'react-hooks': reactHooksPlugin,
       '@typescript-eslint': typescriptEslintPlugin,
       prettier: prettierPlugin,
+      next: nextPlugin, // Assurez-vous que le plugin est bien ajouté
     },
     rules: {
       'prettier/prettier': 'error',
@@ -44,6 +45,7 @@ module.exports = [
       '@typescript-eslint/no-unused-vars': 'off',
       'no-console': 'warn',
       'no-debugger': 'warn',
+      'next/no-html-link-for-pages': 'warn', // Règle obligatoire pour Next.js
     },
     ignores: [
       'build/',
