@@ -49,9 +49,9 @@ const Page: NextPage<PageProps> = memo(
     sectionId,
   }) => {
     // Déterminer le lien canonique
-    const isFrenchPath = fullUrl.endsWith('/fr');
+    const isFrenchPath = fullUrl.endsWith("/fr");
     const finalCanonicalUrl = isFrenchPath
-      ? 'https://11e-foxhole.com/'
+      ? "https://11e-foxhole.com/"
       : fullUrl;
 
     return (
@@ -78,14 +78,18 @@ const Page: NextPage<PageProps> = memo(
         <Header sectionId={sectionId} locale={locale} />
         <YouTubeModal />
         <DescriptionComponent descriptionData={descriptionData} />
-        <Activities activities={activities} sectionId={sectionId} locale={locale} />
+        <Activities
+          activities={activities}
+          sectionId={sectionId}
+          locale={locale}
+        />
         <Operations operations={operations} sectionId={sectionId.Operations} />
         <Footer />
 
         {children}
       </>
     );
-  }
+  },
 );
 
 Page.displayName = "Page";

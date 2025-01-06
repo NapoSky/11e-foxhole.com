@@ -4,14 +4,20 @@ import { getActivities, getSectionId } from "../../../data/data";
 import Section from "../../Layout/Section";
 import ResumeSection from "./ResumeSection";
 import ActivityItem from "./ActivityItem";
-import { getBaseNameFromImport, generateSrcSet, sizes } from "../../../data/data"; // Assurez-vous d'importer correctement ces fonctions
+import {
+  getBaseNameFromImport,
+  generateSrcSet,
+  sizes,
+} from "../../../data/data"; // Assurez-vous d'importer correctement ces fonctions
 
 import activitiesImageFr from "../../../images/activities-background-fr.webp";
 import activitiesImageEn from "../../../images/activities-background-en.webp";
 import activitiesImageCn from "../../../images/activities-background-cn.webp";
 
 // Fonction pour obtenir src et srcSet en fonction de la locale courante
-export const selectImageByLocale = (locale: string): { src: string, srcSet: string } => {
+export const selectImageByLocale = (
+  locale: string,
+): { src: string; srcSet: string } => {
   let imagePath: string;
 
   switch (locale) {
