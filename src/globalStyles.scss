@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@use "tailwindcss";
+
+/* 
+ * Force inclusion of typography classes for Tailwind v4 purge:
+ * prose prose-sm prose-base prose-lg prose-xl prose-2xl prose-invert
+ */
 
 @layer utilities {
   /* Chrome, Safari and Opera */

@@ -1,7 +1,6 @@
- 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,css,scss}'],
-  // darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -33,6 +32,5 @@ module.exports = {
       },
     },
   },
-   
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

@@ -69,9 +69,14 @@ export const getImageByLocale = (
     return imageData; // Cas où il n'y a pas de variation selon la locale
   }
   if (locale in imageData) {
-    return imageData[locale as keyof typeof imageData]; // Assertion pour TypeScript
+    const image: any = imageData[locale as keyof typeof imageData];
+    // Si l'image est un objet avec une propriété src, on l'extrait, sinon on utilise directement la valeur
+    return typeof image === "object" && image.src ? image.src : image;
   }
-  return imageData["fr"]; // Retourne l'image en anglais par défaut si la locale n'est pas trouvée
+  const defaultImage: any = imageData["fr"];
+  return typeof defaultImage === "object" && defaultImage.src
+    ? defaultImage.src
+    : defaultImage;
 };
 
 /**

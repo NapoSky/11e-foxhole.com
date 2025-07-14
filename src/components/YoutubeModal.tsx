@@ -177,7 +177,7 @@ const YouTubeModal: React.FC = () => {
       {/* Affichage pour les écrans de petite taille (mobile) */}
       <div
         ref={containerRef}
-        className={`fixed top-1/2 right-0 transform -translate-y-1/2 bg-red-950 bg-opacity-60 text-white shadow-lg rounded-l-lg overflow-hidden z-50 transition-all duration-300 block md:hidden ${
+        className={`fixed top-1/2 right-0 transform -translate-y-1/2 bg-red-950/60 text-white shadow-lg rounded-l-lg overflow-hidden z-50 transition-all duration-300 block md:hidden ${
           isExpandedMobile ? "h-auto w-60 p-2" : "h-36 w-5"
         }`}
       >

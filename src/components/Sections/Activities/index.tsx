@@ -18,7 +18,7 @@ import activitiesImageCn from "../../../images/activities-background-cn.webp";
 export const selectImageByLocale = (
   locale: string,
 ): { src: string; srcSet: string } => {
-  let imagePath: string;
+  let imagePath: any;
 
   switch (locale) {
     case "fr":
@@ -35,12 +35,14 @@ export const selectImageByLocale = (
       break;
   }
 
-  const baseName = getBaseNameFromImport(imagePath);
-  // Note: `generateSrcSet` doit pouvoir gérer l'ajout de la locale
+  // Si l'image est un objet avec une propriété src, on l'extrait, sinon on utilise directement la valeur
+  const imageSource =
+    typeof imagePath === "object" && imagePath.src ? imagePath.src : imagePath;
+  const baseName = getBaseNameFromImport(imageSource);
   const srcSet = generateSrcSet(baseName, sizes, locale);
 
   return {
-    src: imagePath,
+    src: imageSource,
     srcSet,
   };
 };

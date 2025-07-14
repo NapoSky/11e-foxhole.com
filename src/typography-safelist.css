@@ -1,0 +1,20 @@
+/* 
+ * Ce fichier sert à inclure les classes Typography qui ne sont pas détectées automatiquement
+ * par Tailwind v4 car elles sont utilisées dans dangerouslySetInnerHTML 
+ */
+
+/* Classes forcées pour le plugin Typography */
+.prose { }
+.prose-sm { }
+.prose-base { }
+.prose-lg { }
+.prose-xl { }
+.prose-2xl { }
+
+/* Classes de couleurs pour dark mode */
+.prose-invert { }
+
+/* Classes d'éléments spécifiques */
+.prose-headings\:text-white { }
+.prose-p\:text-white { }
+.prose-a\:text-blue-600 { }
