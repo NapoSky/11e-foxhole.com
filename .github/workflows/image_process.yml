@@ -91,9 +91,13 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add public/images/
-          git commit -m "images(Github Actions) add or update resized images from /src/images" || echo "Nothing to commit"
-          git pull --ff-only origin ${{ env.BRANCH_NAME }}
-          git push origin HEAD:${{ env.BRANCH_NAME }}
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "images(Github Actions) add or update resized images from /src/images"
+            git pull --ff-only origin ${{ env.BRANCH_NAME }}
+            git push origin HEAD:${{ env.BRANCH_NAME }}
+          fi
 
   process-portfolio-images:
     runs-on: ubuntu-latest
@@ -141,7 +145,7 @@ jobs:
                 cwebp -q 70 "$file" -resize 320 0 -o "public/images/${basename}-${locale}-320.webp"
                 cwebp -q 70 "$file" -resize 640 0 -o "public/images/${basename}-${locale}-640.webp"
                 cwebp -q 70 "$file" -resize 1280 0 -o "public/images/${basename}-${locale}-1280.webp"
-                cwebp -q 75 "$file" -resize 1920 0 -o "public/images${basename}-${locale}-1920.webp"
+                cwebp -q 75 "$file" -resize 1920 0 -o "public/images/${basename}-${locale}-1920.webp"
                 cwebp -q 80 "$file" -resize 2560 0 -o "public/images/${basename}-${locale}-2560.webp"
               done
             fi
@@ -152,6 +156,10 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add public/images/portfolio/
-          git commit -m "images(Github Actions) add or update resized images from /src/images/portfolio" || echo "Nothing to commit"
-          git pull --ff-only origin ${{ env.BRANCH_NAME }}
-          git push origin HEAD:${{ env.BRANCH_NAME }}
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "images(Github Actions) add or update resized images from /src/images/portfolio"
+            git pull --ff-only origin ${{ env.BRANCH_NAME }}
+            git push origin HEAD:${{ env.BRANCH_NAME }}
+          fi

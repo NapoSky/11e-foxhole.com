@@ -33,6 +33,10 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .github/workflows/*.yml
-          git commit -m "style: auto-correct YAML files with Prettier" || echo "Nothing to commit"
-          git pull --rebase origin ${{ github.head_ref }}
-          git push origin HEAD:${{ github.head_ref }}
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "style: auto-correct YAML files with Prettier"
+            git pull --rebase origin ${{ github.head_ref }}
+            git push origin HEAD:${{ github.head_ref }}
+          fi
