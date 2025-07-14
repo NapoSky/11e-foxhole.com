@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --color-yellow: #efc603;
+  
+  --animate-typing: typing 3s infinite;
+  --animate-blink: blink 1s infinite;
+  --animate-rotate-loader: rotate-loader 2s linear infinite;
+  
+  --breakpoint-touch: only screen and (pointer: coarse);
+}
+
+@keyframes typing {
+  0%, 100% { width: 0%; }
+  30%, 70% { width: 100%; }
+}
+
+@keyframes blink {
+  0% { opacity: 0; }
+}
+
+@keyframes rotate-loader {
+  0% {
+    transform: rotate(0deg);
+    stroke-dashoffset: 360%;
+  }
+  100% {
+    transform: rotate(360deg);
+    stroke-dashoffset: -360%;
+  }
+}
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";

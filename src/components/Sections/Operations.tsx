@@ -24,7 +24,7 @@ const Operations: FC<OperationsProps> = memo(({ operations, sectionId }) => {
   const { t } = useTranslation();
 
   return (
-    <Section className="bg-neutral-1000" sectionId={sectionId}>
+    <Section className="bg-black" sectionId={sectionId}>
       <div className="flex flex-col gap-y-8">
         <h2 className="self-center text-xl font-bold text-white">
           {t("homepage.operations.title")}

@@ -45,7 +45,7 @@ const Description: FC<DescriptionProps> = memo(({ descriptionData }) => {
               {name}
             </h1>
             <div
-              className="prose-sm text-stone-200 sm:prose-base lg:prose-lg space-y-2 max-w-4xl mx-auto mt-4"
+              className="text-sm text-stone-200 sm:text-base lg:text-lg space-y-2 max-w-4xl mx-auto mt-4"
               dangerouslySetInnerHTML={{
                 __html: `
                 ${description.greeting}

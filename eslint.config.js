@@ -45,7 +45,24 @@ module.exports = [
       '@typescript-eslint/no-unused-vars': 'off',
       'no-console': 'warn',
       'no-debugger': 'warn',
-      'next/no-html-link-for-pages': 'warn', // Règle obligatoire pour Next.js
+      // Next.js recommended rules
+      'next/no-html-link-for-pages': 'warn',
+      'next/no-img-element': 'off', // Désactivé car le projet utilise une gestion d'images personnalisée
+      'next/no-unwanted-polyfillio': 'warn',
+      'next/no-page-custom-font': 'warn',
+      'next/no-css-tags': 'warn',
+      'next/no-sync-scripts': 'warn',
+      'next/no-title-in-document-head': 'warn',
+      'next/no-document-import-in-page': 'warn',
+      'next/no-head-import-in-document': 'warn',
+      'next/google-font-display': 'warn',
+      'next/google-font-preconnect': 'warn',
+      'next/next-script-for-ga': 'warn',
+      'next/no-before-interactive-script-outside-document': 'warn',
+      'next/no-head-element': 'warn',
+      'next/no-styled-jsx-in-document': 'warn',
+      'next/no-typos': 'warn',
+      'next/no-duplicate-head': 'warn',
     },
     ignores: [
       'build/',
