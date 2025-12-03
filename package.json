@@ -20,7 +20,7 @@
     "@types/node": "24.3.1",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
-    "autoprefixer": "^10.4.21",
+    "autoprefixer": "^10.4.22",
     "classnames": "^2.5.1",
     "country-flag-icons": "^1.5.19",
     "cssnano": "^7.1.1",
