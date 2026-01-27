@@ -5,7 +5,6 @@ const path = require('path');
 
 const nextConfig = {
   output: "export",
-  turbopack: {},
   webpack: config => {
     config.module.rules.push({
       test: /\.(png|jpe?g|webp)$/,
