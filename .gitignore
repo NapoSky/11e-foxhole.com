@@ -4,7 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
-.yarn
+
+# yarn 4.x - ignorer tout sauf releases
+.yarn/*
+!.yarn/releases
 
 # testing
 /coverage
