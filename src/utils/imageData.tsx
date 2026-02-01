@@ -33,6 +33,10 @@ import nukeImageFr from "../images/portfolio/nuke-fr.webp";
 import nukeImageEn from "../images/portfolio/nuke-en.webp";
 import nukeImageCn from "../images/portfolio/nuke-cn.webp";
 
+import airborneImageFr from "../images/portfolio/airborne-fr.webp";
+import airborneImageEn from "../images/portfolio/airborne-en.webp";
+import airborneImageCn from "../images/portfolio/airborne-cn.webp";
+
 // Exporter toutes les images dans une structure bien définie
 export const imageMap = {
   header: {
@@ -74,5 +78,10 @@ export const imageMap = {
     fr: nukeImageFr,
     en: nukeImageEn,
     cn: nukeImageCn,
+  },
+  airborne: {
+    fr: airborneImageFr,
+    en: airborneImageEn,
+    cn: airborneImageCn,
   },
 };

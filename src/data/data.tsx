@@ -207,6 +207,12 @@ export const getOperationItems = (
     image: getImageByLocale("infanterie", locale),
     srcSet: getSrcSetFromImage(getImageByLocale("infanterie", locale)),
   },
+  {
+    title: t("homepage.operations.airborne.title"),
+    description: t("homepage.operations.airborne.description"),
+    image: getImageByLocale("airborne", locale),
+    srcSet: getSrcSetFromImage(getImageByLocale("airborne", locale)),
+  },
 ];
 
 /**

@@ -51,6 +51,10 @@
       "infantry": {
         "title": "Infantry",
         "description": "An organized infantry squad can hold the front while the artillery takes down the objective. Our regiment trains robust infantry units for decisive actions on the ground. Become an elite soldier in Foxhole by joining our regiment."
+      },
+      "airborne": {
+        "title": "Airborne Operations",
+        "description": "With the Foxhole Airborne update, the 11e takes to the skies! Paratroopers, tactical airdrops, and aerial assaults allow us to strike the enemy where they least expect it. Our regiment masters airborne operations for strategic insertions behind enemy lines and decisive strikes from above."
       }
     },
     "activities": {

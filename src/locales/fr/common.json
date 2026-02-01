@@ -51,6 +51,10 @@
       "infantry": {
         "title": "Infanterie",
         "description": "Une escouade d'infanterie organisée permet de tenir le front pendant que l'artillerie fait tomber l'objectif. Notre régiment forme des unités d'infanterie robustes pour des actions décisives sur le terrain. Devenez un soldat d'élite dans Foxhole en nous rejoignant."
+      },
+      "airborne": {
+        "title": "Opérations Aéroportées",
+        "description": "Avec la mise à jour Foxhole Airborne, le 11e prend d'assaut les cieux ! Parachutistes, largages tactiques et assauts aériens permettent de frapper l'ennemi là où il s'y attend le moins. Notre régiment maîtrise les opérations aéroportées pour des insertions stratégiques derrière les lignes ennemies et des frappes décisives depuis les airs."
       }
     },
     "activities": {
