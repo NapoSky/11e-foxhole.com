@@ -125,7 +125,7 @@ jobs:
 
       - name: Process portfolio images
         run: |
-          mkdir -p public/images/portfolio
+          mkdir -p public/images
           for file in $(find ./src/images/portfolio -type f -name '*.webp'); do
             filename=$(basename -- "$file")
             # Check if the filename contains a locale suffix
@@ -155,7 +155,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add public/images/portfolio/
+          git add public/images/
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
