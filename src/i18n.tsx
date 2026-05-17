@@ -7,6 +7,13 @@ import enTranslation from "./locales/en/common.json";
 import frTranslation from "./locales/fr/common.json";
 import cnTranslation from "./locales/cn/common.json";
 
+// showSupportNotice existe dans le runtime i18next v23+ mais pas encore dans les typings officiels
+declare module "i18next" {
+  interface InitOptions {
+    showSupportNotice?: boolean;
+  }
+}
+
 const isBrowser = typeof window !== "undefined";
 
 if (isBrowser) {
