@@ -7,6 +7,13 @@ import enTranslation from "./locales/en/common.json";
 import frTranslation from "./locales/fr/common.json";
 import cnTranslation from "./locales/cn/common.json";
 
+// showSupportNotice existe dans le runtime i18next v23+ mais pas encore dans les typings officiels
+declare module "i18next" {
+  interface InitOptions {
+    showSupportNotice?: boolean;
+  }
+}
+
 const isBrowser = typeof window !== "undefined";
 
 if (isBrowser) {
@@ -21,6 +28,7 @@ i18n.use(initReactI18next).init({
   },
   lng: "fr", // Langue par défaut au chargement
   fallbackLng: "fr", // Langue de secours
+  showSupportNotice: false, // Désactive le message promotionnel Locize
   debug: false, // Pour voir les logs de détection en mode développement
   detection: {
     // Configuration du détecteur (uniquement en mode client)
