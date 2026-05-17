@@ -5,6 +5,7 @@ const path = require('path');
 
 const nextConfig = {
   output: "export",
+  outputFileTracingRoot: path.join(__dirname),
   webpack: config => {
     config.module.rules.push({
       test: /\.(png|jpe?g|webp)$/,

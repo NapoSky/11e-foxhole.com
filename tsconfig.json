@@ -48,6 +48,8 @@
     "node_modules",
     "out",
     ".next",
-    "dist"
+    "dist",
+    "tests",
+    "playwright.config.ts"
   ]
 }

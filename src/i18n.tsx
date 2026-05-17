@@ -21,6 +21,7 @@ i18n.use(initReactI18next).init({
   },
   lng: "fr", // Langue par défaut au chargement
   fallbackLng: "fr", // Langue de secours
+  showSupportNotice: false, // Désactive le message promotionnel Locize
   debug: false, // Pour voir les logs de détection en mode développement
   detection: {
     // Configuration du détecteur (uniquement en mode client)

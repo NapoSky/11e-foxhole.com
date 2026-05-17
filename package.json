@@ -9,7 +9,10 @@
     "dev": "yarn compile && yarn next dev --webpack",
     "lint": "yarn run -T prettier --write './src/**/*.{js,jsx,json,ts,tsx}' && eslint './src/**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0 --format=json > /dev/null",
     "start": "yarn next start",
-    "sitemap": "yarn next-sitemap"
+    "sitemap": "yarn next-sitemap",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:staging": "BASE_URL=https://stgsite.11e-foxhole.com playwright test"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
@@ -49,6 +52,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^16.1.6",
+    "@playwright/test": "^1.48.0",
     "@types/eslint": "^9.6.1",
     "@types/eslint-scope": "^9.1.0",
     "@typescript-eslint/eslint-plugin": "^8.56.0",

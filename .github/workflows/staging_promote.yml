@@ -1,0 +1,119 @@
+name: Staging Tests and Auto-Promote
+
+on:
+  push:
+    branches:
+      - staging
+    paths-ignore:
+      - "src/images/**"
+
+jobs:
+  functional-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24.12"
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Cache Next.js build
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('src/**/*.ts', 'src/**/*.tsx', 'src/locales/**/*.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-
+
+      - name: Install dependencies
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: install
+
+      - name: Build site
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: build
+
+      - name: Install Playwright Chromium browser
+        run: npx playwright install chromium --with-deps
+
+      - name: Run functional tests
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: test
+
+      - name: Upload test report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-staging
+          path: playwright-report/
+          retention-days: 14
+
+  open-promotion-pr:
+    runs-on: ubuntu-latest
+    needs: functional-tests
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          fetch-depth: 0
+
+      - name: Check for existing promotion PR
+        id: check-pr
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          EXISTING=$(gh pr list --base main --head staging --state open --json number --jq '.[0].number // empty')
+          echo "existing=$EXISTING" >> $GITHUB_OUTPUT
+
+      - name: Open promotion PR staging → main
+        if: steps.check-pr.outputs.existing == ''
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          gh pr create \
+            --base main \
+            --head staging \
+            --title "chore: promote staging to main [auto]" \
+            --body "$(cat <<'EOF'
+          ## Promotion automatique : staging → main
+
+          Tous les tests fonctionnels ont passé sur le build staging. Ce PR a été ouvert automatiquement.
+
+          ### Couverture des tests
+          - Toutes les sections de page rendues (Description, Activités, Opérations, Officiers, Footer)
+          - Ancres de section présentes dans le DOM
+          - Liens sociaux Discord et YouTube présents
+          - Hamburger visible à 375px, masqué à 1280px
+          - Drawer mobile ouverture/fermeture (hamburger et backdrop)
+          - Sélecteur de langue dans le drawer et la nav desktop
+          - Smoke test page /en
+
+          ### Avant de merger
+          - [ ] Vérifier le rendu sur le déploiement preview Cloudflare Pages (staging)
+          - [ ] Relire les changements de contenu inclus dans ce batch
+          EOF
+          )"
+
+      - name: Comment on existing PR if already open
+        if: steps.check-pr.outputs.existing != ''
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          gh pr comment ${{ steps.check-pr.outputs.existing }} \
+            --body "Tests fonctionnels passés sur le commit \`${{ github.sha }}\`. Ce PR est prêt à merger."
