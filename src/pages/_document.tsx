@@ -45,6 +45,7 @@ class MyDocument extends Document {
           <meta content="notranslate" name="google" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/site.webmanifest" />
+          <link rel="describedby" href="/llms.txt" type="text/plain" />
           {/* Ajoutez ici d'autres balises meta ou des liens comme les polices */}
         </Head>
         <body className="bg-black">
