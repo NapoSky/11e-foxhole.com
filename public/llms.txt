@@ -1,0 +1,29 @@
+# 11e Régiment de Callahan (11eRC)
+
+> The 11e Régiment de Callahan is a multilingual Warden faction clan/community for the game Foxhole, with a French-speaking branch (11eRC), an English-speaking branch (11eFL), and a Chinese-speaking branch (11eCN). Active for 8+ years, the regiment covers all Foxhole gameplay: logistics, infantry, artillery, armor, naval, airborne, fortifications and industry.
+
+This site is a single-page, statically-exported Next.js site available in three languages. Use the language-specific URL that matches the requested locale; all three pages describe the same organization and content.
+
+## Pages
+
+- [Homepage (French, default)](https://11e-foxhole.com/): Présentation du régiment, ses opérations majeures, ses activités et comment le rejoindre.
+- [Homepage (English)](https://11e-foxhole.com/en): Regiment presentation, major operations, activities, and how to join.
+- [Homepage (Chinese)](https://11e-foxhole.com/cn): 团体介绍、主要行动、活动内容以及加入方式。
+
+## Key facts
+
+- Game: Foxhole (MMO war game), faction: Warden.
+- Founded: active for 8+ years.
+- Branches: 11eRC (French), 11eFL (English), 11eCN (Chinese).
+- Gameplay specialties: infantry, heavy artillery, armored columns, naval battles, ballistic missile launches, airborne operations, logistics, construction/fortifications, industry.
+- No skill or playtime requirements to join; open to new and veteran players.
+
+## Community links
+
+- [Discord](https://discord.com/invite/11e): Main community hub, recruitment and coordination.
+- [YouTube](https://www.youtube.com/@11emeregimentdecallahan): Regiment videos and battle recaps.
+
+## Optional
+
+- [Sitemap](https://11e-foxhole.com/sitemap.xml): Full list of indexable URLs.
+- [robots.txt](https://11e-foxhole.com/robots.txt): Crawling rules for automated agents.
