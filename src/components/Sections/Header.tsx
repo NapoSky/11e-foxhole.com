@@ -15,7 +15,12 @@ type HeaderProps = {
 
 const HeaderClient: FC<HeaderProps> = ({ sectionId, locale }) => {
   const navSections = useMemo(
-    () => [sectionId.Description, sectionId.Activities, sectionId.Operations],
+    () => [
+      sectionId.Description,
+      sectionId.Activities,
+      sectionId.Operations,
+      sectionId.Multigaming,
+    ],
     [sectionId],
   );
 
@@ -44,8 +49,8 @@ const DesktopNav: FC<NavProps> = ({ navSections, locale }) => {
       id={headerID}
     >
       <nav className="relative flex justify-between items-center">
-        <div className="absolute left-1/2 transform -translate-x-1/2">
-          <div className="flex justify-center gap-x-8">
+        <div className="absolute left-1/2 w-max transform -translate-x-1/2">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-center text-xs md:text-sm lg:flex lg:justify-center lg:gap-x-8 lg:text-base">
             {navSections.map((section) => (
               <NavItem
                 inactiveClass={inactiveClass}
@@ -127,6 +132,7 @@ const MobileNav: FC<NavProps> = memo(({ navSections, locale }) => {
                 key={section}
                 section={section}
                 locale={locale}
+                onClick={closeMenu}
               />
             ))}
             <div className="mt-4">

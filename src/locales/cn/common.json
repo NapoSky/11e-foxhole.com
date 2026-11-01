@@ -108,10 +108,18 @@
       "Skills": "技能",
       "Stats": "数据",
       "Officers": "军官",
-      "Footer": "页脚"
+      "Footer": "页脚",
+      "Multigaming": "社区"
     },
     "modales": {
       "youtube": "最新 Youtube 视频"
+    },
+    "multigaming": {
+      "title": "Foxhole 之外的 11e",
+      "description": "在 Foxhole 之外，11e 的伙伴们也会相聚，体验合作、生存和策略游戏。我们的多游戏 Discord 社区主要使用法语和英语交流。",
+      "action": "探索 11e 多游戏社区（法语 / 英语）",
+      "communityLink": "探索我们的多游戏社区（主要使用法语和英语）",
+      "label": "11e Multigaming · FR / EN"
     }
   }
 }

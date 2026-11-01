@@ -108,10 +108,18 @@
       "Skills": "Compétences",
       "Stats": "Statistiques",
       "Officers": "Les Officiers",
-      "Footer": "Pied de page"
+      "Footer": "Pied de page",
+      "Multigaming": "La communauté"
     },
     "modales": {
       "youtube": "Dernière video Youtube"
+    },
+    "multigaming": {
+      "title": "Le 11e, au-delà de Foxhole",
+      "description": "L’esprit d’équipe nous accompagne aussi sur d’autres terrains. Coopération, survie, stratégie : retrouve la communauté francophone et anglophone du 11e pour partager de nouvelles aventures.",
+      "action": "Découvrir le 11e Multigaming",
+      "communityLink": "Découvrir notre communauté multigaming",
+      "label": "11e Multigaming · FR / EN"
     }
   }
 }

@@ -108,10 +108,18 @@
       "Skills": "Skills",
       "Stats": "Statistics",
       "Officers": "Officers",
-      "Footer": "Footer"
+      "Footer": "Footer",
+      "Multigaming": "The Community"
     },
     "modales": {
       "youtube": "Latest Youtube Video"
+    },
+    "multigaming": {
+      "title": "The 11e, beyond Foxhole",
+      "description": "Our team spirit carries over into other worlds. Co-op, survival, strategy: join the 11e’s French- and English-speaking community to share new adventures.",
+      "action": "Discover 11e Multigaming",
+      "communityLink": "Discover our multigaming community",
+      "label": "11e Multigaming · FR / EN"
     }
   }
 }

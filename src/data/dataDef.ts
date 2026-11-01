@@ -85,6 +85,11 @@ export interface OperationItem {
 export interface ActivityElement {
   title: string;
   content: string; // Change to string instead of JSX.Element
+  link?: {
+    href: string;
+    text: string;
+    hrefLang: string;
+  };
 }
 
 /**

@@ -85,7 +85,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const t = i18next.getFixedT(locale);
   const meta: HomepageMeta = getHomePageMeta(t);
   const descriptionData = getDescriptionData(t, locale);
-  const activities = getActivities(t);
+  const activities = getActivities(t, locale);
   const operations = getOperationItems(t, locale);
   const sectionId = getSectionId(t);
 

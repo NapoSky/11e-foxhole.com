@@ -16,6 +16,7 @@ import DescriptionComponent from "../../components/Sections/Description";
 import Operations from "../../components/Sections/Operations";
 import Activities from "../../components/Sections/Activities";
 import YouTubeModal from "../../components/YoutubeModal";
+import Multigaming from "../../components/Sections/Multigaming";
 
 type PageProps = PropsWithChildren<
   HomepageMeta & {
@@ -84,6 +85,7 @@ const Page: NextPage<PageProps> = memo(
           locale={locale}
         />
         <Operations operations={operations} sectionId={sectionId.Operations} />
+        <Multigaming locale={locale} sectionId={sectionId.Multigaming} />
         <Footer />
 
         {children}

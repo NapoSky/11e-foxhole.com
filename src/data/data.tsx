@@ -87,6 +87,11 @@ export const getHomePageMeta = (t: (key: string) => string): HomepageMeta => ({
   description: t("homepage.meta.description"),
 });
 
+export const getMultigamingUrl = (locale: string): string =>
+  locale === "fr"
+    ? "https://multigaming.11e-foxhole.com/"
+    : "https://multigaming.11e-foxhole.com/en/";
+
 /**
  * Section definition
  */
@@ -95,6 +100,7 @@ export const getSectionId = (t: TFunction) => {
     Description: t("homepage.sections.Description"),
     Operations: t("homepage.sections.Operations"),
     Activities: t("homepage.sections.Activities"),
+    Multigaming: t("homepage.sections.Multigaming"),
     Skills: t("homepage.sections.Skills"),
     Stats: t("homepage.sections.Stats"),
     Officers: t("homepage.sections.Officers"),
@@ -220,6 +226,7 @@ export const getOperationItems = (
  */
 export const getActivities = (
   t: (key: string) => string,
+  locale: string,
 ): ActivityElement[] => [
   {
     title: t("homepage.activities.combat.title"),
@@ -240,6 +247,11 @@ export const getActivities = (
   {
     title: t("homepage.activities.community.title"),
     content: t("homepage.activities.community.content"),
+    link: {
+      href: getMultigamingUrl(locale),
+      text: t("homepage.multigaming.communityLink"),
+      hrefLang: locale === "fr" ? "fr" : "en",
+    },
   },
 ];
 
