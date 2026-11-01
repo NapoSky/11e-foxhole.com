@@ -35,7 +35,7 @@ export default defineConfig({
   webServer: process.env.BASE_URL
     ? undefined
     : {
-        command: 'npx serve out -p 3000',
+        command: 'pnpm run preview',
         url: 'http://localhost:3000',
         reuseExistingServer: !process.env.CI,
         timeout: 30_000,

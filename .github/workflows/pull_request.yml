@@ -4,7 +4,6 @@ on:
   pull_request:
     paths-ignore:
       - "src/images/**"
-      - ".github/**"
     branches:
       - main
       - staging
@@ -17,20 +16,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "24.12"
+      - name: Set up project
+        uses: ./.github/actions/setup
 
-      - name: Install dependencies
-        uses: borales/actions-yarn@v5
-        with:
-          cmd: install
+      - name: Test tooling guards
+        run: pnpm run test:tooling
+
+      - name: Check workflow formatting
+        run: pnpm run lint:workflows
 
       - name: Run lint
-        uses: borales/actions-yarn@v5
-        with:
-          cmd: lint
+        run: pnpm run lint
 
   functional-tests:
     runs-on: ubuntu-latest
@@ -39,44 +35,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "24.12"
-
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+      - name: Set up project
+        uses: ./.github/actions/setup
 
       - name: Cache Next.js build
         uses: actions/cache@v4
         with:
           path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('src/**/*.ts', 'src/**/*.tsx', 'src/locales/**/*.json') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('pnpm-lock.yaml', '.node-version') }}-${{ hashFiles('src/**/*.ts', 'src/**/*.tsx', 'src/locales/**/*.json') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-
-
-      - name: Install dependencies
-        uses: borales/actions-yarn@v5
-        with:
-          cmd: install
+            ${{ runner.os }}-nextjs-${{ hashFiles('pnpm-lock.yaml', '.node-version') }}-
 
       - name: Build site
-        uses: borales/actions-yarn@v5
-        with:
-          cmd: build
+        run: pnpm run build
 
       - name: Install Playwright Chromium browser
-        run: npx playwright install chromium --with-deps
+        run: pnpm exec playwright install chromium --with-deps
 
       - name: Run functional tests
-        uses: borales/actions-yarn@v5
-        with:
-          cmd: test
+        run: pnpm run test
 
       - name: Upload test report on failure
         if: failure()

@@ -18,7 +18,33 @@ This repository contains 11e-foxhole.com website which is maintained by the 11th
 ## Howto
 ### 1. Install dependencies and run
 
-Once you have your own copy of this repo, open the folder in your favorite terminal and run `yarn install` to install dependencies. Following this, run `yarn dev` to run the project. In your terminal you should be given the url of the running instance (usually http://localhost:3000 unless you have something else running).
+Use Node.js **24.22.2** (see `.node-version`) and the exact pnpm version in
+`package.json`. With Corepack installed:
+
+```sh
+corepack enable
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+The development server runs at http://localhost:3000. This project uses pnpm
+exclusively; commit `pnpm-lock.yaml` with dependency changes.
+
+```sh
+pnpm lint                 # Check source without modifying it
+pnpm lint:fix             # Apply source formatting and lint fixes
+pnpm lint:workflows       # Check workflow and pnpm YAML formatting
+pnpm test:tooling         # Check installer guard behavior
+pnpm build                # Type-check and generate the static site in out/
+pnpm preview              # Serve the static export locally (also pnpm start)
+pnpm exec playwright install chromium --with-deps
+pnpm test                 # Desktop/mobile tests against the static export
+```
+
+Run `pnpm build` before `pnpm preview` or `pnpm test`. `pnpm test:staging` tests
+the configured public staging URL instead. `pnpm clean` removes generated build
+files. When migrating an existing checkout, remove the old `node_modules` before
+running `pnpm install --frozen-lockfile`.
 
 ### 2. Customize the data to make it your own
 
@@ -30,9 +56,18 @@ Also, if you need some help, take a look at [the contribute doc](CONTRIBUTE.md) 
 
 Of course, all of the code is there and nothing is hidden from you so if you would like to make any other styling/data changes, feel free!
 
-### 4. Autodeployed through Cloudflare Pages
+### 4. Cloudflare deployment
 
-As the repository is directly connected to Cloudflare Pages, every dev working on the repository can have a direct preview of what they've done.
+Next.js generates a **static export** in `out/`. Deployment follows the existing
+webhook → Cloudflare Worker → Cloudflare Pages chain. The Worker and its dashboard
+settings are not stored in this repository.
+
+For Pages builds, configure both **Preview and Production** with build command
+`pnpm build`, output directory `out`, and build variable `PNPM_VERSION=12.16.1`.
+Remove the old `YARN_VERSION` override and remove or align `NODE_VERSION` with
+`.node-version`. These settings belong to the environment that builds the site,
+rather than the Worker's runtime variables. Clear the build cache when switching
+to pnpm, then verify the staging deployment before promoting to production.
 
 |Branch| Cloudflare Environment|URL|
 |------|-----------------------|---|
