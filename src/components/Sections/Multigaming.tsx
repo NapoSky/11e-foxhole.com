@@ -16,7 +16,7 @@ const Multigaming: FC<{ locale: string; sectionId: string }> = memo(
         <div className="mx-auto grid max-w-screen-lg grid-cols-[72px_minmax(0,1fr)] gap-x-4 gap-y-4 rounded-lg border border-neutral-800 bg-neutral-900 p-5 sm:grid-cols-[144px_minmax(0,1fr)] sm:gap-x-8 sm:p-8">
           <img
             src="/images/11efo-original.webp"
-            alt=""
+            alt={t("homepage.multigaming.logoAlt")}
             width={283}
             height={300}
             loading="lazy"
