@@ -64,10 +64,10 @@ const Activities: FC<ActivitiesProps> = memo(
           <div className="absolute h-full w-full flex items-center justify-center overflow-hidden">
             <ResponsiveImage
               alt={`activities-background-image`}
-              className="object-contain max-w-full max-h-full opacity-20"
+              className="w-full min-[769px]:w-[50vw] min-[1921px]:w-full object-contain max-w-full max-h-full opacity-20"
               src={src}
               srcSet={srcSet}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1440px) 50vw, (max-width: 1920px) 50vw, 100vw"
+              sizes="(min-width: 1921px) 1024px, (min-width: 769px) 50vw, calc(100vw - 32px)"
             />
           </div>
           <div className="z-10 flex flex-col divide-y-2 divide-neutral-300">

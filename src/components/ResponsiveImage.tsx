@@ -1,43 +1,46 @@
-// ResponsiveImage.tsx
+import type { ImgHTMLAttributes } from "react";
+import imageDimensions from "../images/dimensions.json";
 
-interface ResponsiveImageProps {
-  src: string; // Chemin de l'image pour le src par défaut
-  srcSet?: string; // Attribut srcSet pour les images réactives
-  sizes?: string; // Attribut sizes pour les images réactives
-  fill?: boolean; // Remplir l'image parent
-  alt: string; // Texte alternatif pour l'image
-  width?: number; // Largeur par défaut de l'image
-  height?: number; // Hauteur par défaut de l'image
-  className?: string; // Classe CSS optionnelle
-  priority?: string; // Indique si l'image est prioritaire
-  style?: React.CSSProperties; // Styles en ligne optionnels
-  [key: string]: any; // Pour supporter d'autres attributs comme aria-label
+interface ResponsiveImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+  src: string;
+  alt: string;
 }
 
 const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   src,
   srcSet,
   sizes,
-  fill: _fill,
   alt,
   width,
   height,
   className,
-  priority: _priority,
+  loading = "lazy",
+  decoding = "async",
   style,
   ...rest
-}) => (
-  <img
-    src={src}
-    srcSet={srcSet}
-    sizes={sizes}
-    alt={alt}
-    width={width}
-    height={height}
-    className={className}
-    style={style}
-    {...rest}
-  />
-);
+}) => {
+  // All responsive variants share the source image's aspect ratio.
+  const filename = src
+    .split("/")
+    .pop()
+    ?.replace(/-\d+(?=\.webp$)/, "");
+  const dimensions = imageDimensions[filename as keyof typeof imageDimensions];
+
+  return (
+    <img
+      src={src}
+      srcSet={srcSet}
+      sizes={sizes}
+      alt={alt}
+      width={width ?? dimensions?.width}
+      height={height ?? dimensions?.height}
+      loading={loading}
+      decoding={decoding}
+      className={className}
+      style={style}
+      {...rest}
+    />
+  );
+};
 
 export default ResponsiveImage;

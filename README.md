@@ -48,7 +48,15 @@ running `pnpm install --frozen-lockfile`.
 
 ### 2. Customize the data to make it your own
 
-All of the data for the site is driven via translations in `/src/locales/<lang>/common.json`. This is where you'll find the existing text content, and updating the values here will be reflected on the site. If you have the site running as described above, you should see these changes reflected on save. Example images can be found at `src/images/` and are rendered in `public/images`. They support locale and sizes to be reflected as `public/images/imageName-Lang-Size.webp`. To change, simply update these images using the same name and location, or add new images and update the imports. 
+All of the data for the site is driven via translations in `/src/locales/<lang>/common.json`. This is where you'll find the existing text content, and updating the values here will be reflected on the site. If you have the site running as described above, you should see these changes reflected on save. Example images can be found at `src/images/` and are rendered in `public/images`. They support locale and sizes to be reflected as `public/images/imageName-Lang-Size.webp`. To change, simply update these images using the same name and location, or add new images and update the imports.
+
+`pnpm compile`, `pnpm build`, and `pnpm dev` generate the untracked file
+`src/images/dimensions.json` from the WebP sources so responsive images reserve
+their space before loading. After changing
+images while the dev server is running, run `pnpm images:metadata` and regenerate
+the responsive variants. `ResponsiveImage` defaults to native lazy loading;
+images visible on arrival must explicitly use `loading="eager"`. Keep meaningful
+`src`, `srcSet`, and `alt` attributes in the exported HTML.
 
 Also, if you need some help, take a look at [the contribute doc](CONTRIBUTE.md) !
 

@@ -38,11 +38,9 @@ const Operations: FC<OperationsProps> = memo(({ operations, sectionId }) => {
                 <div className="relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl">
                   <ResponsiveImage
                     alt={title}
-                    placeholder="blur"
                     src={image}
                     srcSet={srcSet}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1920px) 33vw, (max-width: 3840px) 25vw, 25vw"
-                    quality={75}
+                    sizes="(min-width: 1088px) 504px, (min-width: 1024px) calc(50vw - 40px), calc(50vw - 24px)"
                   />
                   <ItemOverlay item={item} />
                 </div>

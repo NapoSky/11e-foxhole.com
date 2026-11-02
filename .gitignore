@@ -35,5 +35,11 @@ pnpm-debug.log*
 .env.test.local
 .env.production.local
 
+# local audit artifacts
+/docs
+
+# generated image metadata (created by compile/build/dev)
+/src/images/dimensions.json
+
 # vercel
 .vercel
